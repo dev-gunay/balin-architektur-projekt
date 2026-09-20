@@ -1,0 +1,1667 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BALIN Architektur · Neubau, Umbau und Sanierung in Kiel</title>
+<meta name="description" content="BALIN Architektur plant Neubau, Umbau und Sanierung in Kiel und Schleswig-Holstein. Immobilienbewertung und Energieberatung aus einer Hand.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta property="og:site_name" content="BALIN Architektur">
+<meta property="og:title" content="BALIN Architektur · Räume, die bleiben">
+<meta property="og:description" content="Architektur, Immobilienbewertung und Energieberatung aus einer Hand.">
+<meta name="theme-color" content="#0B0C10">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"BALIN Architektur",
+"description":"Architekturbüro für Neubau, Umbau und Sanierung. Immobilienbewertung und Energieberatung.",
+"areaServed":"Kiel, Schleswig-Holstein",
+"address":{"@type":"PostalAddress","streetAddress":"Kleiner Kuhberg 14","postalCode":"24103","addressLocality":"Kiel","addressCountry":"DE"},
+"telephone":"+494315550142","email":"kontakt@balin-architektur.de"}
+</script>
+
+<style>
+/* ===========================================================
+   TOKENS
+   =========================================================== */
+:root{
+  --paper:#E9EBF4; --veil:rgba(255,255,255,.58); --veil-2:rgba(255,255,255,.34);
+  --night:#0B0C10; --ink:#0C0D12; --ink-2:#3B3F4C; --ink-3:#6B7080; --snow:#EEF0F8;
+  --line:rgba(12,13,18,.13); --line-2:rgba(12,13,18,.28); --line-n:rgba(238,240,248,.16);
+  --wa:#1DA851; --wa-glow:rgba(29,168,81,.45);
+  --tel:#3B7BE0; --tel-glow:rgba(59,123,224,.45);
+  --mail:#D2743A; --mail-glow:rgba(210,116,58,.45);
+  --e-calm:cubic-bezier(.22,.61,.36,1); --e-arch:cubic-bezier(.16,.86,.30,1); --e-soft:cubic-bezier(.40,0,.20,1);
+  --t-fast:200ms; --t-base:420ms; --t-slow:760ms;
+  --gut:clamp(20px,4.2vw,64px); --maxw:1400px; --nav-h:62px;
+  color-scheme:light; box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:light}}
+*,*::before,*::after{box-sizing:inherit}
+html{-webkit-text-size-adjust:100%;background:var(--paper);scroll-padding-top:calc(var(--nav-h) + 30px)}
+body{margin:0;background:transparent;color:var(--ink);font-family:"Archivo",system-ui,sans-serif;
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body.no-scroll{overflow:hidden}
+img{max-width:100%;display:block}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.on-night :focus-visible,.nav :focus-visible,.foot :focus-visible{outline-color:var(--snow)}
+.skip{position:absolute;left:-9999px;top:0;z-index:999;background:var(--night);color:var(--snow);padding:14px 20px}
+.skip:focus{left:8px;top:8px}
+#silk{position:fixed;inset:0;width:100%;height:100%;z-index:-2;display:block;background:var(--paper)}
+
+.mono{font-family:"JetBrains Mono",monospace;font-weight:300}
+.eyebrow{font-family:"JetBrains Mono",monospace;font-weight:300;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3)}
+h1,h2,h3{margin:0;font-weight:500;letter-spacing:-.03em;line-height:1.04}
+h2{font-size:clamp(1.9rem,3.7vw,3.05rem)}
+h3{font-size:clamp(1.08rem,1.5vw,1.36rem);letter-spacing:-.02em;line-height:1.22}
+p{margin:0}
+.lead{font-size:clamp(1rem,1.25vw,1.14rem);color:var(--ink-2);line-height:1.55;max-width:48ch}
+.body-sm{font-size:.94rem;color:var(--ink-2);line-height:1.6;max-width:56ch}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:var(--gut)}
+.band{padding-block:clamp(66px,8vw,132px);position:relative}
+.band--veil{background:var(--veil)}
+.band--veil2{background:var(--veil-2)}
+.on-night{background:var(--night);color:var(--snow)}
+.on-night .eyebrow{color:rgba(238,240,248,.52)}
+.on-night .lead,.on-night .body-sm{color:rgba(238,240,248,.66)}
+
+/* ---------- Reveals ---------- */
+[data-reveal]{opacity:0;transform:translate3d(0,24px,0);
+  transition:opacity var(--t-slow) var(--e-calm),transform var(--t-slow) var(--e-arch);
+  transition-delay:calc(var(--i,0) * 90ms)}
+[data-reveal].in{opacity:1;transform:none}
+.mask{display:block;overflow:hidden;padding-bottom:.08em}
+.mask > span{display:block;transform:translate3d(0,108%,0);
+  transition:transform 900ms var(--e-arch);transition-delay:calc(var(--i,0) * 110ms)}
+.is-ready .mask > span,[data-reveal].in .mask > span{transform:none}
+
+/* ===========================================================
+   BUTTONS
+   =========================================================== */
+.pill{position:relative;display:inline-flex;align-items:center;gap:8px;
+  padding:7px 8px 7px 24px;border-radius:999px;overflow:hidden;isolation:isolate;
+  background:var(--night);color:var(--snow);font-size:.92rem;font-weight:500;
+  transition:transform 320ms var(--e-arch),box-shadow 420ms var(--e-soft);
+  box-shadow:0 2px 14px rgba(12,13,18,.14);white-space:nowrap}
+.pill::before{content:"";position:absolute;left:50%;top:50%;width:190%;aspect-ratio:1;z-index:-2;translate:-50% -50%;
+  background:conic-gradient(from 0deg,rgba(255,255,255,0) 0deg 210deg,rgba(124,156,255,.95) 262deg,
+    rgba(238,240,248,1) 288deg,rgba(155,227,192,.9) 312deg,rgba(255,255,255,0) 352deg 360deg);
+  animation:spin 4.2s linear infinite}
+.pill::after{content:"";position:absolute;inset:1.4px;z-index:-1;border-radius:inherit;background:var(--night)}
+@keyframes spin{to{rotate:360deg}}
+.pill__arw{width:34px;height:34px;flex:none;border-radius:999px;background:var(--snow);color:var(--night);
+  display:grid;place-items:center;transition:transform 420ms var(--e-arch)}
+@media (hover:hover){.pill:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(12,13,18,.24)}
+  .pill:hover .pill__arw{transform:translateX(3px) rotate(45deg)}}
+.pill:active{transform:translateY(0) scale(.985)}
+.pill--sm{padding:5px 6px 5px 18px;font-size:.85rem}
+.pill--sm .pill__arw{width:28px;height:28px}
+.ghost{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:14px 24px;
+  font-size:.92rem;font-weight:500;border:1px solid var(--line-2);color:var(--ink);
+  transition:background 320ms var(--e-soft),color 320ms var(--e-soft),transform 320ms var(--e-arch),border-color 320ms}
+.on-night .ghost,.hero .ghost,.subhero .ghost{border-color:rgba(238,240,248,.32);color:var(--snow)}
+@media (hover:hover){.ghost:hover{background:var(--ink);color:var(--snow);border-color:var(--ink);transform:translateY(-2px)}
+  .on-night .ghost:hover,.hero .ghost:hover,.subhero .ghost:hover{background:var(--snow);color:var(--night);border-color:var(--snow)}}
+.tlink{display:inline-flex;align-items:center;gap:10px;font-size:.9rem;font-weight:500;padding-bottom:3px;position:relative}
+.tlink::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:currentColor;opacity:.28;
+  transform-origin:right;transition:transform 420ms var(--e-arch),opacity 300ms}
+@media (hover:hover){.tlink:hover::after{opacity:1;transform:scaleX(1);transform-origin:left}.tlink:hover .arw{transform:translateX(5px)}}
+.arw{flex:none;transition:transform 420ms var(--e-arch)}
+
+/* ===========================================================
+   NAV
+   =========================================================== */
+.nav{position:fixed;left:0;right:0;top:0;z-index:80;padding:18px var(--gut) 0;
+  padding-top:calc(18px + env(safe-area-inset-top,0px));pointer-events:none}
+.nav__pill{pointer-events:auto;max-width:var(--maxw);margin:0 auto;height:var(--nav-h);
+  display:flex;align-items:center;gap:26px;padding:0 8px 0 20px;border-radius:999px;
+  background:rgba(11,12,16,.62);backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);
+  border:1px solid rgba(238,240,248,.10);color:var(--snow);
+  transition:background 420ms var(--e-soft),height 420ms var(--e-soft),box-shadow 420ms var(--e-soft)}
+.nav.scrolled .nav__pill{background:rgba(11,12,16,.88);height:56px;box-shadow:0 12px 40px rgba(11,12,16,.22)}
+.logo{display:inline-flex;align-items:center;gap:11px;margin-right:auto;padding:6px 2px}
+.logo__mark{position:relative;width:19px;height:19px;border:1.5px solid currentColor;flex:none;transition:transform 380ms var(--e-arch)}
+.logo__mark::before{content:"";position:absolute;left:3px;top:3px;width:5px;height:5px;background:currentColor;transition:transform 380ms var(--e-arch)}
+.logo__mark::after{content:"";position:absolute;left:3px;bottom:3px;right:3px;height:1.5px;background:currentColor;
+  transform:scaleX(0);transform-origin:left;transition:transform 380ms var(--e-arch)}
+.logo__type{font-size:.98rem;font-weight:600;letter-spacing:.17em;transition:letter-spacing 380ms var(--e-arch)}
+@media (hover:hover){.logo:hover .logo__mark{transform:scale(1.04)}.logo:hover .logo__mark::before{transform:translate(8px,8px)}
+  .logo:hover .logo__mark::after{transform:scaleX(1)}.logo:hover .logo__type{letter-spacing:.22em}}
+.nav__links{display:flex;align-items:center;gap:26px}
+.nav__links a{position:relative;font-size:.86rem;color:rgba(238,240,248,.74);padding:4px 0;white-space:nowrap;transition:color var(--t-fast)}
+.nav__links a::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:var(--snow);
+  transform:scaleX(0);transform-origin:right;transition:transform 340ms var(--e-arch)}
+.nav__links a.current{color:var(--snow)}
+.nav__links a.current::after{transform:scaleX(1);transform-origin:left;opacity:.5}
+@media (hover:hover){.nav__links a:hover{color:var(--snow)}.nav__links a:hover::after{transform:scaleX(1);transform-origin:left}}
+.burger{display:none;width:44px;height:44px;position:relative;color:var(--snow)}
+.burger span{position:absolute;left:12px;right:12px;height:1.5px;background:currentColor;transition:transform 320ms var(--e-arch)}
+.burger span:nth-child(1){top:18px}.burger span:nth-child(2){bottom:18px}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(4px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){transform:translateY(-4px) rotate(-45deg)}
+.mobilenav{position:fixed;inset:0;z-index:70;background:var(--night);color:var(--snow);
+  padding:calc(var(--nav-h) + 54px + env(safe-area-inset-top,0px)) var(--gut) 48px;display:flex;flex-direction:column;
+  opacity:0;visibility:hidden;transform:translate3d(0,-10px,0);
+  transition:opacity 320ms var(--e-soft),transform 380ms var(--e-arch),visibility 0s linear 380ms}
+.mobilenav.open{opacity:1;visibility:visible;transform:none;transition-delay:0s}
+.mobilenav a{font-size:1.85rem;letter-spacing:-.03em;padding:15px 0;border-bottom:1px solid var(--line-n);
+  opacity:0;transform:translate3d(0,14px,0);transition:opacity 420ms var(--e-calm),transform 520ms var(--e-arch)}
+.mobilenav.open a{opacity:1;transform:none;transition-delay:calc(var(--i) * 60ms + 90ms)}
+
+/* ===========================================================
+   HERO  ·  Scroll-Shrink
+   Der Hero ist 190svh hoch. Innen klebt ein 100svh-Fenster.
+   --p läuft von 0 auf 1, während man durch die Reserve scrollt,
+   und steuert Scale, Radius, Textgrösse und den Rahmen.
+   =========================================================== */
+.hero{position:relative;height:190svh}
+.hero__stick{position:sticky;top:0;height:100svh;display:grid;place-items:center;overflow:clip}
+.hero__frame{
+  position:relative;width:100%;height:100%;overflow:hidden;background:var(--night);
+  border-radius:calc(var(--p,0) * 30px);
+  transform:scale(calc(1 - var(--p,0) * .215));
+  box-shadow:0 calc(var(--p,0) * 50px) calc(var(--p,0) * 120px) rgba(11,12,16,calc(var(--p,0) * .34));
+  will-change:transform,border-radius}
+.hero__bg{position:absolute;inset:-6% 0;z-index:0;
+  transform:scale(calc(1.02 + var(--p,0) * .14));will-change:transform}
+.hero__bg video{width:100%;height:100%;object-fit:cover;display:block;
+  filter:brightness(1.18) saturate(1.08) contrast(1.08);opacity:.96}
+.hero__fallback{position:absolute;inset:0;
+  background:radial-gradient(120% 80% at 70% 18%,rgba(196,206,240,.30),transparent 62%),
+             linear-gradient(196deg,#1A1D28 0%,#0D0F16 52%,#191C26 100%)}
+.hero__scrim{position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(180deg,rgba(11,12,16,.28) 0%,rgba(11,12,16,.08) 34%,rgba(11,12,16,.38) 74%,rgba(11,12,16,.72) 100%)}
+.hero__fg{position:absolute;inset:0;z-index:2;display:flex;align-items:flex-end;padding:0 0 clamp(36px,5vw,64px);
+  transform:translate3d(0,calc(var(--p,0) * -9vh),0);opacity:calc(1 - var(--p,0) * 1.25);will-change:transform,opacity}
+.hero__in{width:100%;max-width:var(--maxw);margin:0 auto;padding-inline:var(--gut)}
+.wordmark{display:block;font-weight:600;letter-spacing:-.055em;line-height:.82;
+  font-size:clamp(4.2rem,17vw,15rem);color:var(--snow);text-shadow:0 18px 60px rgba(11,12,16,.42)}
+.wordmark sup{font-size:.16em;font-weight:400;letter-spacing:0;vertical-align:super;opacity:.8;margin-left:.06em}
+.hero__sub{margin-top:18px;max-width:54ch;font-size:clamp(.98rem,1.25vw,1.12rem);color:rgba(238,240,248,.84);line-height:1.55}
+.hero__cta{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px}
+/* Marke, die beim Schrumpfen unter dem Fenster auftaucht */
+.hero__echo{position:absolute;left:50%;bottom:calc(6vh + 8px);translate:-50% 0;z-index:0;
+  font-family:"JetBrains Mono",monospace;font-weight:300;font-size:11px;letter-spacing:.34em;text-transform:uppercase;
+  color:var(--ink-3);opacity:calc((var(--p,0) - .72) * 3.6);pointer-events:none}
+/* Intro */
+.hero__bg,.hero__scrim{opacity:0;transition:opacity 1200ms var(--e-calm)}
+.is-ready .hero__bg,.is-ready .hero__scrim{opacity:1}
+.hero__sub,.hero__cta{opacity:0;transform:translate3d(0,14px,0)}
+.is-ready .hero__sub{opacity:1;transform:none;transition:opacity 700ms var(--e-calm) 860ms,transform 700ms var(--e-arch) 860ms}
+.is-ready .hero__cta{opacity:1;transform:none;transition:opacity 700ms var(--e-calm) 1000ms,transform 700ms var(--e-arch) 1000ms}
+.scrollhint{position:absolute;right:var(--gut);bottom:calc(clamp(36px,5vw,64px) + 6px);z-index:3;width:1px;height:54px;
+  background:linear-gradient(180deg,transparent,rgba(238,240,248,.7));transform-origin:bottom;
+  animation:hint 2.8s var(--e-soft) infinite;opacity:calc(1 - var(--p,0) * 3)}
+@keyframes hint{0%,100%{transform:scaleY(.4);opacity:.4}50%{transform:scaleY(1);opacity:1}}
+
+/* ---------- Subhero (Unterseiten) ---------- */
+.subhero{position:relative;height:clamp(420px,62svh,640px);overflow:hidden;background:var(--night);color:var(--snow);
+  border-radius:0 0 30px 30px;display:flex;align-items:flex-end}
+.subhero__bg{position:absolute;inset:-5% 0;z-index:0}
+.subhero__bg video{width:100%;height:100%;object-fit:cover}
+.subhero__scrim{position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,rgba(11,12,16,.60) 0%,rgba(11,12,16,.18) 40%,rgba(11,12,16,.88) 100%)}
+.subhero__in{position:relative;z-index:2;width:100%;max-width:var(--maxw);margin:0 auto;
+  padding:0 var(--gut) clamp(34px,4.5vw,56px)}
+.subhero h1{font-size:clamp(2.4rem,6.5vw,4.6rem);font-weight:600;letter-spacing:-.045em;color:var(--snow)}
+.subhero p{margin-top:16px;max-width:52ch;color:rgba(238,240,248,.82);font-size:clamp(.98rem,1.2vw,1.1rem)}
+.crumb{display:inline-flex;align-items:center;gap:10px;margin-bottom:18px;font-family:"JetBrains Mono",monospace;
+  font-weight:300;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(238,240,248,.6)}
+.crumb:hover{color:var(--snow)}
+
+/* ===========================================================
+   BILDER / KARTEN
+   =========================================================== */
+.ph{position:relative;overflow:hidden;background:
+  linear-gradient(196deg,rgba(12,13,18,.05),rgba(12,13,18,.16)),
+  repeating-linear-gradient(90deg,rgba(12,13,18,.045) 0 1px,transparent 1px 72px),
+  repeating-linear-gradient(0deg,rgba(12,13,18,.045) 0 1px,transparent 1px 72px),
+  linear-gradient(118deg,#D6DAE8 0%,#EAECF4 34%,#C7CCDD 58%,#E1E4EF 100%)}
+.ph::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(104deg,transparent 38%,rgba(255,255,255,.34) 50%,transparent 62%)}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+/* Panels: sichtbar abgehoben, klare Kanten, eigener Schatten */
+.panel,.svc__card,.card,.trust__item,.duo li{
+  background:linear-gradient(180deg,rgba(255,255,255,.84),rgba(255,255,255,.62));
+  border:1px solid rgba(255,255,255,.92);
+  border-radius:16px;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.95),
+    0 1px 2px rgba(12,13,18,.05),
+    0 10px 22px -12px rgba(12,13,18,.26),
+    0 28px 54px -28px rgba(12,13,18,.34);
+  transition:transform 520ms var(--e-arch),box-shadow 520ms var(--e-soft),background 420ms}
+
+.svc{display:grid;grid-template-columns:1.62fr 1fr;gap:clamp(14px,1.7vw,24px);
+  margin-top:clamp(40px,5vw,64px)}
+.svc__side{display:grid;grid-template-rows:1fr 1fr;gap:clamp(14px,1.7vw,24px)}
+.svc__card{padding:clamp(24px,2.8vw,40px);display:flex;flex-direction:column}
+.svc__card .tlink{margin-top:auto}
+@media (hover:hover){.svc__card:hover{transform:translateY(-7px);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.95),0 2px 4px rgba(12,13,18,.06),
+    0 22px 40px -18px rgba(12,13,18,.32),0 44px 80px -34px rgba(12,13,18,.42)}}
+.svc__media{position:relative;aspect-ratio:16/9;margin-bottom:24px;overflow:hidden;border-radius:10px}
+.svc__media .ph{position:absolute;inset:0;transition:transform 900ms var(--e-arch)}
+@media (hover:hover){.svc__main:hover{transform:translateY(-4px)}.svc__main:hover .svc__media .ph{transform:scale(1.045)}}
+.svc__num{font-family:"JetBrains Mono",monospace;font-weight:300;font-size:11px;letter-spacing:.2em;color:var(--ink-3)}
+.svc__card h3{margin:13px 0 11px}
+.svc__main h3{font-size:clamp(1.55rem,2.4vw,2.15rem)}
+.svc__list{list-style:none;margin:16px 0 24px;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:8px 24px}
+.svc__list li{font-size:.9rem;color:var(--ink-2);padding-left:16px;position:relative}
+.svc__list li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:1px;background:var(--line-2)}
+.svc__side .svc__list{grid-template-columns:1fr;margin-bottom:20px}
+
+.proj{display:grid;gap:clamp(44px,6vw,96px);margin-top:clamp(40px,5vw,72px)}
+.proj__item{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(18px,2.4vw,32px);align-items:end}
+.proj__item:nth-child(1) .proj__media{grid-column:1/span 12;aspect-ratio:21/9}
+.proj__item:nth-child(1) .proj__meta{grid-column:1/span 12}
+.proj__item:nth-child(2) .proj__media{grid-column:1/span 7;aspect-ratio:4/3}
+.proj__item:nth-child(2) .proj__meta{grid-column:9/span 4}
+.proj__item:nth-child(3) .proj__media{grid-column:6/span 7;aspect-ratio:4/3;order:2}
+.proj__item:nth-child(3) .proj__meta{grid-column:1/span 4;order:1}
+.proj__media{position:relative;overflow:hidden;border-radius:14px;
+  box-shadow:0 20px 44px -22px rgba(12,13,18,.42),0 46px 86px -40px rgba(12,13,18,.4);
+  transition:transform 620ms var(--e-arch),box-shadow 620ms var(--e-soft)}
+.proj__media .ph{position:absolute;inset:-14% 0;will-change:transform;transition:scale 900ms var(--e-arch)}
+.proj__meta{display:flex;flex-direction:column;gap:10px;transition:transform 620ms var(--e-arch)}
+.proj__tags{display:flex;gap:18px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-weight:300;
+  font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
+@media (hover:hover){.proj__item:hover .proj__media{transform:translateY(-6px);
+    box-shadow:0 30px 60px -24px rgba(12,13,18,.5),0 60px 110px -46px rgba(12,13,18,.48)}
+  .proj__item:hover .proj__media .ph{scale:1.04}.proj__item:hover .proj__meta{transform:translateY(-3px)}}
+
+/* Kartenraster für die Projekt-Unterseite */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,28px);margin-top:clamp(36px,4vw,56px)}
+.card{overflow:hidden}
+.card__media{position:relative;aspect-ratio:4/3;overflow:hidden}
+.card__media .ph{position:absolute;inset:0;transition:transform 900ms var(--e-arch)}
+.card__body{padding:20px 20px 24px}
+.card__body h3{margin-bottom:7px}
+@media (hover:hover){.card:hover{transform:translateY(-8px);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.95),0 2px 4px rgba(12,13,18,.06),
+      0 26px 44px -18px rgba(12,13,18,.32),0 50px 86px -34px rgba(12,13,18,.44)}
+  .card:hover .card__media .ph{transform:scale(1.06)}}
+
+.trust{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(260px,1fr);gap:clamp(14px,1.7vw,24px);
+  margin-top:clamp(36px,4vw,56px);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;
+  padding:6px 2px 24px}
+.trust::-webkit-scrollbar{display:none}
+.trust__item{padding:clamp(24px,2.6vw,36px);scroll-snap-align:start;display:flex;flex-direction:column;gap:12px}
+@media (hover:hover){.trust__item:hover{transform:translateY(-6px)}}
+
+.proc{display:grid;grid-template-columns:repeat(4,1fr);margin-top:clamp(36px,4vw,60px);border-top:1px solid var(--line)}
+.proc__step{padding:28px 24px 34px 0;border-right:1px solid var(--line);position:relative}
+.proc__step:last-child{border-right:0}
+.proc__step:not(:first-child){padding-left:24px}
+.proc__step::before{content:"";position:absolute;left:0;top:-1px;height:1px;width:100%;background:var(--ink);
+  transform:scaleX(0);transform-origin:left;transition:transform 900ms var(--e-arch);transition-delay:calc(var(--i) * 140ms)}
+.proc.in .proc__step::before{transform:scaleX(1)}
+.proc__n{font-family:"JetBrains Mono",monospace;font-weight:300;font-size:1.95rem;color:var(--ink-3);display:block;margin-bottom:13px}
+.proc__step h3{font-size:1.02rem;margin-bottom:8px}
+
+/* Zweispaltiger Textblock (Unterseiten) */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,72px);margin-top:clamp(34px,4vw,56px);align-items:start}
+.duo ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.duo li{padding:18px 20px;font-size:.94rem}
+.duo li strong{display:block;font-weight:600;margin-bottom:3px}
+.duo li span{color:var(--ink-2);font-size:.9rem}
+@media (hover:hover){.duo li:hover{transform:translateY(-4px)}}
+
+/* ===========================================================
+   KONTAKT
+   =========================================================== */
+.fade-to-night{height:clamp(90px,12vw,180px);background:linear-gradient(180deg,rgba(11,12,16,0),var(--night))}
+.contact{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(36px,5vw,90px);margin-top:clamp(40px,5vw,64px);align-items:start}
+.field{display:flex;flex-direction:column;gap:7px;margin-bottom:20px}
+.field label{font-size:.82rem;font-weight:500}
+.field input,.field select,.field textarea{font:inherit;font-size:.95rem;width:100%;padding:13px 14px;border-radius:0;
+  color:var(--snow);background:rgba(238,240,248,.06);border:1px solid rgba(238,240,248,.22);
+  transition:border-color var(--t-fast),background var(--t-fast)}
+.field select option{color:#111;background:#fff}
+.field textarea{resize:vertical;min-height:120px}
+.field input::placeholder,.field textarea::placeholder{color:rgba(238,240,248,.42)}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--snow);background:rgba(238,240,248,.11)}
+.field .err{font-size:.8rem;color:#FF8E76;min-height:1em}
+.field.invalid input,.field.invalid select,.field.invalid textarea{border-color:#FF8E76}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.formwrap{position:relative}
+.form{transition:opacity 420ms var(--e-calm),transform 520ms var(--e-arch)}
+.form.gone{opacity:0;transform:translate3d(0,-14px,0);pointer-events:none}
+.success{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;gap:16px;
+  opacity:0;transform:translate3d(0,16px,0);pointer-events:none;
+  transition:opacity 520ms var(--e-calm) 220ms,transform 620ms var(--e-arch) 220ms}
+.success.on{opacity:1;transform:none;pointer-events:auto}
+.check{width:56px;height:56px;border:1.5px solid var(--snow);display:grid;place-items:center}
+.check svg path{stroke-dasharray:36;stroke-dashoffset:36;transition:stroke-dashoffset 620ms var(--e-arch) 480ms}
+.success.on .check svg path{stroke-dashoffset:0}
+.form .pill{width:100%;justify-content:space-between;
+  box-shadow:0 0 34px rgba(124,156,255,.20),0 10px 30px rgba(0,0,0,.4)}
+.chan{display:grid;gap:13px}
+.chan__item{position:relative;display:flex;align-items:center;gap:20px;border:1px solid var(--line-n);
+  background:rgba(238,240,248,.04);padding:19px 22px;
+  transition:transform 420ms var(--e-arch),border-color 420ms var(--e-soft),background 420ms}
+.chan__bar{flex:none;width:6px;height:44px;background:var(--c);animation:glow 5s var(--e-soft) infinite}
+@keyframes glow{0%,100%{box-shadow:0 0 10px 0 var(--g)}50%{box-shadow:0 0 24px 4px var(--g)}}
+.chan__item:nth-child(2) .chan__bar{animation-delay:1.6s}
+.chan__item:nth-child(3) .chan__bar{animation-delay:3.2s}
+.chan__txt{display:flex;flex-direction:column;gap:2px;min-width:0}
+.chan__k{font-family:"JetBrains Mono",monospace;font-weight:300;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(238,240,248,.52)}
+.chan__v{font-size:1.02rem;font-weight:500;overflow-wrap:anywhere}
+.chan__item .arw{margin-left:auto;color:rgba(238,240,248,.5)}
+@media (hover:hover){.chan__item:hover{transform:translateX(5px);border-color:var(--c);background:rgba(238,240,248,.07)}
+  .chan__item:hover .arw{transform:translateX(5px)}}
+.addr{margin-top:22px;font-size:.9rem;color:rgba(238,240,248,.6);line-height:1.7;font-style:normal}
+
+/* ===========================================================
+   STANDORTKARTE  ·  Tilt nach Mauszeiger, Klick öffnet Mini-Map
+   =========================================================== */
+.loc{margin-top:26px;perspective:1000px}
+.loc__inner{transform-style:preserve-3d;
+  transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateZ(0) scale(var(--sc,1));
+  transition:transform 620ms var(--e-arch),box-shadow 520ms var(--e-soft);
+  background:linear-gradient(168deg,rgba(238,240,248,.075),rgba(238,240,248,.02) 60%);
+  border:1px solid rgba(238,240,248,.14);border-radius:18px;overflow:hidden;
+  box-shadow:0 26px 60px -28px rgba(0,0,0,.85),inset 0 1px 0 rgba(238,240,248,.10)}
+.loc__inner.tilting{transition:transform 90ms linear,box-shadow 520ms var(--e-soft)}
+.loc.open .loc__inner{box-shadow:0 40px 90px -30px rgba(0,0,0,.9),inset 0 1px 0 rgba(238,240,248,.14)}
+
+.loc__head{display:block;width:100%;text-align:left;padding:18px 20px 20px;background:none;cursor:pointer}
+.loc__row{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.loc__icon{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;flex:none;
+  background:rgba(29,168,81,.13);color:var(--wa);
+  transition:transform 520ms var(--e-arch),background 420ms}
+.loc.open .loc__icon{transform:rotate(-8deg) scale(1.05);background:rgba(29,168,81,.2)}
+.loc__live{display:inline-flex;align-items:center;gap:8px;font-family:"JetBrains Mono",monospace;font-weight:300;
+  font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:rgba(238,240,248,.62)}
+.loc__live i{width:7px;height:7px;border-radius:999px;background:var(--wa);animation:live 2.6s var(--e-soft) infinite}
+.loc__name{display:block;margin-top:26px;font-weight:600;font-size:1.02rem;letter-spacing:-.015em;color:var(--snow)}
+.loc__addr{display:block;font-size:.86rem;color:rgba(238,240,248,.56);margin-top:3px}
+.loc__u{display:block;height:1px;width:64%;margin-top:11px;transform:scaleX(0);transform-origin:left;
+  background:linear-gradient(90deg,var(--wa),rgba(29,168,81,0));
+  transition:transform 820ms var(--e-arch) 160ms}
+.loc.in .loc__u{transform:scaleX(1)}
+.loc__hint{display:flex;align-items:center;gap:8px;margin-top:14px;font-size:.78rem;color:rgba(238,240,248,.42);
+  transition:color 320ms}
+.loc__hint svg{transition:transform 520ms var(--e-arch)}
+.loc.open .loc__hint svg{transform:rotate(180deg)}
+.loc__head:hover .loc__hint{color:rgba(238,240,248,.75)}
+
+.loc__wrap{display:grid;grid-template-rows:0fr;transition:grid-template-rows 680ms var(--e-arch)}
+.loc.open .loc__wrap{grid-template-rows:1fr}
+.loc__clip{overflow:hidden;min-height:0}
+.loc__map{position:relative;aspect-ratio:4/3;background:#0A0C11;border-top:1px solid rgba(238,240,248,.10)}
+/* Rasterlinien zeichnen sich */
+.loc__map .gl{position:absolute;background:rgba(238,240,248,.075);transform:scale(0);transition:transform 620ms var(--e-arch)}
+.loc__map .gl.v{top:0;bottom:0;width:1px;transform-origin:top;transform:scaleY(0)}
+.loc__map .gl.h{left:0;right:0;height:1px;transform-origin:left;transform:scaleX(0)}
+.loc.open .loc__map .gl.v{transform:scaleY(1)}
+.loc.open .loc__map .gl.h{transform:scaleX(1)}
+.loc__map .gl{transition-delay:calc(var(--i) * 55ms + 120ms)}
+/* Baukörper */
+.loc__map .bd{position:absolute;background:rgba(238,240,248,.07);border:1px solid rgba(238,240,248,.05);border-radius:5px;
+  opacity:0;transform:translateY(10px) scale(.92);
+  transition:opacity 520ms var(--e-calm),transform 620ms var(--e-arch);
+  transition-delay:calc(var(--i) * 70ms + 300ms)}
+.loc.open .loc__map .bd{opacity:1;transform:none}
+/* Pin fällt herein */
+.loc__pin{position:absolute;left:50%;top:48%;translate:-50% -100%;color:var(--wa);
+  opacity:0;transform:translateY(-26px) scale(.5);
+  transition:opacity 420ms var(--e-calm) 620ms,transform 720ms cubic-bezier(.2,1.5,.4,1) 620ms}
+.loc.open .loc__pin{opacity:1;transform:none}
+.loc__ping{position:absolute;left:50%;top:48%;width:16px;height:16px;border-radius:999px;translate:-50% -50%;
+  border:1px solid var(--wa);opacity:0}
+.loc.open .loc__ping{animation:ping 2.8s var(--e-soft) 1.1s infinite}
+@keyframes ping{0%{opacity:.85;transform:scale(.4)}70%{opacity:0;transform:scale(3.4)}100%{opacity:0}}
+.loc__meta{position:absolute;left:16px;bottom:14px;right:16px;
+  opacity:0;transform:translateY(10px);
+  transition:opacity 520ms var(--e-calm) 780ms,transform 620ms var(--e-arch) 780ms}
+.loc.open .loc__meta{opacity:1;transform:none}
+.loc__meta strong{display:block;font-size:.88rem;font-weight:600;color:var(--snow)}
+.loc__meta code{display:block;font-family:"JetBrains Mono",monospace;font-weight:300;font-size:.72rem;
+  color:rgba(238,240,248,.52);margin-top:2px}
+.loc__open{display:inline-flex;align-items:center;gap:8px;margin-top:10px;font-size:.78rem;
+  color:var(--wa);border-bottom:1px solid rgba(29,168,81,.4);padding-bottom:2px}
+.loc__open:hover{color:#3FD37B;border-color:#3FD37B}
+
+/* ===========================================================
+   FOOTER  ·  liegt als eigene Platte auf dem Abschnitt darüber
+   =========================================================== */
+.footwrap{position:relative;z-index:5;background:var(--night);
+  margin-top:calc(-1 * clamp(60px,8vw,136px));
+  padding:0 clamp(10px,1.6vw,22px) clamp(10px,1.6vw,22px)}
+.foot{position:relative;overflow:hidden;color:var(--snow);
+  border-radius:clamp(22px,2.6vw,34px);
+  background:linear-gradient(177deg,#1C2032 0%,#141724 44%,#0B0D13 100%);
+  border:1px solid rgba(238,240,248,.12);
+  padding:clamp(42px,5.2vw,80px) 0 0;
+  box-shadow:0 -30px 80px rgba(0,0,0,.58),0 -2px 0 rgba(238,240,248,.05),
+             0 40px 100px rgba(0,0,0,.55);
+  opacity:0;transform:translate3d(0,70px,0) scale(.965);
+  transition:opacity 780ms var(--e-calm),transform 1000ms var(--e-arch)}
+.foot.in{opacity:1;transform:none}
+.foot::before{content:"";position:absolute;left:6%;right:6%;top:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(238,240,248,.5),transparent)}
+.foot::after{content:"";position:absolute;left:-10%;top:-40%;width:60%;height:120%;pointer-events:none;
+  background:radial-gradient(closest-side,rgba(124,156,255,.13),transparent 72%)}
+.foot > .wrap{position:relative;z-index:1}
+
+.foot__top{display:flex;flex-wrap:wrap;gap:26px 40px;align-items:flex-end;justify-content:space-between;
+  padding-bottom:clamp(30px,3.6vw,52px);border-bottom:1px solid var(--line-n)}
+.foot__cta{font-size:clamp(1.65rem,3.3vw,2.8rem);font-weight:500;letter-spacing:-.035em;line-height:1.08;margin:0}
+.foot__cta span{color:rgba(238,240,248,.40)}
+
+.foot__grid{display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:34px 40px;
+  padding-block:clamp(32px,4vw,54px)}
+.foot__brandline{font-size:.93rem;color:rgba(238,240,248,.58);max-width:32ch;margin-top:14px;line-height:1.6}
+.foot__h{font-family:"JetBrains Mono",monospace;font-weight:300;font-size:10.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:rgba(238,240,248,.42);margin-bottom:15px;display:block}
+.foot__grid ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.foot__grid a{font-size:.92rem;color:rgba(238,240,248,.72);transition:color var(--t-fast),transform var(--t-fast)}
+.foot__grid a:hover{color:var(--snow)}
+.foot__mark{line-height:.74;font-weight:600;letter-spacing:-.065em;
+  font-size:clamp(3.2rem,16.5vw,13.5rem);color:rgba(238,240,248,.065);
+  user-select:none;pointer-events:none;transform:translateY(.14em);margin-top:clamp(8px,2vw,24px)}
+.foot__bar{border-top:1px solid var(--line-n);padding-block:20px;display:flex;flex-wrap:wrap;gap:14px 28px;
+  align-items:center;font-size:.83rem;color:rgba(238,240,248,.5)}
+.foot__bar nav{display:flex;gap:22px}
+.totop{margin-left:auto;display:inline-flex;align-items:center;gap:9px;border-radius:999px;
+  padding:9px 16px;border:1px solid rgba(238,240,248,.2);font-size:.82rem;color:rgba(238,240,248,.8);
+  transition:background 320ms var(--e-soft),color 320ms,transform 320ms var(--e-arch)}
+.totop:hover{background:var(--snow);color:var(--night);border-color:var(--snow);transform:translateY(-2px)}
+.totop svg{transition:transform 380ms var(--e-arch)}
+.totop:hover svg{transform:translateY(-2px)}
+
+/* ===========================================================
+   FLOATING BUTTONS  ·  WhatsApp, Anruf, Chat
+   =========================================================== */
+.fabs{position:fixed;right:clamp(14px,2.2vw,26px);z-index:60;
+  bottom:calc(clamp(14px,2.2vw,26px) + env(safe-area-inset-bottom,0px));
+  display:flex;flex-direction:column;gap:13px;align-items:flex-end}
+.teaser{position:relative;max-width:272px;background:#fff;color:var(--ink);border:1px solid var(--line-2);
+  border-radius:18px 18px 4px 18px;padding:14px 38px 14px 16px;font-size:.88rem;line-height:1.45;
+  box-shadow:0 18px 46px rgba(11,12,16,.24);
+  opacity:0;transform:translate3d(0,10px,0) scale(.96);transform-origin:bottom right;pointer-events:none;
+  transition:opacity 420ms var(--e-calm),transform 520ms var(--e-arch);cursor:pointer}
+.teaser.show{opacity:1;transform:none;pointer-events:auto}
+.teaser strong{display:block;font-weight:600;margin-bottom:3px}
+.teaser__x{position:absolute;top:8px;right:8px;width:24px;height:24px;display:grid;place-items:center;
+  color:var(--ink-3);border-radius:999px}
+.teaser__x:hover{background:#EEF0F6;color:var(--ink)}
+
+.fab{width:58px;height:58px;border-radius:999px;display:grid;place-items:center;position:relative;
+  transition:transform 380ms var(--e-arch),box-shadow 380ms var(--e-soft)}
+.fab--wa{background:var(--wa);color:#fff;box-shadow:0 0 22px 2px var(--wa-glow),0 10px 26px rgba(11,12,16,.28);
+  animation:glow 5s var(--e-soft) infinite;--g:var(--wa-glow)}
+.fab--tel{background:var(--tel);color:#fff;box-shadow:0 0 22px 2px var(--tel-glow),0 10px 26px rgba(11,12,16,.28);
+  animation:glow 5s var(--e-soft) infinite;--g:var(--tel-glow);animation-delay:2.5s}
+@media (hover:hover){.fab:hover{transform:translateY(-4px) scale(1.04)}}
+.fab:active{transform:translateY(0) scale(.96)}
+
+/* Chatbutton: gleiches leuchtendes Schema wie die CTA-Pills, nur größer */
+.chatbtn{display:inline-flex;align-items:center;gap:13px;height:66px;padding:0 28px 0 17px;
+  border-radius:999px;position:relative;overflow:hidden;isolation:isolate;
+  background:var(--night);color:var(--snow);font-weight:500;font-size:1.02rem;letter-spacing:-.01em;
+  box-shadow:0 0 42px rgba(124,156,255,.30),0 16px 40px rgba(11,12,16,.42);
+  transition:transform 380ms var(--e-arch),box-shadow 380ms var(--e-soft)}
+.chatbtn::before{content:"";position:absolute;left:50%;top:50%;width:190%;aspect-ratio:1;z-index:-2;translate:-50% -50%;
+  background:conic-gradient(from 0deg,rgba(255,255,255,0) 0deg 200deg,rgba(124,156,255,.95) 258deg,
+    rgba(238,240,248,1) 286deg,rgba(155,227,192,.92) 312deg,rgba(255,255,255,0) 354deg 360deg);
+  animation:spin 4.2s linear infinite}
+.chatbtn::after{content:"";position:absolute;inset:1.6px;z-index:-1;border-radius:inherit;background:var(--night)}
+.chatbtn__av{position:relative;width:36px;height:36px;border-radius:999px;background:rgba(238,240,248,.13);
+  display:grid;place-items:center;flex:none}
+.chatbtn__live{position:absolute;right:-1px;bottom:-1px;width:10px;height:10px;border-radius:999px;
+  background:var(--wa);border:2px solid var(--night);animation:live 2.6s var(--e-soft) infinite}
+@keyframes live{0%,100%{box-shadow:0 0 0 0 rgba(29,168,81,.55)}70%{box-shadow:0 0 0 8px rgba(29,168,81,0)}}
+@media (hover:hover){.chatbtn:hover{transform:translateY(-4px);
+  box-shadow:0 0 58px rgba(124,156,255,.44),0 22px 52px rgba(11,12,16,.5)}}
+.chatbtn:active{transform:translateY(0) scale(.98)}
+
+.chat{position:fixed;z-index:61;right:clamp(14px,2.2vw,24px);
+  bottom:calc(clamp(14px,2.2vw,24px) + 68px + env(safe-area-inset-bottom,0px));
+  width:min(382px,calc(100vw - 28px));height:min(560px,72svh);background:#fff;border:1px solid var(--line-2);
+  border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transform-origin:bottom right;
+  opacity:0;visibility:hidden;transform:translate3d(0,12px,0) scale(.97);
+  transition:opacity 260ms var(--e-soft),transform 340ms var(--e-arch),visibility 0s linear 340ms;
+  box-shadow:0 34px 90px rgba(11,12,16,.30)}
+.chat.open{opacity:1;visibility:visible;transform:none;transition-delay:0s}
+.chat__head{display:flex;align-items:center;gap:12px;padding:15px 12px 14px 16px;border-bottom:1px solid var(--line);background:var(--night);color:var(--snow)}
+.chat__av{position:relative;width:34px;height:34px;border-radius:999px;background:rgba(238,240,248,.14);display:grid;place-items:center;flex:none}
+.chat__av .chatbtn__live{border-color:var(--night)}
+.chat__ttl{display:flex;flex-direction:column;line-height:1.25}
+.chat__ttl strong{font-size:.92rem;font-weight:600}
+.chat__ttl span{font-size:.74rem;color:rgba(238,240,248,.6)}
+.chat__head .x{margin-left:auto;width:32px;height:32px;display:grid;place-items:center;color:rgba(238,240,248,.65);border-radius:999px}
+.chat__head .x:hover{color:var(--snow);background:rgba(238,240,248,.1)}
+.chat__log{flex:1;overflow-y:auto;padding:18px 16px;display:flex;flex-direction:column;gap:12px;background:#F7F8FC}
+.msg{max-width:85%;padding:11px 14px;font-size:.9rem;line-height:1.5;border-radius:16px;animation:msgIn 300ms var(--e-arch) both}
+@keyframes msgIn{from{opacity:0;transform:translate3d(0,8px,0)}to{opacity:1;transform:none}}
+.msg--bot{background:#EAEDF6;color:var(--ink);align-self:flex-start;border-bottom-left-radius:4px}
+.msg--user{background:var(--night);color:var(--snow);align-self:flex-end;border-bottom-right-radius:4px}
+.msg--err{background:#FBE9E3;color:#7A2A12;align-self:flex-start;font-size:.85rem;border-radius:16px}
+.msg a{text-decoration:underline;text-underline-offset:3px}
+.typing{display:flex;gap:5px;padding:14px;align-self:flex-start;background:#EAEDF6;border-radius:16px 16px 16px 4px}
+.typing i{width:5px;height:5px;border-radius:999px;background:var(--ink-3);display:block;animation:blink 1.2s var(--e-soft) infinite}
+.typing i:nth-child(2){animation-delay:.18s}.typing i:nth-child(3){animation-delay:.36s}
+@keyframes blink{0%,100%{opacity:.25;transform:translateY(0)}50%{opacity:1;transform:translateY(-3px)}}
+.chips{display:flex;gap:7px;flex-wrap:wrap;padding:0 16px 12px;background:#F7F8FC}
+.chip{font-size:.78rem;border:1px solid var(--line-2);border-radius:999px;padding:7px 13px;color:var(--ink-2);
+  background:#fff;transition:background var(--t-fast),color var(--t-fast)}
+.chip:hover{background:var(--night);color:var(--snow);border-color:var(--night)}
+.chat__foot{border-top:1px solid var(--line);padding:11px;display:flex;gap:8px;align-items:flex-end;background:#fff}
+.chat__foot textarea{flex:1;font:inherit;font-size:.9rem;border:1px solid var(--line-2);background:#F7F8FC;
+  padding:10px 12px;resize:none;height:42px;max-height:96px;border-radius:12px;color:var(--ink)}
+.chat__foot textarea:focus{outline:none;border-color:var(--ink)}
+.chat__send{background:var(--night);color:var(--snow);border-radius:999px;padding:0 18px;height:42px;font-size:.85rem;font-weight:500}
+.chat__note{font-size:10.5px;color:var(--ink-3);padding:0 16px 12px;line-height:1.4;background:#fff}
+
+/* ===========================================================
+   SEITENWECHSEL
+   =========================================================== */
+[data-page]{display:none}
+[data-page].active{display:block}
+#app.fading{opacity:0;transform:translateY(8px)}
+#app{transition:opacity 200ms var(--e-soft),transform 300ms var(--e-arch)}
+::view-transition-old(root){animation:vtOut 220ms var(--e-soft) both}
+::view-transition-new(root){animation:vtIn 420ms var(--e-arch) both}
+@keyframes vtOut{to{opacity:0;transform:translateY(-10px)}}
+@keyframes vtIn{from{opacity:0;transform:translateY(16px)}}
+
+/* ===========================================================
+   RESPONSIVE
+   =========================================================== */
+@media (max-width:1080px){.nav__links{gap:20px}.nav__links a{font-size:.82rem}}
+@media (max-width:920px){
+  .nav__links,.nav .pill{display:none}
+  .burger{display:block;margin-left:auto}
+  .hero{height:170svh}
+  .wordmark{font-size:clamp(3.4rem,20vw,7rem)}
+  .scrollhint{display:none}
+  .svc{grid-template-columns:1fr}
+  .svc__side{grid-template-rows:auto auto}
+  .grid3{grid-template-columns:1fr 1fr}
+  .duo{grid-template-columns:1fr}
+  .proj__item{grid-template-columns:1fr;gap:18px}
+  .proj__item:nth-child(n) .proj__media{grid-column:1/-1;aspect-ratio:4/3;order:0}
+  .proj__item:nth-child(n) .proj__meta{grid-column:1/-1;order:1}
+  .proc{grid-template-columns:1fr 1fr}
+  .proc__step:nth-child(2n){border-right:0}
+  .proc__step:nth-child(n+3){border-top:1px solid var(--line)}
+  .contact{grid-template-columns:1fr;gap:44px}
+  .trust{grid-auto-columns:minmax(240px,78%)}
+  .foot__grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:560px){
+  .row2{grid-template-columns:1fr}
+  .svc__list{grid-template-columns:1fr}
+  .grid3{grid-template-columns:1fr}
+  .proc{grid-template-columns:1fr}
+  .proc__step{border-right:0;border-top:1px solid var(--line);padding-left:0 !important}
+  .proc__step:first-child{border-top:0}
+  .hero__cta{flex-direction:column;align-items:stretch}
+  .hero__cta .pill{justify-content:space-between}
+  .hero__cta .ghost{justify-content:center}
+  .foot__grid{grid-template-columns:1fr}
+  .foot__bar nav{margin-left:0}
+  .chatbtn span.lbl{display:none}
+  .chatbtn{padding:0 13px;gap:0}
+}
+
+/* ===========================================================
+   REDUCED MOTION
+   =========================================================== */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;
+    transition-duration:120ms !important;transition-delay:0ms !important}
+  [data-reveal],.mask > span,.hero__fg,.hero__sub,.hero__cta,.foot{transform:none !important}
+  .loc__inner{transform:none !important}
+  .loc__map .gl,.loc__map .bd,.loc__pin,.loc__meta{transform:none !important;opacity:1 !important}
+  .loc__ping{display:none}
+  .chatbtn::before,.chatbtn__live,.fab--tel{animation:none !important}
+  .svc__card,.card,.trust__item,.duo li,.proj__media{transform:none !important}
+  .hero{height:100svh}
+  .hero__frame,.hero__bg{transform:none !important;border-radius:0 !important}
+  .proj__media .ph{transform:none !important;inset:0 !important}
+  .proc__step::before{transform:scaleX(1) !important}
+  .chan__bar,.fab--wa,.chatbtn__live{animation:none !important}
+  .pill::before{animation:none !important}
+  .scrollhint{display:none}
+  ::view-transition-old(root),::view-transition-new(root){animation:none !important}
+}
+</style>
+</head>
+
+<body>
+<a class="skip" href="#main">Zum Inhalt springen</a>
+<canvas id="silk" aria-hidden="true"></canvas>
+
+<!-- ===================== NAV ===================== -->
+<header class="nav" id="nav">
+  <div class="nav__pill">
+    <a href="#/" class="logo" data-route="home" aria-label="BALIN Architektur, Startseite">
+      <span class="logo__mark" aria-hidden="true"></span><span class="logo__type">BALIN</span></a>
+    <nav class="nav__links" aria-label="Hauptnavigation">
+      <a href="#/#architektur" data-route="home" data-anchor="architektur">Architektur</a>
+      <a href="#/bewertung" data-route="bewertung">Bewertung</a>
+      <a href="#/energie" data-route="energie">Energie</a>
+      <a href="#/projekte" data-route="projekte">Projekte</a>
+      <a href="#/#buero" data-route="home" data-anchor="buero">Büro</a>
+    </nav>
+    <a href="#/#kontakt" data-route="home" data-anchor="kontakt" class="pill pill--sm">Erstgespräch
+      <span class="pill__arw" aria-hidden="true"><svg width="13" height="9" viewBox="0 0 13 9" fill="none"><path d="M0 4.5h11M7.5 1l3.5 3.5L7.5 8" stroke="currentColor" stroke-width="1.3"/></svg></span></a>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="mobilenav" aria-label="Menü öffnen"><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="mobilenav" id="mobilenav">
+  <a href="#/#architektur" data-route="home" data-anchor="architektur" style="--i:0">Architektur</a>
+  <a href="#/bewertung" data-route="bewertung" style="--i:1">Immobilienbewertung</a>
+  <a href="#/energie" data-route="energie" style="--i:2">Energieberatung</a>
+  <a href="#/projekte" data-route="projekte" style="--i:3">Projekte</a>
+  <a href="#/#buero" data-route="home" data-anchor="buero" style="--i:4">Büro</a>
+  <a href="#/#kontakt" data-route="home" data-anchor="kontakt" style="--i:5">Kontakt</a>
+</div>
+
+<div id="app">
+<main id="main">
+
+<!-- ===================================================================
+     SEITE: HOME
+     =================================================================== -->
+<div data-page="home" class="active">
+
+  <section class="hero" id="hero">
+    <div class="hero__stick">
+      <div class="hero__frame" id="heroFrame">
+        <div class="hero__bg">
+          <div class="hero__fallback" aria-hidden="true"></div>
+          <!-- VIDEO HERO · hier dein Clip. Ersetzen reicht. -->
+          <video id="heroVid" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+            <source src="assets/video.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="hero__scrim" aria-hidden="true"></div>
+        <div class="hero__fg">
+          <div class="hero__in">
+            <h1 class="wordmark">BALIN<sup>*</sup></h1>
+            <p class="hero__sub">Architekturbüro in Kiel. Neubau, Umbau und Sanierung, dazu Immobilienbewertung und Energieberatung. Ein Ansprechpartner von der ersten Skizze bis zur Übergabe.</p>
+            <div class="hero__cta">
+              <a href="#/#kontakt" data-route="home" data-anchor="kontakt" class="pill">Erstgespräch vereinbaren
+                <span class="pill__arw" aria-hidden="true"><svg width="13" height="9" viewBox="0 0 13 9" fill="none"><path d="M0 4.5h11M7.5 1l3.5 3.5L7.5 8" stroke="currentColor" stroke-width="1.3"/></svg></span></a>
+              <a href="#/projekte" data-route="projekte" class="ghost">Projekte ansehen</a>
+            </div>
+          </div>
+        </div>
+        <span class="scrollhint" aria-hidden="true"></span>
+      </div>
+      <span class="hero__echo" aria-hidden="true">Kiel · Schleswig-Holstein</span>
+    </div>
+  </section>
+
+  <section class="band band--veil" id="architektur">
+    <div class="wrap">
+      <h2 data-reveal><span class="mask"><span>Drei Leistungen, ein Büro.</span></span></h2>
+      <p class="lead" data-reveal style="--i:1;margin-top:18px">Die Planung steht im Zentrum. Bewertung und Energieberatung ergänzen sie dort, wo Bauherren ohnehin Antworten brauchen.</p>
+      <div class="svc" data-reveal style="--i:2">
+        <article class="svc__card svc__main">
+          <div class="svc__media"><div class="ph">
+            <!-- PLATZHALTER: Referenzfoto Architektur, Querformat -->
+            <img src="https://picsum.photos/seed/balin-architektur/1200/800" alt="Innenraum mit Sichtbeton und Tageslicht" loading="lazy" onerror="this.remove()"></div></div>
+          <span class="svc__num">01 — Kernleistung</span>
+          <h3>Architektur und Planung</h3>
+          <p class="body-sm">Vom Entwurf über die Genehmigung bis zur Ausführung. Ein Ansprechpartner über die gesamte Laufzeit.</p>
+          <ul class="svc__list"><li>Entwurfsplanung</li><li>Genehmigungsplanung</li><li>Ausführungsplanung</li><li>Neubau</li>
+            <li>Umbau und Anbau</li><li>Sanierung</li><li>Projektbegleitung</li><li>Bauleitung</li></ul>
+          <a href="#/projekte" data-route="projekte" class="tlink">Projekte ansehen
+            <svg class="arw" width="15" height="10" viewBox="0 0 15 10" fill="none" aria-hidden="true"><path d="M0 5h13M9 1l4 4-4 4" stroke="currentColor" stroke-width="1.3"/></svg></a>
+        </article>
+        <div class="svc__side">
+          <article class="svc__card">
+            <span class="svc__num">02</span><h3>Immobilienbewertung</h3>
+            <p class="body-sm">Nachvollziehbare Wertermittlung für Kauf, Verkauf oder Bestandsplanung.</p>
+            <ul class="svc__list"><li>Wertermittlung</li><li>Einschätzung für Kauf und Verkauf</li><li>Bewertung im Bestand</li></ul>
+            <a href="#/bewertung" data-route="bewertung" class="tlink">Mehr dazu
+              <svg class="arw" width="15" height="10" viewBox="0 0 15 10" fill="none" aria-hidden="true"><path d="M0 5h13M9 1l4 4-4 4" stroke="currentColor" stroke-width="1.3"/></svg></a>
+          </article>
+          <article class="svc__card">
+            <span class="svc__num">03</span><h3>Energieberatung</h3>
+            <p class="body-sm">Energetische Bewertung des Gebäudes und Einordnung sinnvoller Massnahmen.</p>
+            <ul class="svc__list"><li>Energetische Bewertung</li><li>Sanierungsfahrplan</li><li>Fördermöglichkeiten</li></ul>
+            <a href="#/energie" data-route="energie" class="tlink">Mehr dazu
+              <svg class="arw" width="15" height="10" viewBox="0 0 15 10" fill="none" aria-hidden="true"><path d="M0 5h13M9 1l4 4-4 4" stroke="currentColor" stroke-width="1.3"/></svg></a>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <h2 data-reveal><span class="mask"><span>Ausgewählte Projekte</span></span></h2>
+      <div class="proj" id="projList"></div>
+      <div style="margin-top:clamp(34px,4vw,52px)" data-reveal>
+        <a href="#/projekte" data-route="projekte" class="ghost">Alle Projekte ansehen</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--veil2" id="buero">
+    <div class="wrap">
+      <h2 data-reveal><span class="mask"><span>Wie wir arbeiten</span></span></h2>
+      <div class="trust" data-reveal style="--i:1">
+        <article class="trust__item"><span class="svc__num">Ansprechpartner</span><h3>Eine Person, ein Projekt</h3><p class="body-sm">Sie sprechen vom ersten Termin bis zur Übergabe mit derselben Person.</p></article>
+        <article class="trust__item"><span class="svc__num">Region</span><h3>Kiel und Umland</h3><p class="body-sm">Kurze Wege zu Ämtern, Behörden und Baustelle. Wir kennen die örtlichen Vorgaben.</p></article>
+        <article class="trust__item"><span class="svc__num">Umfang</span><h3>Planung und Bewertung</h3><p class="body-sm">Entwurf, Wertermittlung und energetische Einordnung in einer Hand.</p></article>
+        <!-- PLATZHALTER: echte Nachweise ergänzen (Kammereintrag, Berufsjahre,
+             Zertifizierungen, Projektanzahl, Kundenstimmen). Nichts erfunden. -->
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <h2 data-reveal><span class="mask"><span>Vier Schritte</span></span></h2>
+      <div class="proc" data-proc>
+        <div class="proc__step" style="--i:0"><span class="proc__n">01</span><h3>Erstgespräch</h3><p class="body-sm">Kostenlos und unverbindlich. Wir klären, ob das Vorhaben trägt.</p></div>
+        <div class="proc__step" style="--i:1"><span class="proc__n">02</span><h3>Analyse und Konzept</h3><p class="body-sm">Grundstück, Bestand und Vorgaben. Daraus entsteht der erste Entwurf.</p></div>
+        <div class="proc__step" style="--i:2"><span class="proc__n">03</span><h3>Planung</h3><p class="body-sm">Genehmigungs- und Ausführungsplanung bis zur Baureife.</p></div>
+        <div class="proc__step" style="--i:3"><span class="proc__n">04</span><h3>Umsetzung</h3><p class="body-sm">Begleitung auf der Baustelle bis zur Übergabe.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="fade-to-night" aria-hidden="true"></div>
+  <section class="band on-night" id="kontakt" style="padding-top:clamp(36px,4vw,72px)" data-contact></section>
+</div>
+
+<!-- ===================================================================
+     SEITE: PROJEKTE
+     =================================================================== -->
+<div data-page="projekte">
+  <section class="subhero">
+    <div class="subhero__bg">
+      <div class="hero__fallback" aria-hidden="true"></div>
+      <!-- VIDEO PROJEKTE · dein Stock-Clip hier -->
+      <video muted loop playsinline autoplay preload="none" aria-hidden="true" data-vid>
+        <source src="" type="video/mp4"></video>
+    </div>
+    <div class="subhero__scrim" aria-hidden="true"></div>
+    <div class="subhero__in">
+      <a href="#/" data-route="home" class="crumb">← Startseite</a>
+      <h1>Projekte</h1>
+      <p>Eine Auswahl gebauter Arbeiten aus Kiel und Schleswig-Holstein. Neubau, Umbau und Sanierung.</p>
+    </div>
+  </section>
+  <section class="band">
+    <div class="wrap">
+      <h2 data-reveal><span class="mask"><span>Gebaute Arbeiten</span></span></h2>
+      <div class="grid3" id="projGrid"></div>
+      <p class="body-sm" style="margin-top:28px;color:var(--ink-3)" data-reveal>
+        <!-- PLATZHALTER: echte Projektbilder und Texte einsetzen. Das Array steht im Script. -->
+        Platzhalterbilder. Echte Projektfotos kommen ins <code class="mono">projects</code>-Array.</p>
+    </div>
+  </section>
+  <div class="fade-to-night" aria-hidden="true"></div>
+  <section class="band on-night" style="padding-top:clamp(36px,4vw,72px)" data-contact></section>
+</div>
+
+<!-- ===================================================================
+     SEITE: IMMOBILIENBEWERTUNG
+     =================================================================== -->
+<div data-page="bewertung">
+  <section class="subhero">
+    <div class="subhero__bg">
+      <div class="hero__fallback" aria-hidden="true"></div>
+      <!-- VIDEO BEWERTUNG · dein Stock-Clip hier -->
+      <video muted loop playsinline autoplay preload="none" aria-hidden="true" data-vid>
+        <source src="" type="video/mp4"></video>
+    </div>
+    <div class="subhero__scrim" aria-hidden="true"></div>
+    <div class="subhero__in">
+      <a href="#/" data-route="home" class="crumb">← Startseite</a>
+      <h1>Immobilienbewertung</h1>
+      <p>Was ist das Objekt wirklich wert? Eine nachvollziehbare Einschätzung, bevor Sie kaufen, verkaufen oder planen.</p>
+    </div>
+  </section>
+
+  <section class="band band--veil">
+    <div class="wrap">
+      <h2 data-reveal><span class="mask"><span>Wann eine Bewertung hilft</span></span></h2>
+      <div class="duo">
+        <div data-reveal style="--i:1">
+          <p class="lead">Eine Bewertung schafft Klarheit, bevor Geld fliesst. Sie zeigt, was ein Objekt trägt und wo Risiken liegen.</p>
+          <p class="body-sm" style="margin-top:18px">Als Architekturbüro sehen wir dabei nicht nur Lage und Vergleichswerte, sondern auch Bausubstanz, Grundriss und Umbaupotenzial. Das fliesst direkt in die Einschätzung ein.</p>
+          <a href="#/#kontakt" data-route="home" data-anchor="kontakt" class="pill" style="margin-top:28px">Bewertung anfragen
+            <span class="pill__arw" aria-hidden="true"><svg width="13" height="9" viewBox="0 0 13 9" fill="none"><path d="M0 4.5h11M7.5 1l3.5 3.5L7.5 8" stroke="currentColor" stroke-width="1.3"/></svg></span></a>
+        </div>
+        <ul data-reveal style="--i:2">
+          <li><strong>Kauf</strong><span>Prüfen, ob der Preis zum Zustand passt.</span></li>
+          <li><strong>Verkauf</strong><span>Einen belastbaren Preis ansetzen statt zu raten.</span></li>
+          <li><strong>Erbschaft und Teilung</strong><span>Eine Grundlage, auf die sich alle Beteiligten beziehen können.</span></li>
+          <li><strong>Bestandsplanung</strong><span>Wissen, was das Objekt heute wert ist, bevor investiert wird.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <h2 data-reveal><span class="mask"><span>So läuft es ab</span></span></h2>
+      <div class="proc" data-proc>
+        <div class="proc__step" style="--i:0"><span class="proc__n">01</span><h3>Kurzgespräch</h3><p class="body-sm">Objektart, Baujahr, Lage und Anlass. Danach wissen wir, was gebraucht wird.</p></div>
+        <div class="proc__step" style="--i:1"><span class="proc__n">02</span><h3>Ortstermin</h3><p class="body-sm">Besichtigung, Aufnahme von Zustand und Substanz.</p></div>
+        <div class="proc__step" style="--i:2"><span class="proc__n">03</span><h3>Auswertung</h3><p class="body-sm">Unterlagen, Vergleichsdaten und Bausubstanz zusammengeführt.</p></div>
+        <div class="proc__step" style="--i:3"><span class="proc__n">04</span><h3>Besprechung</h3><p class="body-sm">Ergebnis im Gespräch, nicht nur als Dokument.</p></div>
+      </div>
+    </div>
+  </section>
+  <div class="fade-to-night" aria-hidden="true"></div>
+  <section class="band on-night" style="padding-top:clamp(36px,4vw,72px)" data-contact></section>
+</div>
+
+<!-- ===================================================================
+     SEITE: ENERGIEBERATUNG
+     =================================================================== -->
+<div data-page="energie">
+  <section class="subhero">
+    <div class="subhero__bg">
+      <div class="hero__fallback" aria-hidden="true"></div>
+      <!-- VIDEO ENERGIE · dein Stock-Clip hier -->
+      <video muted loop playsinline autoplay preload="none" aria-hidden="true" data-vid>
+        <source src="" type="video/mp4"></video>
+    </div>
+    <div class="subhero__scrim" aria-hidden="true"></div>
+    <div class="subhero__in">
+      <a href="#/" data-route="home" class="crumb">← Startseite</a>
+      <h1>Energieberatung</h1>
+      <p>Welche Massnahme bringt am meisten, und in welcher Reihenfolge? Wir ordnen ein, bevor saniert wird.</p>
+    </div>
+  </section>
+
+  <section class="band band--veil">
+    <div class="wrap">
+      <h2 data-reveal><span class="mask"><span>Reihenfolge schlägt Aktionismus</span></span></h2>
+      <p class="lead" data-reveal style="--i:1;margin-top:18px">Die teuerste Massnahme ist selten die wirksamste. Wir schauen zuerst auf das Gebäude als Ganzes und legen dann die Reihenfolge fest.</p>
+      <div class="grid3" style="margin-top:clamp(34px,4vw,52px)">
+        <article class="card" data-reveal style="--i:0"><div class="card__body">
+          <span class="svc__num">01</span><h3 style="margin-top:12px">Energetische Bewertung</h3>
+          <p class="body-sm">Hülle, Fenster, Dach und Anlagentechnik im Zusammenhang betrachtet.</p></div></article>
+        <article class="card" data-reveal style="--i:1"><div class="card__body">
+          <span class="svc__num">02</span><h3 style="margin-top:12px">Sanierungsfahrplan</h3>
+          <p class="body-sm">Welche Schritte wann, damit sich spätere Massnahmen nicht gegenseitig blockieren.</p></div></article>
+        <article class="card" data-reveal style="--i:2"><div class="card__body">
+          <span class="svc__num">03</span><h3 style="margin-top:12px">Fördermöglichkeiten</h3>
+          <p class="body-sm">Einordnung, welche Programme für Ihr Vorhaben grundsätzlich infrage kommen.</p></div></article>
+      </div>
+      <div style="margin-top:clamp(30px,4vw,46px);--i:3" data-reveal>
+        <a href="#/#kontakt" data-route="home" data-anchor="kontakt" class="pill">Beratung anfragen
+          <span class="pill__arw" aria-hidden="true"><svg width="13" height="9" viewBox="0 0 13 9" fill="none"><path d="M0 4.5h11M7.5 1l3.5 3.5L7.5 8" stroke="currentColor" stroke-width="1.3"/></svg></span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <h2 data-reveal><span class="mask"><span>Häufig gefragt</span></span></h2>
+      <div class="duo">
+        <ul data-reveal style="--i:1">
+          <li><strong>Lohnt sich das bei einem Altbau?</strong><span>Oft ja, aber selten mit der Massnahme, die zuerst naheliegt. Genau dafür gibt es die Bewertung.</span></li>
+          <li><strong>Brauche ich das vor dem Kauf?</strong><span>Sinnvoll, wenn der Zustand unklar ist. Lässt sich mit der Bewertung kombinieren.</span></li>
+        </ul>
+        <ul data-reveal style="--i:2">
+          <li><strong>Was kostet die Beratung?</strong><span>Das hängt vom Objekt ab. Die erste Einordnung im Gespräch ist kostenlos.</span></li>
+          <li><strong>Übernehmen Sie auch die Umsetzung?</strong><span>Planung und Begleitung ja. Ausführende Gewerke koordinieren wir.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <div class="fade-to-night" aria-hidden="true"></div>
+  <section class="band on-night" style="padding-top:clamp(36px,4vw,72px)" data-contact></section>
+</div>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<div class="footwrap">
+<footer class="foot" id="foot">
+  <div class="wrap">
+    <div class="foot__top">
+      <h2 class="foot__cta">Ein Vorhaben im Kopf?<br><span>Reden wir darüber.</span></h2>
+      <a href="#/#kontakt" data-route="home" data-anchor="kontakt" class="pill">Erstgespräch vereinbaren
+        <span class="pill__arw" aria-hidden="true"><svg width="13" height="9" viewBox="0 0 13 9" fill="none"><path d="M0 4.5h11M7.5 1l3.5 3.5L7.5 8" stroke="currentColor" stroke-width="1.3"/></svg></span></a>
+    </div>
+    <div class="foot__grid">
+      <div>
+        <a href="#/" data-route="home" class="logo" aria-label="Startseite"><span class="logo__mark" aria-hidden="true"></span><span class="logo__type">BALIN</span></a>
+        <p class="foot__brandline">Architekturbüro in Kiel. Planung, Bewertung und Energieberatung aus einer Hand.</p>
+      </div>
+      <div><span class="foot__h">Leistungen</span><ul>
+        <li><a href="#/#architektur" data-route="home" data-anchor="architektur">Architektur</a></li>
+        <li><a href="#/bewertung" data-route="bewertung">Immobilienbewertung</a></li>
+        <li><a href="#/energie" data-route="energie">Energieberatung</a></li></ul></div>
+      <div><span class="foot__h">Büro</span><ul>
+        <li><a href="#/projekte" data-route="projekte">Projekte</a></li>
+        <li><a href="#/#buero" data-route="home" data-anchor="buero">Arbeitsweise</a></li>
+        <li><a href="#/#kontakt" data-route="home" data-anchor="kontakt">Kontakt</a></li></ul></div>
+      <div><span class="foot__h">Direkt</span><ul>
+        <li><a data-wa href="#" target="_blank" rel="noopener">WhatsApp</a></li>
+        <li><a data-tel href="#" data-bind="phoneDisplay"></a></li>
+        <li><a data-mail href="#" data-bind="email"></a></li></ul></div>
+    </div>
+    <div class="foot__mark" aria-hidden="true">BALIN</div>
+    <div class="foot__bar">
+      <span>© <span id="yr"></span> BALIN Architektur</span>
+      <!-- PLATZHALTER: echte Rechtsseiten -->
+      <nav aria-label="Rechtliches"><a href="#">Impressum</a><a href="#">Datenschutz</a></nav>
+      <a href="#/" data-route="home" class="totop">Nach oben
+        <svg width="11" height="12" viewBox="0 0 11 12" fill="none" aria-hidden="true"><path d="M5.5 11V1M1 5.5 5.5 1 10 5.5" stroke="currentColor" stroke-width="1.4"/></svg></a>
+    </div>
+  </div>
+</footer>
+</div>
+</div>
+
+<!-- ===================== CHATBOT ===================== -->
+<div class="fabs">
+  <a class="fab fab--wa" data-wa href="#" target="_blank" rel="noopener" aria-label="Per WhatsApp schreiben">
+    <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="currentColor" d="M12 2a10 10 0 0 0-8.53 15.23L2 22.5l5.4-1.42A10 10 0 1 0 12 2z"/>
+      <g transform="translate(6.9 6.6) scale(0.44)"><path fill="#1DA851" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.15.38 2.38.58 3.6.58a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.58 3.6a1 1 0 0 1-.25 1l-2.23 2.2z"/></g>
+    </svg></a>
+  <a class="fab fab--tel" data-tel href="#" aria-label="Jetzt anrufen">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.15.38 2.38.58 3.6.58a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.58 3.6a1 1 0 0 1-.25 1l-2.23 2.2z" fill="currentColor"/>
+    </svg></a>
+  <div class="teaser" id="teaser">
+    <button class="teaser__x" id="teaser-x" aria-label="Hinweis schließen">
+      <svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true"><path d="M1 1l9 9M10 1l-9 9" stroke="currentColor" stroke-width="1.4"/></svg></button>
+    <strong>Kurze Frage?</strong>
+    Der Chatbot beantwortet die häufigsten Fragen zu Architektur, Bewertung und Energie. Sofort.
+  </div>
+  <button class="chatbtn" id="chatbtn" aria-expanded="false" aria-controls="chat">
+    <span class="chatbtn__av" aria-hidden="true">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 4h16v12H8l-4 4V4z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+      <span class="chatbtn__live"></span></span>
+    <span class="lbl">Chatbot fragen</span>
+  </button>
+</div>
+
+<section class="chat" id="chat" role="dialog" aria-modal="false" aria-label="Chatbot von BALIN Architektur">
+  <header class="chat__head">
+    <span class="chat__av" aria-hidden="true">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 4h16v12H8l-4 4V4z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+      <span class="chatbtn__live"></span></span>
+    <span class="chat__ttl"><strong>BALIN Chatbot</strong><span>Antwortet sofort</span></span>
+    <button class="x" id="chat-close" aria-label="Chat schließen">
+      <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M1 1l13 13M14 1L1 14" stroke="currentColor" stroke-width="1.4"/></svg></button>
+  </header>
+  <div class="chat__log" id="chat-log" role="log" aria-live="polite"></div>
+  <div class="chips" id="chips"></div>
+  <form class="chat__foot" id="chat-form">
+    <label for="chat-in" class="hp">Ihre Nachricht</label>
+    <textarea id="chat-in" placeholder="Frage eintippen …" maxlength="500"></textarea>
+    <button type="submit" class="chat__send">Senden</button>
+  </form>
+  <p class="chat__note">Automatisierte Antworten. Für verbindliche Aussagen bitte anrufen.</p>
+</section>
+
+<script>
+/* ===========================================================
+   CONTENT · alle Kundendaten an einer Stelle
+   PLATZHALTER: Adresse und Rufnummer sind fiktiv.
+   =========================================================== */
+const CONTENT = {
+  phone:"+494315550142", phoneDisplay:"+49 431 555 0142", whatsapp:"494315550142",
+  email:"kontakt@balin-architektur.de", street:"Kleiner Kuhberg 14", cityLine:"24103 Kiel"
+};
+/* PLATZHALTER: echte Projekte. Bild ersetzen, Rest bleibt. */
+const projects = [
+  {title:"Wohnhaus am Hang",location:"Kiel",category:"Neubau",description:"Einfamilienhaus auf schmalem Hanggrundstück. Split-Level-Grundriss, der die Topografie aufnimmt.",image:"https://picsum.photos/seed/balin-p1/1800/900"},
+  {title:"Hofumbau Dänischenhagen",location:"Dänischenhagen",category:"Umbau",description:"Landwirtschaftlicher Altbestand, umgebaut zu Wohnen und Atelier.",image:"https://picsum.photos/seed/balin-p2/1200/1000"},
+  {title:"Sanierung Gründerzeit",location:"Kiel",category:"Sanierung",description:"Energetische Ertüchtigung einer Gründerzeitfassade unter Erhalt der Gliederung.",image:"https://picsum.photos/seed/balin-p3/1200/1000"},
+  {title:"Anbau Reihenhaus",location:"Gettorf",category:"Anbau",description:"Erweiterung nach Süden mit durchgehender Verglasung zum Garten.",image:"https://picsum.photos/seed/balin-p4/1200/900"},
+  {title:"Dachausbau",location:"Kiel",category:"Umbau",description:"Zwei Wohneinheiten im Bestand, neue Gauben und Erschliessung.",image:"https://picsum.photos/seed/balin-p5/1200/900"},
+  {title:"Praxisumbau",location:"Rendsburg",category:"Umbau",description:"Umnutzung einer Ladenfläche zu einer Praxis mit barrierefreiem Zugang.",image:"https://picsum.photos/seed/balin-p6/1200/900"}
+];
+const REDUCED = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ---------- Kontaktblock, auf jeder Seite identisch ---------- */
+const arw = '<svg class="arw" width="15" height="10" viewBox="0 0 15 10" fill="none" aria-hidden="true"><path d="M0 5h13M9 1l4 4-4 4" stroke="currentColor" stroke-width="1.3"/></svg>';
+const contactHTML = `
+<div class="wrap">
+  <h2 data-reveal><span class="mask"><span>Sprechen wir über Ihr Projekt.</span></span></h2>
+  <p class="lead" data-reveal style="--i:1;margin-top:18px">Das Erstgespräch ist kostenlos und unverbindlich. Schreiben Sie oder rufen Sie direkt an.</p>
+  <div class="contact">
+    <div class="formwrap" data-reveal style="--i:2">
+      <form class="form" novalidate>
+        <div class="row2">
+          <div class="field"><label>Name</label><input name="name" type="text" autocomplete="name" required><span class="err" aria-live="polite"></span></div>
+          <div class="field"><label>E-Mail</label><input name="email" type="email" autocomplete="email" required><span class="err" aria-live="polite"></span></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label>Telefon <span style="opacity:.6;font-weight:400">(optional)</span></label><input name="phone" type="tel" autocomplete="tel"><span class="err"></span></div>
+          <div class="field"><label>Leistung</label><select name="service" required>
+            <option value="">Bitte wählen</option><option>Architektur und Planung</option>
+            <option>Immobilienbewertung</option><option>Energieberatung</option><option>Noch unklar</option>
+          </select><span class="err" aria-live="polite"></span></div>
+        </div>
+        <div class="field"><label>Ihr Vorhaben</label><textarea name="message" required placeholder="Kurz in zwei, drei Sätzen: worum geht es?"></textarea><span class="err" aria-live="polite"></span></div>
+        <div class="hp"><label>Bitte leer lassen</label><input name="website" type="text" tabindex="-1" autocomplete="off"></div>
+        <button type="submit" class="pill">Anfrage senden
+          <span class="pill__arw" aria-hidden="true"><svg width="13" height="9" viewBox="0 0 13 9" fill="none"><path d="M0 4.5h11M7.5 1l3.5 3.5L7.5 8" stroke="currentColor" stroke-width="1.3"/></svg></span></button>
+      </form>
+      <div class="success" role="status" aria-live="polite">
+        <div class="check"><svg width="26" height="20" viewBox="0 0 26 20" fill="none" aria-hidden="true"><path d="M1 10.5 9 18 25 2" stroke="currentColor" stroke-width="1.6"/></svg></div>
+        <h3>Vielen Dank für Ihre Anfrage.</h3>
+        <p class="body-sm">Wir melden uns schnellstmöglich persönlich bei Ihnen.</p>
+      </div>
+    </div>
+    <div data-reveal style="--i:3">
+      <div class="chan">
+        <a class="chan__item" data-wa style="--c:var(--wa);--g:var(--wa-glow)" href="#" target="_blank" rel="noopener">
+          <span class="chan__bar" aria-hidden="true"></span>
+          <span class="chan__txt"><span class="chan__k">WhatsApp</span><span class="chan__v">Direkt schreiben</span></span>${arw}</a>
+        <a class="chan__item" data-tel style="--c:var(--tel);--g:var(--tel-glow)" href="#">
+          <span class="chan__bar" aria-hidden="true"></span>
+          <span class="chan__txt"><span class="chan__k">Telefon</span><span class="chan__v" data-bind="phoneDisplay"></span></span>${arw}</a>
+        <a class="chan__item" data-mail style="--c:var(--mail);--g:var(--mail-glow)" href="#">
+          <span class="chan__bar" aria-hidden="true"></span>
+          <span class="chan__txt"><span class="chan__k">E-Mail</span><span class="chan__v" data-bind="email"></span></span>${arw}</a>
+      </div>
+      <div class="loc">
+        <div class="loc__inner">
+          <button class="loc__head" type="button" aria-expanded="false" aria-label="Standort anzeigen">
+            <span class="loc__row">
+              <span class="loc__icon" aria-hidden="true">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2zM9 4v14M15 6v14" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="loc__live"><i aria-hidden="true"></i>Standort</span>
+            </span>
+            <span class="loc__name">BALIN Architektur</span>
+            <span class="loc__addr">Kleiner Kuhberg 14, 24103 Kiel</span>
+            <span class="loc__u" aria-hidden="true"></span>
+            <span class="loc__hint">Karte anzeigen
+              <svg width="11" height="7" viewBox="0 0 11 7" fill="none" aria-hidden="true"><path d="M1 1l4.5 4.5L10 1" stroke="currentColor" stroke-width="1.4"/></svg>
+            </span>
+          </button>
+          <div class="loc__wrap"><div class="loc__clip">
+            <div class="loc__map">
+              <span class="gl v" style="left:22%;--i:0"></span><span class="gl v" style="left:48%;--i:1"></span><span class="gl v" style="left:74%;--i:2"></span>
+              <span class="gl h" style="top:26%;--i:1"></span><span class="gl h" style="top:52%;--i:2"></span><span class="gl h" style="top:78%;--i:3"></span>
+              <span class="bd" style="left:8%;top:50%;width:18%;height:22%;--i:0"></span>
+              <span class="bd" style="left:15%;top:34%;width:13%;height:17%;--i:1"></span>
+              <span class="bd" style="left:33%;top:20%;width:13%;height:16%;--i:2"></span>
+              <span class="bd" style="left:62%;top:12%;width:11%;height:26%;--i:3"></span>
+              <span class="bd" style="left:76%;top:56%;width:17%;height:24%;--i:4"></span>
+              <span class="bd" style="left:47%;top:66%;width:12%;height:16%;--i:5"></span>
+              <span class="loc__ping" aria-hidden="true"></span>
+              <span class="loc__pin" aria-hidden="true">
+                <svg width="22" height="28" viewBox="0 0 22 28" fill="none"><path d="M11 27s9-9.3 9-16A9 9 0 1 0 2 11c0 6.7 9 16 9 16z" fill="currentColor"/><circle cx="11" cy="11" r="3.4" fill="#0A0C11"/></svg>
+              </span>
+              <span class="loc__meta">
+                <strong>Kleiner Kuhberg 14, 24103 Kiel</strong>
+                <code>54.3220° N, 10.1350° E</code>
+                <a class="loc__open" href="https://www.google.com/maps/search/?api=1&amp;query=Kleiner+Kuhberg+14+24103+Kiel" target="_blank" rel="noopener">In Google Maps öffnen
+                  <svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true"><path d="M1 10L10 1M4 1h6v6" stroke="currentColor" stroke-width="1.3"/></svg></a>
+              </span>
+            </div>
+          </div></div>
+        </div>
+      </div>
+      <address class="addr">Mo bis Fr, 9 bis 17 Uhr</address>
+    </div>
+  </div>
+</div>`;
+document.querySelectorAll("[data-contact]").forEach(s => s.innerHTML = contactHTML);
+
+/* ---------- Projekte rendern ---------- */
+document.getElementById("projList").innerHTML = projects.slice(0,3).map((p,i) => `
+  <article class="proj__item" data-reveal style="--i:${i}">
+    <div class="proj__media"><div class="ph" data-px="0.12">
+      <img src="${p.image}" alt="${p.title}, ${p.location}" loading="lazy" onerror="this.remove()"></div></div>
+    <div class="proj__meta">
+      <div class="proj__tags"><span>${p.category}</span><span>${p.location}</span></div>
+      <h3>${p.title}</h3><p class="body-sm">${p.description}</p></div>
+  </article>`).join("");
+
+document.getElementById("projGrid").innerHTML = projects.map((p,i) => `
+  <article class="card" data-reveal style="--i:${i % 3}">
+    <div class="card__media"><div class="ph">
+      <img src="${p.image}" alt="${p.title}, ${p.location}" loading="lazy" onerror="this.remove()"></div></div>
+    <div class="card__body">
+      <div class="proj__tags" style="margin-bottom:10px"><span>${p.category}</span><span>${p.location}</span></div>
+      <h3>${p.title}</h3><p class="body-sm">${p.description}</p></div>
+  </article>`).join("");
+
+/* ---------- Kontaktdaten binden ---------- */
+function bindContact(root=document){
+  root.querySelectorAll("[data-bind]").forEach(el => el.textContent = CONTENT[el.dataset.bind]);
+  root.querySelectorAll("[data-wa]").forEach(el => el.href = "https://wa.me/" + CONTENT.whatsapp);
+  root.querySelectorAll("[data-tel]").forEach(el => el.href = "tel:" + CONTENT.phone);
+  root.querySelectorAll("[data-mail]").forEach(el => el.href = "mailto:" + CONTENT.email);
+}
+bindContact();
+document.getElementById("yr").textContent = new Date().getFullYear();
+
+/* ===========================================================
+   SILK SHADER · WebGL1, keine Library
+   =========================================================== */
+(function silk(){
+  const cvs = document.getElementById("silk");
+  const gl = cvs.getContext("webgl",{antialias:false,alpha:false,depth:false,stencil:false,powerPreference:"low-power"});
+  if(!gl) return;
+  const VERT = `attribute vec2 a_pos;void main(){gl_Position=vec4(a_pos,0.0,1.0);}`;
+  const FRAG = `
+#ifdef GL_FRAGMENT_PRECISION_HIGH
+precision highp float;
+#else
+precision mediump float;
+#endif
+uniform vec3 u_colors[8];
+uniform vec4 u_scene; uniform vec4 u_shape; uniform vec4 u_surface;
+uniform vec4 u_finish; uniform vec4 u_transform; uniform vec4 u_space; uniform vec4 u_cursor;
+#define u_resolution u_scene.xy
+#define u_time u_scene.z
+#define u_colorCount u_scene.w
+#define u_scale u_shape.x
+#define u_intensity u_shape.y
+#define u_paramA u_shape.z
+#define u_warp u_shape.w
+#define u_detail u_surface.x
+#define u_contrast u_surface.y
+#define u_brightness u_surface.z
+#define u_saturation u_surface.w
+#define u_hue u_finish.x
+#define u_vignette u_finish.y
+#define u_blur u_finish.z
+#define u_grain u_finish.w
+#ifdef GL_FRAGMENT_PRECISION_HIGH
+#define u_seed u_transform.x
+#else
+#define u_seed mod(u_transform.x, 31.0)
+#endif
+#define u_rotate u_transform.y
+#define u_drift u_transform.z
+#define u_oklab u_transform.w
+#define u_offset u_space.xy
+#define u_mouse u_space.zw
+#define u_cursorPresence u_cursor.x
+#define u_cursorEffect u_cursor.y
+#define u_cursorStrength u_cursor.z
+#define u_cursorRadius u_cursor.w
+float hash21(vec2 p){
+#ifndef GL_FRAGMENT_PRECISION_HIGH
+  p = mod(p, 31.0);
+#endif
+  p = fract(p * vec2(234.34, 435.345));
+  p += dot(p, p + 34.23);
+  return fract(p.x * p.y);
+}
+float grainHash(vec2 p){
+  vec3 p3 = fract(vec3(p.xyx) * 0.1031);
+  p3 += dot(p3, p3.yzx + 33.33);
+  return fract((p3.x + p3.y) * p3.z);
+}
+float noise(vec2 p){
+  vec2 i = floor(p); vec2 f = fract(p);
+  vec2 u = f * f * (3.0 - 2.0 * f);
+  return mix(mix(hash21(i), hash21(i + vec2(1.0,0.0)), u.x),
+             mix(hash21(i + vec2(0.0,1.0)), hash21(i + vec2(1.0,1.0)), u.x), u.y);
+}
+float fbm(vec2 p){
+  float v = 0.0; float a = 0.5;
+  for(int i = 0; i < 5; i++){ v += a * noise(p); p = p * 2.03 + vec2(17.0, 9.2); a *= 0.5; }
+  return v;
+}
+vec3 srgbToLinear(vec3 c){ return mix(c / 12.92, pow((c + 0.055) / 1.055, vec3(2.4)), step(0.04045, c)); }
+vec3 linearToSrgb(vec3 c){ return mix(c * 12.92, 1.055 * pow(max(c, vec3(0.0)), vec3(1.0/2.4)) - 0.055, step(0.0031308, c)); }
+vec3 linToOklab(vec3 c){
+  float l = 0.4122214708*c.r + 0.5363325363*c.g + 0.0514459929*c.b;
+  float m = 0.2119034982*c.r + 0.6806995451*c.g + 0.1073969566*c.b;
+  float s = 0.0883024619*c.r + 0.2817188376*c.g + 0.6299787005*c.b;
+  l = pow(max(l,0.0), 1.0/3.0); m = pow(max(m,0.0), 1.0/3.0); s = pow(max(s,0.0), 1.0/3.0);
+  return vec3(0.2104542553*l + 0.7936177850*m - 0.0040720468*s,
+              1.9779984951*l - 2.4285922050*m + 0.4505937099*s,
+              0.0259040371*l + 0.7827717662*m - 0.8086757660*s);
+}
+vec3 oklabToLin(vec3 c){
+  float l = c.x + 0.3963377774*c.y + 0.2158037573*c.z;
+  float m = c.x - 0.1055613458*c.y - 0.0638541728*c.z;
+  float s = c.x - 0.0894841775*c.y - 1.2914855480*c.z;
+  l = l*l*l; m = m*m*m; s = s*s*s;
+  return vec3( 4.0767416621*l - 3.3077115913*m + 0.2309699292*s,
+              -1.2684380046*l + 2.6097574011*m - 0.3413193965*s,
+              -0.0041960863*l - 0.7034186147*m + 1.7076147010*s);
+}
+vec3 mixColour(vec3 a, vec3 b, float t){
+  if(u_oklab > 0.5){
+    vec3 la = linToOklab(srgbToLinear(a));
+    vec3 lb = linToOklab(srgbToLinear(b));
+    return clamp(linearToSrgb(oklabToLin(mix(la, lb, t))), 0.0, 1.0);
+  }
+  return mix(a, b, t);
+}
+vec3 palette(float x){
+  float n = max(u_colorCount - 1.0, 1.0);
+  float f = clamp(x, 0.0, 1.0) * n;
+  vec3 col = u_colors[0];
+  for(int i = 0; i < 7; i++){
+    if(float(i) < n)
+      col = mixColour(col, u_colors[i + 1], smoothstep(0.0, 1.0, clamp(f - float(i), 0.0, 1.0)));
+  }
+  return col;
+}
+vec3 hueRotate(vec3 col, float a){
+  const mat3 toYIQ = mat3(0.299,0.596,0.211, 0.587,-0.274,-0.523, 0.114,-0.322,0.312);
+  const mat3 toRGB = mat3(1.0,1.0,1.0, 0.956,-0.272,-1.106, 0.621,-0.647,1.703);
+  vec3 yiq = toYIQ * col;
+  float ca = cos(a), sa = sin(a);
+  yiq = vec3(yiq.x, yiq.y*ca - yiq.z*sa, yiq.y*sa + yiq.z*ca);
+  return toRGB * yiq;
+}
+vec3 shade(vec2 uv, vec2 p, float t){
+  vec2 q = p * 1.6;
+  float amp = 0.25 + u_intensity * 0.85;
+  for(float i = 1.0; i < 5.0; i += 1.0){
+    q.x += amp / i * cos(i * 2.4 * q.y + t * 0.8 + u_seed);
+    q.y += amp / i * cos(i * 1.7 * q.x + t * 0.6);
+  }
+  return palette(0.5 + 0.5 * sin(q.x + q.y));
+}
+void main(){
+  vec2 uv = gl_FragCoord.xy / u_resolution.xy;
+  vec2 screenUv = uv;
+  vec2 p = (gl_FragCoord.xy - 0.5 * u_resolution.xy) / min(u_resolution.x, u_resolution.y);
+  float cursorMask = 0.0;
+  if(u_cursorPresence > 0.001){
+    vec2 cursor = (0.5 * u_mouse * u_resolution.xy) / min(u_resolution.x, u_resolution.y);
+    vec2 cursorDelta = p - cursor;
+    if(u_cursorEffect < 0.5){
+      p += cursor * u_cursorPresence * u_cursorStrength * 0.55;
+    } else {
+      float cursorDistance = length(cursorDelta);
+      vec2 cursorDirection = cursorDelta / max(cursorDistance, 0.0001);
+      cursorMask = u_cursorPresence * (1.0 - smoothstep(0.0, u_cursorRadius, cursorDistance));
+      if(u_cursorEffect < 1.5){ p -= cursorDirection * cursorMask * u_cursorStrength * 0.24; }
+      else if(u_cursorEffect < 2.5){
+        float cursorAngle = cursorMask * u_cursorStrength * 2.2;
+        float cc = cos(cursorAngle), cs = sin(cursorAngle);
+        p = cursor + mat2(cc, -cs, cs, cc) * cursorDelta;
+      } else if(u_cursorEffect < 3.5){
+        float ripple = sin(cursorDistance / max(u_cursorRadius, 0.001) * 18.0 - u_time * 5.0);
+        p -= cursorDirection * ripple * cursorMask * u_cursorStrength * 0.07;
+      }
+    }
+  }
+  uv = p * min(u_resolution.x, u_resolution.y) / u_resolution.xy + 0.5;
+  p *= u_scale;
+  if(abs(u_rotate) > 0.0001){
+    float cr = cos(u_rotate), sr = sin(u_rotate);
+    p = mat2(cr, -sr, sr, cr) * p;
+  }
+  p += u_offset;
+  if(u_drift > 0.0001) p += u_drift * vec2(sin(u_time * 0.31), cos(u_time * 0.23));
+  if(u_warp > 0.0){ p += u_warp * (vec2(fbm(p * u_detail + u_seed), fbm(p * u_detail + vec2(5.2, 1.3))) - 0.5); }
+  vec3 col;
+  if(u_blur > 0.0){
+    float e = u_blur; float pe = e * u_scale;
+    vec2 uvE = vec2(e) * min(u_resolution.x, u_resolution.y) / u_resolution.xy;
+    col  = shade(uv, p, u_time) * 0.36;
+    col += shade(uv + vec2(uvE.x, 0.0), p + vec2(pe, 0.0), u_time) * 0.16;
+    col += shade(uv - vec2(uvE.x, 0.0), p - vec2(pe, 0.0), u_time) * 0.16;
+    col += shade(uv + vec2(0.0, uvE.y), p + vec2(0.0, pe), u_time) * 0.16;
+    col += shade(uv - vec2(0.0, uvE.y), p - vec2(0.0, pe), u_time) * 0.16;
+  } else { col = shade(uv, p, u_time); }
+  if(abs(u_contrast - 1.0) > 0.0001) col = (col - 0.5) * u_contrast + 0.5;
+  if(abs(u_saturation - 1.0) > 0.0001){
+    float luma = dot(col, vec3(0.299, 0.587, 0.114));
+    col = mix(vec3(luma), col, u_saturation);
+  }
+  if(abs(u_hue) > 0.0001) col = hueRotate(col, u_hue);
+  if(abs(u_brightness) > 0.0001) col += u_brightness;
+  if(u_vignette > 0.0001){
+    float vd = length(screenUv - 0.5) * 1.41421356;
+    col *= 1.0 - u_vignette * smoothstep(0.35, 1.0, vd);
+  }
+  if(u_cursorPresence > 0.001 && u_cursorEffect > 3.5)
+    col += (vec3(0.18) + col * 0.12) * cursorMask * u_cursorStrength;
+  if(u_grain > 0.0001)
+    col += (grainHash(gl_FragCoord.xy + vec2(u_seed * 17.0, u_seed * 31.0)) - 0.5) * u_grain;
+  gl_FragColor = vec4(clamp(col, 0.0, 1.0), 1.0);
+}`;
+  function compile(t,s){const sh=gl.createShader(t);gl.shaderSource(sh,s);gl.compileShader(sh);
+    if(!gl.getShaderParameter(sh,gl.COMPILE_STATUS)){console.warn(gl.getShaderInfoLog(sh));return null}return sh}
+  const vs=compile(gl.VERTEX_SHADER,VERT), fs=compile(gl.FRAGMENT_SHADER,FRAG);
+  if(!vs||!fs) return;
+  const prog=gl.createProgram();gl.attachShader(prog,vs);gl.attachShader(prog,fs);gl.linkProgram(prog);
+  if(!gl.getProgramParameter(prog,gl.LINK_STATUS)){console.warn(gl.getProgramInfoLog(prog));return}
+  gl.useProgram(prog);
+  const buf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buf);
+  gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW);
+  const loc=gl.getAttribLocation(prog,"a_pos");gl.enableVertexAttribArray(loc);
+  gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
+  const U=n=>gl.getUniformLocation(prog,n);
+  const uColors=U("u_colors[0]"),uScene=U("u_scene"),uShape=U("u_shape"),uSurface=U("u_surface"),
+        uFinish=U("u_finish"),uTransform=U("u_transform"),uSpace=U("u_space"),uCursor=U("u_cursor");
+  const C=[0.878,0.894,1.000, 0.898,0.914,1.000, 0.941,0.949,1.000, 0.941,0.949,1.000];
+  const colors=new Float32Array(24); colors.set(C,0);
+  for(let i=12;i<24;i+=3){colors[i]=C[9];colors[i+1]=C[10];colors[i+2]=C[11]}
+  gl.uniform3fv(uColors,colors);
+  gl.uniform4f(uShape,1.26,0.28,0.50,0.00);
+  gl.uniform4f(uSurface,2.40,1.11,-0.07,1.20);
+  gl.uniform4f(uFinish,0.00,0.00,0.000,0.01);
+  gl.uniform4f(uTransform,1581.0,0.00,0.00,0.0);
+  gl.uniform4f(uSpace,0,0,0,0);
+  gl.uniform4f(uCursor,0.0,2.0,0.65,0.46);
+  let w=0,h=0;
+  function size(){
+    const dpr=Math.min(devicePixelRatio||1,2);
+    const nw=Math.round(innerWidth*dpr), nh=Math.round(innerHeight*dpr);
+    if(nw===w&&nh===h) return; w=nw;h=nh;cvs.width=w;cvs.height=h;gl.viewport(0,0,w,h);
+  }
+  let running=true,raf=0;
+  function frame(now){ size(); gl.uniform4f(uScene,w,h,(now/1000)*0.35,4.0);
+    gl.drawArrays(gl.TRIANGLES,0,3); if(running) raf=requestAnimationFrame(frame) }
+  function still(){ size(); gl.uniform4f(uScene,w,h,4.2,4.0); gl.drawArrays(gl.TRIANGLES,0,3) }
+  if(REDUCED){ running=false; still() } else raf=requestAnimationFrame(frame);
+  addEventListener("resize",()=>{ if(!running) still() },{passive:true});
+  document.addEventListener("visibilitychange",()=>{
+    if(REDUCED) return;
+    if(document.hidden){running=false;cancelAnimationFrame(raf)}
+    else if(!running){running=true;raf=requestAnimationFrame(frame)}
+  });
+})();
+
+/* ===========================================================
+   HERO-SCROLL  ·  --p von 0 bis 1 über die Scroll-Reserve
+   =========================================================== */
+const hero = document.getElementById("hero");
+const heroFrame = document.getElementById("heroFrame");
+const pxEls = () => [...document.querySelectorAll('[data-page].active [data-px]')];
+let frameTick = false;
+function onScroll(){
+  if(hero && hero.offsetParent !== null && !REDUCED){
+    const total = hero.offsetHeight - innerHeight;
+    const p = total > 0 ? Math.min(Math.max(scrollY / total, 0), 1) : 0;
+    hero.style.setProperty("--p", p.toFixed(4));
+  }
+  const vh = innerHeight;
+  for(const el of pxEls()){
+    const r = el.getBoundingClientRect();
+    if(r.bottom < -200 || r.top > vh + 200) continue;
+    el.style.transform = `translate3d(0, ${((r.top + r.height/2 - vh/2) * parseFloat(el.dataset.px)).toFixed(2)}px, 0)`;
+  }
+  nav.classList.toggle("scrolled", scrollY > 30);
+  frameTick = false;
+}
+const nav = document.getElementById("nav");
+addEventListener("scroll", () => { if(!frameTick){ frameTick = true; requestAnimationFrame(onScroll) } }, {passive:true});
+addEventListener("resize", onScroll, {passive:true});
+
+/* Video-Fehler abfangen, leere Quellen entfernen */
+document.querySelectorAll("video").forEach(v => {
+  const src = v.querySelector("source");
+  if(!src || !src.getAttribute("src")){ v.remove(); return; }
+  v.addEventListener("error", () => v.remove(), true);
+  src.addEventListener("error", () => v.remove());
+  if(REDUCED) v.pause();
+});
+
+/* ===========================================================
+   REVEALS
+   =========================================================== */
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target) }
+}), {threshold:.14, rootMargin:"0px 0px -8% 0px"});
+function observePage(){
+  const page = document.querySelector('[data-page].active');
+  if(!page) return;
+  page.querySelectorAll("[data-reveal]:not(.in)").forEach(el => io.observe(el));
+  page.querySelectorAll("[data-proc]:not(.in)").forEach(el => io.observe(el));
+}
+const footEl = document.getElementById("foot");
+io.observe(footEl);
+observePage();
+requestAnimationFrame(() => requestAnimationFrame(() => document.body.classList.add("is-ready")));
+
+/* ===========================================================
+   ROUTER  ·  Hash-basiert. In Astro wird daraus je eine Route
+   unter src/pages/ plus <ViewTransitions /> im Layout.
+   =========================================================== */
+const PAGES = ["home","projekte","bewertung","energie"];
+function easeInOutCubic(t){ return t < .5 ? 4*t*t*t : 1 - Math.pow(-2*t+2,3)/2 }
+function scrollToY(target, dur){
+  if(REDUCED){ scrollTo(0,target); return }
+  const start = scrollY, delta = target - start, t0 = performance.now();
+  (function step(now){
+    const p = Math.min((now - t0)/dur, 1);
+    scrollTo(0, start + delta * easeInOutCubic(p));
+    if(p < 1) requestAnimationFrame(step);
+  })(performance.now());
+}
+function applyPage(name, anchor){
+  document.querySelectorAll("[data-page]").forEach(p => p.classList.toggle("active", p.dataset.page === name));
+  document.querySelectorAll(".nav__links a").forEach(a => a.classList.toggle("current", a.dataset.route === name && !a.dataset.anchor));
+  scrollTo(0,0);
+  observePage();
+  onScroll();
+  if(anchor){
+    requestAnimationFrame(() => {
+      const el = document.getElementById(anchor);
+      if(el) scrollToY(Math.max(el.getBoundingClientRect().top + scrollY - 96, 0), 650);
+    });
+  }
+}
+function navigate(name, anchor){
+  const current = document.querySelector("[data-page].active")?.dataset.page;
+  if(current === name){
+    if(anchor){
+      const el = document.getElementById(anchor);
+      if(el) scrollToY(Math.max(el.getBoundingClientRect().top + scrollY - 96, 0), 700);
+    } else scrollToY(0, 800);
+    return;
+  }
+  const app = document.getElementById("app");
+  if(document.startViewTransition && !REDUCED){
+    document.startViewTransition(() => applyPage(name, anchor));
+  } else {
+    app.classList.add("fading");
+    setTimeout(() => { applyPage(name, anchor); app.classList.remove("fading") }, 200);
+  }
+}
+document.addEventListener("click", ev => {
+  const a = ev.target.closest("a[data-route]");
+  if(a){
+    ev.preventDefault();
+    closeMobile();
+    const name = a.dataset.route, anchor = a.dataset.anchor || "";
+    location.hash = "#/" + (name === "home" ? "" : name) + (anchor ? "#" + anchor : "");
+    navigate(name, anchor);
+    return;
+  }
+  const h = ev.target.closest('a[href^="#"]:not([data-route])');
+  if(h && h.getAttribute("href") !== "#"){
+    const el = document.querySelector(h.getAttribute("href"));
+    if(el){ ev.preventDefault(); closeMobile(); scrollToY(Math.max(el.getBoundingClientRect().top + scrollY - 96, 0), 700) }
+  }
+});
+function fromHash(){
+  const raw = location.hash.replace(/^#\//, "");
+  const [name, anchor] = raw.split("#");
+  const page = PAGES.includes(name) ? name : "home";
+  applyPage(page, anchor || "");
+}
+addEventListener("hashchange", fromHash);
+if(location.hash) fromHash();
+
+/* ---------- Mobile-Nav ---------- */
+const burger = document.getElementById("burger"), mobilenav = document.getElementById("mobilenav");
+function closeMobile(){ burger.setAttribute("aria-expanded","false"); mobilenav.classList.remove("open"); document.body.classList.remove("no-scroll") }
+burger.addEventListener("click", () => {
+  const open = burger.getAttribute("aria-expanded") === "true";
+  burger.setAttribute("aria-expanded", String(!open));
+  mobilenav.classList.toggle("open", !open);
+  document.body.classList.toggle("no-scroll", !open);
+});
+
+/* ===========================================================
+   FORMULARE  ·  jede Seite hat eines, alle gleich behandelt
+   =========================================================== */
+function setErr(f, msg){
+  const wrap = f.closest(".field");
+  wrap.classList.toggle("invalid", !!msg);
+  wrap.querySelector(".err").textContent = msg || "";
+  f.setAttribute("aria-invalid", msg ? "true" : "false");
+}
+document.addEventListener("submit", ev => {
+  const form = ev.target.closest(".form");
+  if(!form) return;
+  ev.preventDefault();
+  if(form.website.value) return;                   // Honeypot
+  let ok = true;
+  [[form.name, v => v.trim().length >= 2, "Bitte Namen angeben."],
+   [form.email, v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()), "Bitte gültige E-Mail angeben."],
+   [form.service, v => !!v, "Bitte Leistung wählen."],
+   [form.message, v => v.trim().length >= 10, "Bitte kurz beschreiben, worum es geht."]
+  ].forEach(([f,test,msg]) => { const bad = !test(f.value); setErr(f, bad ? msg : ""); if(bad) ok = false });
+  if(!ok){ form.querySelector(".invalid input, .invalid select, .invalid textarea")?.focus(); return }
+
+  /* ECHTER VERSAND: POST /api/kontakt (serverseitig, mit Rate Limit). */
+  form.classList.add("gone");
+  setTimeout(() => form.parentElement.querySelector(".success").classList.add("on"), 260);
+});
+
+/* ===========================================================
+   STANDORTKARTE  ·  Tilt nach Mauszeiger, Klick klappt die Karte auf
+   =========================================================== */
+document.querySelectorAll(".loc").forEach(loc => {
+  const inner = loc.querySelector(".loc__inner");
+  const head  = loc.querySelector(".loc__head");
+  const hint  = loc.querySelector(".loc__hint");
+  io.observe(loc);
+  head.addEventListener("click", () => {
+    const open = loc.classList.toggle("open");
+    head.setAttribute("aria-expanded", String(open));
+    hint.firstChild.textContent = open ? "Karte schließen " : "Karte anzeigen ";
+  });
+  if(REDUCED) return;
+  inner.addEventListener("pointermove", e => {
+    if(e.pointerType === "touch") return;
+    const r = inner.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - .5;
+    const y = (e.clientY - r.top) / r.height - .5;
+    inner.classList.add("tilting");
+    inner.style.setProperty("--ry", (x * 9).toFixed(2) + "deg");
+    inner.style.setProperty("--rx", (-y * 7).toFixed(2) + "deg");
+    inner.style.setProperty("--sc", "1.012");
+  });
+  const rest = () => {
+    inner.classList.remove("tilting");
+    inner.style.setProperty("--rx","0deg");
+    inner.style.setProperty("--ry","0deg");
+    inner.style.setProperty("--sc","1");
+  };
+  inner.addEventListener("pointerleave", rest);
+  inner.addEventListener("pointercancel", rest);
+});
+
+/* ===========================================================
+   CHATBOT
+   Vordefinierte Antworten aus lokaler Wissensbasis.
+   Kein API-Key im Frontend. Spätere Anbindung serverseitig
+   über POST /api/chat mit Rate Limit, Tagesdeckel, Kill Switch,
+   Logging und Prompt-Injection-Schutz.
+   Regel: bekannt -> antworten. Unbekannt -> Telefonnummer.
+   =========================================================== */
+const LIMITS = { maxLen:500, maxPerSession:12, killSwitch:false };
+let sent = 0;
+const KB = [
+  {k:["architekt","planung","entwurf","neubau","umbau","sanier","genehmig","bauleit","anbau"],
+   a:"Wir übernehmen Entwurf, Genehmigungs- und Ausführungsplanung sowie die Begleitung auf der Baustelle. Neubau, Umbau und Sanierung."},
+  {k:["bewert","wert","verkauf","kauf","gutacht","immobilie","erb"],
+   a:"Wir erstellen Wertermittlungen für Kauf, Verkauf, Erbschaft und Bestandsplanung. Für eine konkrete Einschätzung brauchen wir Objektart, Baujahr und Lage."},
+  {k:["energ","förder","foerder","dämm","daemm","heizung","effizienz","sanierungsfahrplan"],
+   a:"Zur Energieberatung gehören die energetische Bewertung des Gebäudes, ein Sanierungsfahrplan und die Einordnung möglicher Förderungen."},
+  {k:["ablauf","prozess","schritt","wie läuft","dauer","lange"],
+   a:"In vier Schritten: Erstgespräch, Analyse und Konzept, Planung, Umsetzung. Das Erstgespräch ist kostenlos und unverbindlich."},
+  {k:["termin","erstgespräch","kontakt","beratung","anrufen","telefon"],
+   a:`Am schnellsten telefonisch unter <a href="tel:${CONTENT.phone}">${CONTENT.phoneDisplay}</a> oder über das Formular auf dieser Seite.`},
+  {k:["gebiet","region","kiel","umkreis","wo ","anfahrt"],
+   a:"Wir arbeiten in Kiel und im Umland in Schleswig-Holstein."},
+  {k:["kost","preis","honorar","teuer"],
+   a:`Das hängt vom Umfang ab und lässt sich seriös erst nach einem Gespräch sagen. Eine erste Einordnung bekommen Sie kostenlos unter <a href="tel:${CONTENT.phone}">${CONTENT.phoneDisplay}</a>.`},
+  {k:["projekt","referenz","beispiel","portfolio"],
+   a:'Eine Auswahl finden Sie auf der Seite <a href="#/projekte" data-route="projekte">Projekte</a>.'}
+];
+const FALLBACK = `Diese Frage kann ich leider nicht zuverlässig beantworten. Für eine persönliche Einschätzung erreichen Sie uns kostenlos und unverbindlich unter <a href="tel:${CONTENT.phone}">${CONTENT.phoneDisplay}</a>.`;
+
+const chat = document.getElementById("chat"), chatLog = document.getElementById("chat-log"),
+      chatIn = document.getElementById("chat-in"), chatBtn = document.getElementById("chatbtn"),
+      teaser = document.getElementById("teaser");
+function bubble(html, kind){
+  const d = document.createElement("div"); d.className = "msg msg--" + kind; d.innerHTML = html;
+  chatLog.appendChild(d); chatLog.scrollTop = chatLog.scrollHeight; return d;
+}
+function typing(){
+  const d = document.createElement("div"); d.className = "typing"; d.innerHTML = "<i></i><i></i><i></i>";
+  chatLog.appendChild(d); chatLog.scrollTop = chatLog.scrollHeight; return d;
+}
+function answer(q){
+  const s = q.toLowerCase();
+  const hit = KB.find(e => e.k.some(k => s.includes(k)));
+  return hit ? hit.a : FALLBACK;
+}
+function ask(q){
+  if(LIMITS.killSwitch){ bubble("Der Chat ist gerade nicht verfügbar. Bitte nutzen Sie das Formular.","err"); return }
+  if(q.length > LIMITS.maxLen){ bubble("Die Nachricht ist zu lang. Bitte kürzer fassen.","err"); return }
+  if(++sent > LIMITS.maxPerSession){
+    bubble(`Für weitere Fragen erreichen Sie uns direkt unter <a href="tel:${CONTENT.phone}">${CONTENT.phoneDisplay}</a>.`,"err"); return }
+  bubble(q.replace(/[<>]/g,""), "user");
+  document.getElementById("chips").innerHTML = "";
+  const t = typing();
+  setTimeout(() => { t.remove(); bubble(answer(q), "bot") }, REDUCED ? 120 : 620);
+}
+function openChat(open){
+  chat.classList.toggle("open", open);
+  chatBtn.setAttribute("aria-expanded", String(open));
+  teaser.classList.remove("show");
+  if(open){
+    if(!chatLog.children.length){
+      bubble("Hallo. Ich bin der Chatbot von BALIN Architektur und beantworte die häufigsten Fragen. Worum geht es?","bot");
+      document.getElementById("chips").innerHTML =
+        ["Wie läuft ein Projekt ab?","Was gehört zur Energieberatung?","Was kostet das?","Termin vereinbaren"]
+        .map(c => `<button class="chip" type="button">${c}</button>`).join("");
+    }
+    setTimeout(() => chatIn.focus(), 320);
+  }
+}
+chatBtn.addEventListener("click", () => openChat(!chat.classList.contains("open")));
+document.getElementById("chat-close").addEventListener("click", () => { openChat(false); chatBtn.focus() });
+document.getElementById("chips").addEventListener("click", e => { if(e.target.classList.contains("chip")) ask(e.target.textContent) });
+document.getElementById("chat-form").addEventListener("submit", e => {
+  e.preventDefault();
+  const v = chatIn.value.trim(); if(!v) return;
+  chatIn.value = ""; ask(v);
+});
+chatIn.addEventListener("keydown", e => { if(e.key === "Enter" && !e.shiftKey){ e.preventDefault(); document.getElementById("chat-form").requestSubmit() } });
+addEventListener("keydown", e => {
+  if(e.key !== "Escape") return;
+  if(chat.classList.contains("open")){ openChat(false); chatBtn.focus() }
+  else if(mobilenav.classList.contains("open")) closeMobile();
+});
+document.getElementById("teaser-x").addEventListener("click", () => teaser.classList.remove("show"));
+teaser.addEventListener("click", e => { if(!e.target.closest(".teaser__x")) openChat(true) });
+setTimeout(() => { if(!chat.classList.contains("open")) teaser.classList.add("show") }, 3200);
+setTimeout(() => teaser.classList.remove("show"), 16000);
+
+onScroll();
+</script>
+</body>
+</html>
