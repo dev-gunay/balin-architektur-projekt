@@ -10,10 +10,15 @@
 <meta property="og:site_name" content="BALIN Architektur">
 <meta property="og:title" content="BALIN Architektur · Räume, die bleiben">
 <meta property="og:description" content="Architektur, Immobilienbewertung und Energieberatung aus einer Hand.">
-<meta name="theme-color" content="#0B0C10">
+<meta name="theme-color" content="#0D0F19">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={corePlugins:{preflight:false},theme:{extend:{
+  colors:{ink:"#0E1019",paper:"#E9EBF4",night:"#0D0F19",snow:"#EEF0F8"},
+  transitionTimingFunction:{arch:"cubic-bezier(.16,.86,.30,1)",calm:"cubic-bezier(.22,.61,.36,1)"}
+}}};</script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ProfessionalService","name":"BALIN Architektur",
 "description":"Architekturbüro für Neubau, Umbau und Sanierung. Immobilienbewertung und Energieberatung.",
@@ -28,13 +33,20 @@
    =========================================================== */
 :root{
   --paper:#E9EBF4; --veil:rgba(255,255,255,.58); --veil-2:rgba(255,255,255,.34);
-  --night:#0B0C10; --ink:#0C0D12; --ink-2:#3B3F4C; --ink-3:#6B7080; --snow:#EEF0F8;
+  /* Dunkelskala liegt auf derselben Blau-Achse wie Paper/Silk, damit Main,
+     Vorfooter und Footer als ein Farbsystem gelesen werden. */
+  --night:#0D0F19; --night-2:#141829; --night-3:#1B2033;
+  --glow:rgba(124,156,255,.13);
+  --ink:#0E1019; --ink-2:#3B3F4C; --ink-3:#6B7080; --snow:#EEF0F8;
   --line:rgba(12,13,18,.13); --line-2:rgba(12,13,18,.28); --line-n:rgba(238,240,248,.16);
-  --wa:#1DA851; --wa-glow:rgba(29,168,81,.45);
-  --tel:#3B7BE0; --tel-glow:rgba(59,123,224,.45);
+  --wa:#25D366; --wa-glow:rgba(37,211,102,.52);
+  --tel:#0A7CFF; --tel-glow:rgba(10,124,255,.55);
   --mail:#D2743A; --mail-glow:rgba(210,116,58,.45);
   --e-calm:cubic-bezier(.22,.61,.36,1); --e-arch:cubic-bezier(.16,.86,.30,1); --e-soft:cubic-bezier(.40,0,.20,1);
   --t-fast:200ms; --t-base:420ms; --t-slow:760ms;
+  --font-display:"Instrument Serif",Georgia,"Times New Roman",serif;
+  --font-sans:"Inter Tight",system-ui,-apple-system,sans-serif;
+  --font-mono:"JetBrains Mono",ui-monospace,monospace;
   --gut:clamp(20px,4.2vw,64px); --maxw:1400px; --nav-h:62px;
   color-scheme:light; box-sizing:border-box;
   padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
@@ -42,7 +54,7 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:light}}
 *,*::before,*::after{box-sizing:inherit}
 html{-webkit-text-size-adjust:100%;background:var(--paper);scroll-padding-top:calc(var(--nav-h) + 30px)}
-body{margin:0;background:transparent;color:var(--ink);font-family:"Archivo",system-ui,sans-serif;
+body{margin:0;background:transparent;color:var(--ink);font-family:var(--font-sans);
   font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 body.no-scroll{overflow:hidden}
 img{max-width:100%;display:block}
@@ -54,9 +66,10 @@ a{color:inherit;text-decoration:none}
 .skip:focus{left:8px;top:8px}
 #silk{position:fixed;inset:0;width:100%;height:100%;z-index:-2;display:block;background:var(--paper)}
 
-.mono{font-family:"JetBrains Mono",monospace;font-weight:300}
-.eyebrow{font-family:"JetBrains Mono",monospace;font-weight:300;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3)}
-h1,h2,h3{margin:0;font-weight:500;letter-spacing:-.03em;line-height:1.04}
+.mono{font-family:var(--font-mono);font-weight:300}
+.eyebrow{font-family:var(--font-mono);font-weight:300;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3)}
+h1,h2,h3{margin:0;font-family:var(--font-display);font-weight:400;
+  letter-spacing:-.018em;line-height:1.06}
 h2{font-size:clamp(1.9rem,3.7vw,3.05rem)}
 h3{font-size:clamp(1.08rem,1.5vw,1.36rem);letter-spacing:-.02em;line-height:1.22}
 p{margin:0}
@@ -64,9 +77,17 @@ p{margin:0}
 .body-sm{font-size:.94rem;color:var(--ink-2);line-height:1.6;max-width:56ch}
 .wrap{max-width:var(--maxw);margin:0 auto;padding-inline:var(--gut)}
 .band{padding-block:clamp(66px,8vw,132px);position:relative}
-.band--veil{background:var(--veil)}
-.band--veil2{background:var(--veil-2)}
-.on-night{background:var(--night);color:var(--snow)}
+/* Weiche Ober- und Unterkante, damit die Baender nicht als Stufe abreissen. */
+.band--veil{background:linear-gradient(180deg,
+  rgba(255,255,255,0) 0%,var(--veil) 7%,var(--veil) 93%,rgba(255,255,255,0) 100%)}
+.band--veil2{background:linear-gradient(180deg,
+  rgba(255,255,255,0) 0%,var(--veil-2) 7%,var(--veil-2) 93%,rgba(255,255,255,0) 100%)}
+.on-night{background:var(--night);color:var(--snow);isolation:isolate}
+/* Derselbe kuehle Schimmer wie im Footer, damit Vorfooter und Footer
+   zusammen eine Flaeche ergeben statt zweier verschiedener Schwarztoene. */
+.on-night::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(118% 92% at 84% 0%,var(--glow),transparent 62%),
+             radial-gradient(86% 70% at 6% 96%,rgba(124,156,255,.07),transparent 66%)}
 .on-night .eyebrow{color:rgba(238,240,248,.52)}
 .on-night .lead,.on-night .body-sm{color:rgba(238,240,248,.66)}
 
@@ -117,19 +138,38 @@ p{margin:0}
    NAV
    =========================================================== */
 .nav{position:fixed;left:0;right:0;top:0;z-index:80;padding:18px var(--gut) 0;
-  padding-top:calc(18px + env(safe-area-inset-top,0px));pointer-events:none}
-.nav__pill{pointer-events:auto;max-width:var(--maxw);margin:0 auto;height:var(--nav-h);
+  padding-top:calc(18px + env(safe-area-inset-top,0px));pointer-events:none;
+  transition:transform 520ms var(--e-arch)}
+/* Faehrt beim Runterscrollen aus dem Bild, beim Hochscrollen sofort zurueck. */
+.nav--away{transform:translate3d(0,calc(-100% - 28px),0)}
+.nav__pill{position:relative;pointer-events:auto;max-width:var(--maxw);margin:0 auto;height:var(--nav-h);
   display:flex;align-items:center;gap:26px;padding:0 8px 0 20px;border-radius:999px;
-  background:rgba(11,12,16,.62);backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);
+  background:rgba(13,15,25,.62);backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);
   border:1px solid rgba(238,240,248,.10);color:var(--snow);
-  transition:background 420ms var(--e-soft),height 420ms var(--e-soft),box-shadow 420ms var(--e-soft)}
-.nav.scrolled .nav__pill{background:rgba(11,12,16,.88);height:56px;box-shadow:0 12px 40px rgba(11,12,16,.22)}
+  transition:background 420ms var(--e-soft),height 420ms var(--e-soft),box-shadow 420ms var(--e-soft),
+             border-color 420ms var(--e-soft),backdrop-filter 420ms var(--e-soft)}
+/* Gescrollt: staerker milchig, nicht deckender. Die Seite bleibt hinter der
+   Pille sichtbar, Blur und Saturation machen den Glaseindruck. */
+.nav.scrolled .nav__pill{background:rgba(13,15,25,.20);height:56px;
+  backdrop-filter:blur(38px) saturate(200%) brightness(.52);
+  -webkit-backdrop-filter:blur(38px) saturate(200%) brightness(.52);
+  border-color:rgba(238,240,248,.22);
+  box-shadow:0 18px 50px rgba(13,15,25,.24),inset 0 1px 0 rgba(255,255,255,.16)}
+.nav.scrolled .nav__links a{color:rgba(238,240,248,.94)}
+.nav.scrolled .nav__pill::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,0) 58%)}
+/* Ohne backdrop-filter bleibt die Lesbarkeit ueber eine deckende Pille erhalten. */
+@supports not ((backdrop-filter:blur(2px)) or (-webkit-backdrop-filter:blur(2px))){
+  .nav__pill,.nav.scrolled .nav__pill{background:rgba(13,15,25,.93)}
+}
+.nav__pill > *{position:relative;z-index:1}
 .logo{display:inline-flex;align-items:center;gap:11px;margin-right:auto;padding:6px 2px}
 .logo__mark{position:relative;width:19px;height:19px;border:1.5px solid currentColor;flex:none;transition:transform 380ms var(--e-arch)}
 .logo__mark::before{content:"";position:absolute;left:3px;top:3px;width:5px;height:5px;background:currentColor;transition:transform 380ms var(--e-arch)}
 .logo__mark::after{content:"";position:absolute;left:3px;bottom:3px;right:3px;height:1.5px;background:currentColor;
   transform:scaleX(0);transform-origin:left;transition:transform 380ms var(--e-arch)}
-.logo__type{font-size:.98rem;font-weight:600;letter-spacing:.17em;transition:letter-spacing 380ms var(--e-arch)}
+.logo__type{font-family:var(--font-display);font-size:1.12rem;font-weight:400;letter-spacing:.19em;
+  transition:letter-spacing 380ms var(--e-arch)}
 @media (hover:hover){.logo:hover .logo__mark{transform:scale(1.04)}.logo:hover .logo__mark::before{transform:translate(8px,8px)}
   .logo:hover .logo__mark::after{transform:scaleX(1)}.logo:hover .logo__type{letter-spacing:.22em}}
 .nav__links{display:flex;align-items:center;gap:26px}
@@ -161,36 +201,54 @@ p{margin:0}
    =========================================================== */
 .hero{position:relative;height:190svh}
 .hero__stick{position:sticky;top:0;height:100svh;display:grid;place-items:center;overflow:clip}
+/* Durchflug: die Kamera faehrt in das Bild hinein, der Schriftzug wird zur
+   Kontur und zieht am Betrachter vorbei. Ab 42 Prozent blendet die Flaeche
+   aus und gibt die Seite frei. */
 .hero__frame{
   position:relative;width:100%;height:100%;overflow:hidden;background:var(--night);
-  border-radius:calc(var(--p,0) * 30px);
-  transform:scale(calc(1 - var(--p,0) * .215));
-  box-shadow:0 calc(var(--p,0) * 50px) calc(var(--p,0) * 120px) rgba(11,12,16,calc(var(--p,0) * .34));
-  will-change:transform,border-radius}
+  clip-path:inset(0 0 clamp(0%,calc((var(--p,0) - .1) * 122%),100%) 0);
+  will-change:clip-path}
 .hero__bg{position:absolute;inset:-6% 0;z-index:0;
-  transform:scale(calc(1.02 + var(--p,0) * .14));will-change:transform}
+  transform:scale(calc(1.02 + var(--p,0) * .17));will-change:transform}
 .hero__bg video{width:100%;height:100%;object-fit:cover;display:block;
   filter:brightness(1.18) saturate(1.08) contrast(1.08);opacity:.96}
 .hero__fallback{position:absolute;inset:0;
   background:radial-gradient(120% 80% at 70% 18%,rgba(196,206,240,.30),transparent 62%),
-             linear-gradient(196deg,#1A1D28 0%,#0D0F16 52%,#191C26 100%)}
+             linear-gradient(196deg,var(--night-3) 0%,var(--night) 52%,var(--night-2) 100%)}
 .hero__scrim{position:absolute;inset:0;z-index:1;pointer-events:none;
-  background:linear-gradient(180deg,rgba(11,12,16,.28) 0%,rgba(11,12,16,.08) 34%,rgba(11,12,16,.38) 74%,rgba(11,12,16,.72) 100%)}
+  background:linear-gradient(180deg,rgba(13,15,25,.28) 0%,rgba(13,15,25,.08) 34%,rgba(13,15,25,.38) 74%,rgba(13,15,25,.74) 100%)}
 .hero__fg{position:absolute;inset:0;z-index:2;display:flex;align-items:flex-end;padding:0 0 clamp(36px,5vw,64px);
-  transform:translate3d(0,calc(var(--p,0) * -9vh),0);opacity:calc(1 - var(--p,0) * 1.25);will-change:transform,opacity}
+  transform:translate3d(0,calc(var(--p,0) * -5vh),0);will-change:transform}
 .hero__in{width:100%;max-width:var(--maxw);margin:0 auto;padding-inline:var(--gut)}
-.wordmark{display:block;font-weight:600;letter-spacing:-.055em;line-height:.82;
-  font-size:clamp(4.2rem,17vw,15rem);color:var(--snow);text-shadow:0 18px 60px rgba(11,12,16,.42)}
+.wordmark{display:block;font-family:var(--font-display);font-weight:400;
+  line-height:.86;font-size:clamp(4.2rem,17vw,15rem);
+  letter-spacing:calc(-.022em + var(--p,0) * .028em)}
+/* Zwei deckungsgleiche Ebenen. Die helle liegt im Rahmen und wird
+   mitgewischt, die dunkle darunter kommt dabei zum Vorschein. */
+.wordlayer{position:absolute;left:0;right:0;bottom:0;
+  display:flex;align-items:flex-end;padding-bottom:var(--wm-bottom,214px);
+  pointer-events:none;
+  transform:translate3d(0,calc(var(--p,0) * -19vh),0);
+  opacity:calc(1 - max(var(--p,0) - .84,0) * 6.2);
+  will-change:transform}
+.wordlayer--under{z-index:0}
+.wordlayer--under .wordmark{color:var(--ink)}
+.wordlayer--over{z-index:3}
+.wordlayer--over .wordmark{color:var(--snow);
+  text-shadow:0 18px 60px rgba(13,15,25,calc(.42 - var(--p,0) * .42))}
 .wordmark sup{font-size:.16em;font-weight:400;letter-spacing:0;vertical-align:super;opacity:.8;margin-left:.06em}
+/* Unterzeile und Buttons gehen frueh, damit die Wortmarke allein bleibt. */
+.hero__lower{opacity:calc(1 - var(--p,0) * 4.5);will-change:opacity}
 .hero__sub{margin-top:18px;max-width:54ch;font-size:clamp(.98rem,1.25vw,1.12rem);color:rgba(238,240,248,.84);line-height:1.55}
 .hero__cta{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px}
 /* Marke, die beim Schrumpfen unter dem Fenster auftaucht */
 .hero__echo{position:absolute;left:50%;bottom:calc(6vh + 8px);translate:-50% 0;z-index:0;
-  font-family:"JetBrains Mono",monospace;font-weight:300;font-size:11px;letter-spacing:.34em;text-transform:uppercase;
+  font-family:var(--font-mono);font-weight:300;font-size:11px;letter-spacing:.34em;text-transform:uppercase;
   color:var(--ink-3);opacity:calc((var(--p,0) - .72) * 3.6);pointer-events:none}
 /* Intro */
 .hero__bg,.hero__scrim{opacity:0;transition:opacity 1200ms var(--e-calm)}
-.is-ready .hero__bg,.is-ready .hero__scrim{opacity:1}
+.is-ready .hero__bg{opacity:1}
+.is-ready .hero__scrim{opacity:calc(1 - var(--p,0) * 1.15)}
 .hero__sub,.hero__cta{opacity:0;transform:translate3d(0,14px,0)}
 .is-ready .hero__sub{opacity:1;transform:none;transition:opacity 700ms var(--e-calm) 860ms,transform 700ms var(--e-arch) 860ms}
 .is-ready .hero__cta{opacity:1;transform:none;transition:opacity 700ms var(--e-calm) 1000ms,transform 700ms var(--e-arch) 1000ms}
@@ -205,12 +263,12 @@ p{margin:0}
 .subhero__bg{position:absolute;inset:-5% 0;z-index:0}
 .subhero__bg video{width:100%;height:100%;object-fit:cover}
 .subhero__scrim{position:absolute;inset:0;z-index:1;
-  background:linear-gradient(180deg,rgba(11,12,16,.60) 0%,rgba(11,12,16,.18) 40%,rgba(11,12,16,.88) 100%)}
+  background:linear-gradient(180deg,rgba(13,15,25,.60) 0%,rgba(13,15,25,.18) 40%,rgba(13,15,25,.90) 100%)}
 .subhero__in{position:relative;z-index:2;width:100%;max-width:var(--maxw);margin:0 auto;
   padding:0 var(--gut) clamp(34px,4.5vw,56px)}
-.subhero h1{font-size:clamp(2.4rem,6.5vw,4.6rem);font-weight:600;letter-spacing:-.045em;color:var(--snow)}
+.subhero h1{font-size:clamp(2.4rem,6.5vw,4.6rem);font-weight:400;letter-spacing:-.02em;color:var(--snow)}
 .subhero p{margin-top:16px;max-width:52ch;color:rgba(238,240,248,.82);font-size:clamp(.98rem,1.2vw,1.1rem)}
-.crumb{display:inline-flex;align-items:center;gap:10px;margin-bottom:18px;font-family:"JetBrains Mono",monospace;
+.crumb{display:inline-flex;align-items:center;gap:10px;margin-bottom:18px;font-family:var(--font-mono);
   font-weight:300;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(238,240,248,.6)}
 .crumb:hover{color:var(--snow)}
 
@@ -224,10 +282,10 @@ p{margin:0}
   linear-gradient(118deg,#D6DAE8 0%,#EAECF4 34%,#C7CCDD 58%,#E1E4EF 100%)}
 .ph::after{content:"";position:absolute;inset:0;pointer-events:none;
   background:linear-gradient(104deg,transparent 38%,rgba(255,255,255,.34) 50%,transparent 62%)}
-.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ph img,.ph video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 
 /* Panels: sichtbar abgehoben, klare Kanten, eigener Schatten */
-.panel,.svc__card,.card,.trust__item,.duo li{
+.panel,.svc__card,.card,.duo li{
   background:linear-gradient(180deg,rgba(255,255,255,.84),rgba(255,255,255,.62));
   border:1px solid rgba(255,255,255,.92);
   border-radius:16px;
@@ -238,24 +296,77 @@ p{margin:0}
     0 28px 54px -28px rgba(12,13,18,.34);
   transition:transform 520ms var(--e-arch),box-shadow 520ms var(--e-soft),background 420ms}
 
-.svc{display:grid;grid-template-columns:1.62fr 1fr;gap:clamp(14px,1.7vw,24px);
-  margin-top:clamp(40px,5vw,64px)}
-.svc__side{display:grid;grid-template-rows:1fr 1fr;gap:clamp(14px,1.7vw,24px)}
 .svc__card{padding:clamp(24px,2.8vw,40px);display:flex;flex-direction:column}
 .svc__card .tlink{margin-top:auto}
 @media (hover:hover){.svc__card:hover{transform:translateY(-7px);
   box-shadow:inset 0 1px 0 rgba(255,255,255,.95),0 2px 4px rgba(12,13,18,.06),
     0 22px 40px -18px rgba(12,13,18,.32),0 44px 80px -34px rgba(12,13,18,.42)}}
-.svc__media{position:relative;aspect-ratio:16/9;margin-bottom:24px;overflow:hidden;border-radius:10px}
-.svc__media .ph{position:absolute;inset:0;transition:transform 900ms var(--e-arch)}
-@media (hover:hover){.svc__main:hover{transform:translateY(-4px)}.svc__main:hover .svc__media .ph{transform:scale(1.045)}}
-.svc__num{font-family:"JetBrains Mono",monospace;font-weight:300;font-size:11px;letter-spacing:.2em;color:var(--ink-3)}
+/* ===========================================================
+   LEISTUNGEN  ·  drei Karten, die wie ein aufgefaechertes Blatt
+   uebereinander liegen. Die Kernleistung traegt das Video als Grund,
+   die beiden anderen eine Geisterziffer.
+   Breiten: 3 x 36% minus 2 x 4% Ueberlappung ergibt genau 100%.
+   =========================================================== */
+.deck{position:relative;display:flex;justify-content:center;
+  margin-top:clamp(44px,5vw,78px);
+  margin-inline:calc(-1 * clamp(0px,2.4vw,40px));
+  perspective:2000px;perspective-origin:50% 38%}
+.deck__card{position:relative;flex:0 0 36%;min-width:0;overflow:hidden;
+  display:flex;flex-direction:column;
+  min-height:clamp(430px,40vw,560px);
+  padding:clamp(22px,2.1vw,32px);
+  border-radius:18px;
+  background:linear-gradient(168deg,rgba(255,255,255,.96),rgba(255,255,255,.72));
+  border:1px solid rgba(255,255,255,.94);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.95),
+             0 2px 4px rgba(13,15,25,.05),
+             0 22px 40px -20px rgba(13,15,25,.30),
+             0 58px 98px -46px rgba(13,15,25,.46);
+  opacity:0;transform:translate3d(calc(var(--i) * -13%),36px,-130px);
+  transition:transform 760ms var(--e-arch),box-shadow 520ms var(--e-soft),
+             opacity 640ms var(--e-calm)}
+.deck__card + .deck__card{margin-left:-4%}
+.deck__card:nth-child(1){--r:-2.4;z-index:1}
+.deck__card:nth-child(2){--r:0;z-index:2}
+.deck__card:nth-child(3){--r:2.4;z-index:3}
+.deck.in .deck__card{opacity:1;
+  transform:translate3d(0,0,0) rotate(calc(var(--r) * 1deg));
+  transition-delay:calc(var(--i) * 130ms)}
+@media (hover:hover){
+  .deck.in .deck__card:hover{z-index:9;transition-delay:0ms;
+    transform:translate3d(0,-16px,72px) rotate(0deg);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.95),
+               0 3px 6px rgba(13,15,25,.07),
+               0 40px 66px -24px rgba(13,15,25,.40),
+               0 92px 140px -54px rgba(13,15,25,.52)}
+  .deck.in .deck__card:hover ~ .deck__card{transition-delay:0ms;
+    transform:translate3d(8%,0,0) rotate(calc(var(--r) * 1deg))}
+  .deck.in .deck__card:has(~ .deck__card:hover){transition-delay:0ms;
+    transform:translate3d(-8%,0,0) rotate(calc(var(--r) * 1deg))}
+}
+/* Kernleistung: Video als Grund, Text darueber */
+.deck__vid{position:absolute;inset:0;z-index:0;width:100%;height:100%;object-fit:cover}
+.deck__scrim{position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(176deg,rgba(13,15,25,.52) 0%,rgba(13,15,25,.74) 46%,rgba(13,15,25,.93) 100%)}
+.deck__card--feature{border-color:rgba(238,240,248,.16);background:var(--night)}
+.deck__card--feature .deck__body{color:var(--snow)}
+.deck__card--feature .svc__num{color:rgba(238,240,248,.62)}
+.deck__card--feature .body-sm{color:rgba(238,240,248,.74)}
+.deck__card--feature .svc__list li{color:rgba(238,240,248,.82)}
+.deck__card--feature .svc__list li::before{background:rgba(238,240,248,.45)}
+/* Geisterziffer auf den beiden hellen Karten */
+.deck__ghost{position:absolute;z-index:0;left:-.03em;bottom:-.2em;pointer-events:none;
+  font-family:var(--font-display);line-height:.78;font-size:clamp(7rem,11vw,12.5rem);
+  color:transparent;-webkit-text-stroke:1px rgba(13,15,25,.13)}
+.deck__body{position:relative;z-index:2;display:flex;flex-direction:column;flex:1;min-width:0}
+.deck__body h3{font-size:clamp(1.25rem,1.7vw,1.78rem);margin:10px 0 9px}
+.deck__body .tlink{margin-top:auto}
+.deck .svc__list{grid-template-columns:1fr;margin:14px 0 20px;gap:7px}
+.svc__num{font-family:var(--font-mono);font-weight:300;font-size:11px;letter-spacing:.2em;color:var(--ink-3)}
 .svc__card h3{margin:13px 0 11px}
-.svc__main h3{font-size:clamp(1.55rem,2.4vw,2.15rem)}
 .svc__list{list-style:none;margin:16px 0 24px;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:8px 24px}
 .svc__list li{font-size:.9rem;color:var(--ink-2);padding-left:16px;position:relative}
 .svc__list li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:1px;background:var(--line-2)}
-.svc__side .svc__list{grid-template-columns:1fr;margin-bottom:20px}
 
 .proj{display:grid;gap:clamp(44px,6vw,96px);margin-top:clamp(40px,5vw,72px)}
 .proj__item{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(18px,2.4vw,32px);align-items:end}
@@ -270,7 +381,7 @@ p{margin:0}
   transition:transform 620ms var(--e-arch),box-shadow 620ms var(--e-soft)}
 .proj__media .ph{position:absolute;inset:-14% 0;will-change:transform;transition:scale 900ms var(--e-arch)}
 .proj__meta{display:flex;flex-direction:column;gap:10px;transition:transform 620ms var(--e-arch)}
-.proj__tags{display:flex;gap:18px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-weight:300;
+.proj__tags{display:flex;gap:18px;flex-wrap:wrap;font-family:var(--font-mono);font-weight:300;
   font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
 @media (hover:hover){.proj__item:hover .proj__media{transform:translateY(-6px);
     box-shadow:0 30px 60px -24px rgba(12,13,18,.5),0 60px 110px -46px rgba(12,13,18,.48)}
@@ -288,22 +399,60 @@ p{margin:0}
       0 26px 44px -18px rgba(12,13,18,.32),0 50px 86px -34px rgba(12,13,18,.44)}
   .card:hover .card__media .ph{transform:scale(1.06)}}
 
-.trust{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(260px,1fr);gap:clamp(14px,1.7vw,24px);
-  margin-top:clamp(36px,4vw,56px);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;
-  padding:6px 2px 24px}
-.trust::-webkit-scrollbar{display:none}
-.trust__item{padding:clamp(24px,2.6vw,36px);scroll-snap-align:start;display:flex;flex-direction:column;gap:12px}
-@media (hover:hover){.trust__item:hover{transform:translateY(-6px)}}
-
-.proc{display:grid;grid-template-columns:repeat(4,1fr);margin-top:clamp(36px,4vw,60px);border-top:1px solid var(--line)}
-.proc__step{padding:28px 24px 34px 0;border-right:1px solid var(--line);position:relative}
-.proc__step:last-child{border-right:0}
-.proc__step:not(:first-child){padding-left:24px}
-.proc__step::before{content:"";position:absolute;left:0;top:-1px;height:1px;width:100%;background:var(--ink);
-  transform:scaleX(0);transform-origin:left;transition:transform 900ms var(--e-arch);transition-delay:calc(var(--i) * 140ms)}
-.proc.in .proc__step::before{transform:scaleX(1)}
-.proc__n{font-family:"JetBrains Mono",monospace;font-weight:300;font-size:1.95rem;color:var(--ink-3);display:block;margin-bottom:13px}
-.proc__step h3{font-size:1.02rem;margin-bottom:8px}
+/* ===========================================================
+   PROZESS  ·  horizontale 3D-Sequenz
+   Die Karten stehen leicht aufgefaechert im Raum und kommen beim
+   Einscrollen aus der Tiefe nach vorn.
+   =========================================================== */
+.proc{position:relative;display:grid;grid-template-columns:repeat(4,1fr);
+  gap:clamp(12px,1.5vw,22px);margin-top:clamp(44px,5vw,78px);
+  perspective:1600px;perspective-origin:50% 38%}
+.proc__rail{position:absolute;left:2%;right:2%;top:calc(-1 * clamp(16px,1.8vw,26px));height:1px;z-index:0;
+  background:linear-gradient(90deg,transparent,var(--line-2) 10%,var(--line-2) 90%,transparent);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform 1500ms var(--e-arch) 160ms}
+.proc.in .proc__rail{transform:scaleX(1)}
+.proc__step{position:relative;transform-style:preserve-3d;
+  padding:clamp(22px,2.3vw,34px) clamp(18px,1.8vw,26px) clamp(26px,2.6vw,38px);
+  border-radius:16px;
+  background:linear-gradient(168deg,rgba(255,255,255,.90),rgba(255,255,255,.56));
+  border:1px solid rgba(255,255,255,.92);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.95),
+             0 2px 4px rgba(13,15,25,.05),
+             0 18px 34px -18px rgba(13,15,25,.30),
+             0 46px 84px -42px rgba(13,15,25,.44);
+  opacity:0;
+  transform:translate3d(0,46px,-190px) rotateX(9deg) rotateY(calc(var(--r,0) * 1deg));
+  transition:opacity 780ms var(--e-calm),transform 1040ms var(--e-arch),box-shadow 540ms var(--e-soft);
+  transition-delay:calc(var(--i) * 115ms)}
+.proc.in .proc__step{opacity:1;
+  transform:translate3d(0,0,0) rotateX(0deg) rotateY(calc(var(--r,0) * 1deg))}
+.proc__step::before{content:"";position:absolute;left:clamp(18px,1.8vw,26px);
+  top:calc(-1 * clamp(16px,1.8vw,26px) - 4px);
+  width:9px;height:9px;border-radius:999px;background:var(--ink);
+  transform:translateZ(30px) scale(0);transition:transform 620ms var(--e-arch)}
+.proc.in .proc__step::before{transform:translateZ(30px) scale(1);
+  transition-delay:calc(var(--i) * 115ms + 420ms)}
+/* Die Ziffer schwebt vor der Karte, ein gestrichener Zwilling dahinter
+   gibt ihr Tiefe. */
+.proc__n{position:relative;display:block;font-family:var(--font-mono);font-weight:300;
+  font-size:clamp(2.5rem,4vw,3.6rem);line-height:1;color:var(--ink);
+  margin:0 0 clamp(14px,1.5vw,20px);transform:translateZ(42px)}
+.proc__n::after{content:attr(data-n);position:absolute;left:0;top:0;z-index:-1;
+  color:transparent;-webkit-text-stroke:1px var(--line-2);
+  transform:translateZ(-34px) scale(1.16);opacity:.75}
+.proc__step h3{font-size:1.06rem;margin-bottom:8px;transform:translateZ(18px)}
+.proc__step .body-sm{transform:translateZ(10px)}
+@media (hover:hover){
+  .proc__step{cursor:default}
+  .proc.in .proc__step:hover{
+    transform:translate3d(0,-10px,58px) rotateX(0deg) rotateY(0deg);
+    transition-delay:0ms;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.95),
+               0 3px 6px rgba(13,15,25,.07),
+               0 34px 58px -22px rgba(13,15,25,.38),
+               0 74px 120px -50px rgba(13,15,25,.5)}
+}
 
 /* Zweispaltiger Textblock (Unterseiten) */
 .duo{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,72px);margin-top:clamp(34px,4vw,56px);align-items:start}
@@ -316,7 +465,21 @@ p{margin:0}
 /* ===========================================================
    KONTAKT
    =========================================================== */
-.fade-to-night{height:clamp(90px,12vw,180px);background:linear-gradient(180deg,rgba(11,12,16,0),var(--night))}
+/* Weicher, gestufter Uebergang. Ein reiner Zweipunkt-Verlauf kippt ueber dem
+   blaeulichen Silk-Hintergrund in ein schmutziges Grau. */
+/* Der Footer zieht sich per negativem Margin bis zu 136px ueber diesen
+   Block. Der Verlauf muss deshalb schon bei 64% voll auf Night stehen,
+   sonst entsteht an der Footer-Kante eine sichtbare Stufe. */
+.fade-to-night{position:relative;height:clamp(240px,27vw,400px);
+  background:linear-gradient(180deg,
+    rgba(13,15,25,0) 0%,rgba(13,15,25,.015) 10%,rgba(13,15,25,.06) 20%,
+    rgba(13,15,25,.14) 28%,rgba(13,15,25,.25) 35%,rgba(13,15,25,.39) 42%,
+    rgba(13,15,25,.55) 48%,rgba(13,15,25,.71) 54%,rgba(13,15,25,.84) 58%,
+    rgba(13,15,25,.93) 61%,var(--night) 64%,var(--night) 100%)}
+/* Feines Rauschen bricht die Farbstufen im Verlauf auf. */
+.fade-to-night::after{content:"";position:absolute;inset:0;pointer-events:none;
+  opacity:.26;mix-blend-mode:overlay;background-size:160px 160px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
 .contact{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(36px,5vw,90px);margin-top:clamp(40px,5vw,64px);align-items:start}
 .field{display:flex;flex-direction:column;gap:7px;margin-bottom:20px}
 .field label{font-size:.82rem;font-weight:500}
@@ -341,6 +504,11 @@ p{margin:0}
 .check{width:56px;height:56px;border:1.5px solid var(--snow);display:grid;place-items:center}
 .check svg path{stroke-dasharray:36;stroke-dashoffset:36;transition:stroke-dashoffset 620ms var(--e-arch) 480ms}
 .success.on .check svg path{stroke-dashoffset:0}
+.formnote{display:none;margin:0 0 16px;font-size:.88rem;line-height:1.5;color:#FFB4A0;
+  border-left:2px solid #FF8E76;padding-left:12px}
+.formnote.on{display:block}
+.form.sending{pointer-events:none}
+.form.sending .pill{opacity:.55}
 .form .pill{width:100%;justify-content:space-between;
   box-shadow:0 0 34px rgba(124,156,255,.20),0 10px 30px rgba(0,0,0,.4)}
 .chan{display:grid;gap:13px}
@@ -352,7 +520,7 @@ p{margin:0}
 .chan__item:nth-child(2) .chan__bar{animation-delay:1.6s}
 .chan__item:nth-child(3) .chan__bar{animation-delay:3.2s}
 .chan__txt{display:flex;flex-direction:column;gap:2px;min-width:0}
-.chan__k{font-family:"JetBrains Mono",monospace;font-weight:300;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(238,240,248,.52)}
+.chan__k{font-family:var(--font-mono);font-weight:300;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(238,240,248,.52)}
 .chan__v{font-size:1.02rem;font-weight:500;overflow-wrap:anywhere}
 .chan__item .arw{margin-left:auto;color:rgba(238,240,248,.5)}
 @media (hover:hover){.chan__item:hover{transform:translateX(5px);border-color:var(--c);background:rgba(238,240,248,.07)}
@@ -378,7 +546,7 @@ p{margin:0}
   background:rgba(29,168,81,.13);color:var(--wa);
   transition:transform 520ms var(--e-arch),background 420ms}
 .loc.open .loc__icon{transform:rotate(-8deg) scale(1.05);background:rgba(29,168,81,.2)}
-.loc__live{display:inline-flex;align-items:center;gap:8px;font-family:"JetBrains Mono",monospace;font-weight:300;
+.loc__live{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-weight:300;
   font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:rgba(238,240,248,.62)}
 .loc__live i{width:7px;height:7px;border-radius:999px;background:var(--wa);animation:live 2.6s var(--e-soft) infinite}
 .loc__name{display:block;margin-top:26px;font-weight:600;font-size:1.02rem;letter-spacing:-.015em;color:var(--snow)}
@@ -396,7 +564,7 @@ p{margin:0}
 .loc__wrap{display:grid;grid-template-rows:0fr;transition:grid-template-rows 680ms var(--e-arch)}
 .loc.open .loc__wrap{grid-template-rows:1fr}
 .loc__clip{overflow:hidden;min-height:0}
-.loc__map{position:relative;aspect-ratio:4/3;background:#0A0C11;border-top:1px solid rgba(238,240,248,.10)}
+.loc__map{position:relative;aspect-ratio:4/3;background:#0A0C14;border-top:1px solid rgba(238,240,248,.10)}
 /* Rasterlinien zeichnen sich */
 .loc__map .gl{position:absolute;background:rgba(238,240,248,.075);transform:scale(0);transition:transform 620ms var(--e-arch)}
 .loc__map .gl.v{top:0;bottom:0;width:1px;transform-origin:top;transform:scaleY(0)}
@@ -424,7 +592,7 @@ p{margin:0}
   transition:opacity 520ms var(--e-calm) 780ms,transform 620ms var(--e-arch) 780ms}
 .loc.open .loc__meta{opacity:1;transform:none}
 .loc__meta strong{display:block;font-size:.88rem;font-weight:600;color:var(--snow)}
-.loc__meta code{display:block;font-family:"JetBrains Mono",monospace;font-weight:300;font-size:.72rem;
+.loc__meta code{display:block;font-family:var(--font-mono);font-weight:300;font-size:.72rem;
   color:rgba(238,240,248,.52);margin-top:2px}
 .loc__open{display:inline-flex;align-items:center;gap:8px;margin-top:10px;font-size:.78rem;
   color:var(--wa);border-bottom:1px solid rgba(29,168,81,.4);padding-bottom:2px}
@@ -438,7 +606,7 @@ p{margin:0}
   padding:0 clamp(10px,1.6vw,22px) clamp(10px,1.6vw,22px)}
 .foot{position:relative;overflow:hidden;color:var(--snow);
   border-radius:clamp(22px,2.6vw,34px);
-  background:linear-gradient(177deg,#1C2032 0%,#141724 44%,#0B0D13 100%);
+  background:linear-gradient(177deg,var(--night-3) 0%,var(--night-2) 46%,var(--night) 100%);
   border:1px solid rgba(238,240,248,.12);
   padding:clamp(42px,5.2vw,80px) 0 0;
   box-shadow:0 -30px 80px rgba(0,0,0,.58),0 -2px 0 rgba(238,240,248,.05),
@@ -449,25 +617,27 @@ p{margin:0}
 .foot::before{content:"";position:absolute;left:6%;right:6%;top:0;height:1px;
   background:linear-gradient(90deg,transparent,rgba(238,240,248,.5),transparent)}
 .foot::after{content:"";position:absolute;left:-10%;top:-40%;width:60%;height:120%;pointer-events:none;
-  background:radial-gradient(closest-side,rgba(124,156,255,.13),transparent 72%)}
+  background:radial-gradient(closest-side,var(--glow),transparent 72%)}
 .foot > .wrap{position:relative;z-index:1}
 
 .foot__top{display:flex;flex-wrap:wrap;gap:26px 40px;align-items:flex-end;justify-content:space-between;
   padding-bottom:clamp(30px,3.6vw,52px);border-bottom:1px solid var(--line-n)}
-.foot__cta{font-size:clamp(1.65rem,3.3vw,2.8rem);font-weight:500;letter-spacing:-.035em;line-height:1.08;margin:0}
+.foot__cta{font-family:var(--font-display);font-size:clamp(1.75rem,3.5vw,3rem);font-weight:400;
+  letter-spacing:-.02em;line-height:1.1;margin:0}
 .foot__cta span{color:rgba(238,240,248,.40)}
 
 .foot__grid{display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:34px 40px;
   padding-block:clamp(32px,4vw,54px)}
 .foot__brandline{font-size:.93rem;color:rgba(238,240,248,.58);max-width:32ch;margin-top:14px;line-height:1.6}
-.foot__h{font-family:"JetBrains Mono",monospace;font-weight:300;font-size:10.5px;letter-spacing:.2em;
+.foot__h{font-family:var(--font-mono);font-weight:300;font-size:10.5px;letter-spacing:.2em;
   text-transform:uppercase;color:rgba(238,240,248,.42);margin-bottom:15px;display:block}
 .foot__grid ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
 .foot__grid a{font-size:.92rem;color:rgba(238,240,248,.72);transition:color var(--t-fast),transform var(--t-fast)}
 .foot__grid a:hover{color:var(--snow)}
-.foot__mark{line-height:.74;font-weight:600;letter-spacing:-.065em;
+.foot__mark{font-family:var(--font-display);line-height:.78;font-weight:400;letter-spacing:-.03em;
   font-size:clamp(3.2rem,16.5vw,13.5rem);color:rgba(238,240,248,.065);
-  user-select:none;pointer-events:none;transform:translateY(.14em);margin-top:clamp(8px,2vw,24px)}
+  user-select:none;pointer-events:none;
+  margin-top:clamp(10px,2.2vw,28px);padding-bottom:.17em}
 .foot__bar{border-top:1px solid var(--line-n);padding-block:20px;display:flex;flex-wrap:wrap;gap:14px 28px;
   align-items:center;font-size:.83rem;color:rgba(238,240,248,.5)}
 .foot__bar nav{display:flex;gap:22px}
@@ -477,6 +647,54 @@ p{margin:0}
 .totop:hover{background:var(--snow);color:var(--night);border-color:var(--snow);transform:translateY(-2px)}
 .totop svg{transition:transform 380ms var(--e-arch)}
 .totop:hover svg{transform:translateY(-2px)}
+.foot__ctabtn{display:block;text-align:left;font:inherit;color:inherit;padding:0;
+  transition:transform 420ms var(--e-arch)}
+.foot__ctabtn span{transition:color 320ms var(--t-fast)}
+@media (hover:hover){.foot__ctabtn:hover{transform:translateX(4px)}
+  .foot__ctabtn:hover span{color:rgba(238,240,248,.78)}}
+
+/* ===========================================================
+   KONTAKT-OVERLAY  ·  ersetzt den fruehere Abschnitt vor dem Footer
+   =========================================================== */
+.cmodal{position:fixed;inset:0;z-index:95;display:flex;align-items:flex-start;justify-content:center;
+  padding:clamp(10px,2.2vw,38px);
+  padding-top:calc(clamp(10px,2.2vw,38px) + env(safe-area-inset-top,0px));
+  padding-bottom:calc(clamp(10px,2.2vw,38px) + env(safe-area-inset-bottom,0px));
+  opacity:0;visibility:hidden;transition:opacity 340ms var(--e-soft),visibility 0s linear 340ms}
+.cmodal.open{opacity:1;visibility:visible;transition-delay:0s}
+.cmodal__scrim{position:absolute;inset:0;background:rgba(6,7,12,.60);
+  backdrop-filter:blur(12px) saturate(120%);-webkit-backdrop-filter:blur(12px) saturate(120%)}
+.cmodal__panel{position:relative;width:min(1180px,100%);max-height:100%;overflow:hidden;
+  border-radius:clamp(18px,2.2vw,28px);
+  background:linear-gradient(177deg,var(--night-3) 0%,var(--night-2) 46%,var(--night) 100%);
+  border:1px solid rgba(238,240,248,.14);
+  box-shadow:0 44px 120px rgba(0,0,0,.62),inset 0 1px 0 rgba(238,240,248,.07);
+  opacity:0;transform:translate3d(0,26px,0) scale(.975);
+  transition:opacity 380ms var(--e-calm),transform 540ms var(--e-arch)}
+.cmodal.open .cmodal__panel{opacity:1;transform:none}
+.cmodal__scroll{position:relative;max-height:min(88svh,100%);overflow-y:auto;overscroll-behavior:contain;
+  padding:clamp(30px,3.6vw,54px) 0 clamp(30px,3.4vw,50px)}
+.cmodal__scroll .contact{margin-top:clamp(32px,3.6vw,52px)}
+/* Das Overlay haengt am Body, nicht in [data-page]. observePage() sieht es
+   also nie und wuerde alle [data-reveal] auf opacity:0 stehen lassen. Die
+   Einblendung kommt deshalb hier, gekoppelt an .open statt an den Observer. */
+.cmodal [data-reveal]{opacity:0;transform:translate3d(0,18px,0)}
+.cmodal.open [data-reveal]{opacity:1;transform:none;
+  transition:opacity 620ms var(--e-calm) calc(var(--i,0) * 80ms + 110ms),
+             transform 720ms var(--e-arch) calc(var(--i,0) * 80ms + 110ms)}
+@media (prefers-reduced-motion:reduce){
+  .cmodal [data-reveal]{opacity:1;transform:none}
+}
+.cmodal__x{position:absolute;z-index:3;right:clamp(12px,1.6vw,20px);top:clamp(12px,1.6vw,20px);
+  width:44px;height:44px;border-radius:999px;display:grid;place-items:center;
+  border:1px solid rgba(238,240,248,.22);color:rgba(238,240,248,.82);background:rgba(13,15,25,.55);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  transition:background 300ms,color 300ms,transform 380ms var(--e-arch)}
+.cmodal__x:hover{background:var(--snow);color:var(--night);border-color:var(--snow);transform:rotate(90deg)}
+@media (max-width:560px){.cmodal{padding:0}
+  .cmodal__panel{border-radius:0;border:0;height:100%;max-height:100%}
+  .cmodal__scroll{max-height:100%;height:100%;
+    padding-top:calc(58px + env(safe-area-inset-top,0px))}}
 
 /* ===========================================================
    FLOATING BUTTONS  ·  WhatsApp, Anruf, Chat
@@ -501,7 +719,13 @@ p{margin:0}
   animation:glow 5s var(--e-soft) infinite;--g:var(--wa-glow)}
 .fab--tel{background:var(--tel);color:#fff;box-shadow:0 0 22px 2px var(--tel-glow),0 10px 26px rgba(11,12,16,.28);
   animation:glow 5s var(--e-soft) infinite;--g:var(--tel-glow);animation-delay:2.5s}
-@media (hover:hover){.fab:hover{transform:translateY(-4px) scale(1.04)}}
+.fab svg{transition:transform 420ms var(--e-arch)}
+@media (hover:hover){
+  .fab:hover{transform:translateY(-5px) scale(1.07)}
+  .fab:hover svg{transform:scale(1.09)}
+  .fab--wa:hover{box-shadow:0 0 36px 6px rgba(37,211,102,.62),0 14px 32px rgba(11,12,16,.34)}
+  .fab--tel:hover{box-shadow:0 0 36px 6px rgba(10,124,255,.62),0 14px 32px rgba(11,12,16,.34)}
+}
 .fab:active{transform:translateY(0) scale(.96)}
 
 /* Chatbutton: gleiches leuchtendes Schema wie die CTA-Pills, nur größer */
@@ -584,27 +808,40 @@ p{margin:0}
   .hero{height:170svh}
   .wordmark{font-size:clamp(3.4rem,20vw,7rem)}
   .scrollhint{display:none}
-  .svc{grid-template-columns:1fr}
-  .svc__side{grid-template-rows:auto auto}
+  /* Untereinander statt seitwaerts scrollen: nichts liegt mehr versteckt
+     ausserhalb des Bildschirms. */
+  .deck{display:grid;grid-template-columns:1fr;gap:clamp(14px,2.4vw,20px);
+    overflow:visible;perspective:none;margin-inline:0;padding:0;justify-content:stretch}
+  .deck__card{flex:none;--r:0;min-height:0;
+    transform:translate3d(0,26px,0)}
+  .deck__card + .deck__card{margin-left:0}
+  .deck.in .deck__card{transform:none}
+  .deck__card--feature{min-height:clamp(360px,52vw,440px)}
+  .deck__ghost{font-size:clamp(5rem,20vw,8rem)}
   .grid3{grid-template-columns:1fr 1fr}
   .duo{grid-template-columns:1fr}
   .proj__item{grid-template-columns:1fr;gap:18px}
   .proj__item:nth-child(n) .proj__media{grid-column:1/-1;aspect-ratio:4/3;order:0}
   .proj__item:nth-child(n) .proj__meta{grid-column:1/-1;order:1}
-  .proc{grid-template-columns:1fr 1fr}
-  .proc__step:nth-child(2n){border-right:0}
-  .proc__step:nth-child(n+3){border-top:1px solid var(--line)}
+  /* Senkrechte Zeitleiste statt Karussell. */
+  .proc{display:grid;grid-template-columns:1fr;gap:12px;overflow:visible;
+    perspective:none;padding:0 0 0 26px}
+  .proc::before{content:"";position:absolute;left:4px;top:14px;bottom:14px;width:1px;
+    background:linear-gradient(180deg,transparent,var(--line-2) 8%,var(--line-2) 92%,transparent)}
+  .proc__step{--r:0;transform:translate3d(0,24px,0)}
+  .proc.in .proc__step{transform:none}
+  .proc__step::before{left:-26px;top:clamp(24px,5vw,34px);transform:scale(0)}
+  .proc.in .proc__step::before{transform:scale(1)}
+  .proc__rail{display:none}
   .contact{grid-template-columns:1fr;gap:44px}
-  .trust{grid-auto-columns:minmax(240px,78%)}
   .foot__grid{grid-template-columns:1fr 1fr}
 }
 @media (max-width:560px){
   .row2{grid-template-columns:1fr}
   .svc__list{grid-template-columns:1fr}
+  .deck__card--feature{min-height:340px}
   .grid3{grid-template-columns:1fr}
-  .proc{grid-template-columns:1fr}
-  .proc__step{border-right:0;border-top:1px solid var(--line);padding-left:0 !important}
-  .proc__step:first-child{border-top:0}
+
   .hero__cta{flex-direction:column;align-items:stretch}
   .hero__cta .pill{justify-content:space-between}
   .hero__cta .ghost{justify-content:center}
@@ -625,11 +862,18 @@ p{margin:0}
   .loc__map .gl,.loc__map .bd,.loc__pin,.loc__meta{transform:none !important;opacity:1 !important}
   .loc__ping{display:none}
   .chatbtn::before,.chatbtn__live,.fab--tel{animation:none !important}
-  .svc__card,.card,.trust__item,.duo li,.proj__media{transform:none !important}
+  .svc__card,.card,.duo li,.proj__media{transform:none !important}
+  .proc__step{transform:none !important;opacity:1 !important}
+  .proc__n,.proc__step h3,.proc__step .body-sm,.proc__n::after{transform:none !important}
+  .proc__rail{transform:scaleX(1) !important}
   .hero{height:100svh}
-  .hero__frame,.hero__bg{transform:none !important;border-radius:0 !important}
+  .hero__frame{clip-path:none !important}
+  .hero__bg{transform:none !important}
+  .wordlayer{transform:none !important;opacity:1 !important}
+  .wordlayer--under{display:none}
+  .hero__lower{opacity:1 !important}
   .proj__media .ph{transform:none !important;inset:0 !important}
-  .proc__step::before{transform:scaleX(1) !important}
+  .proc__step::before{transform:none !important;scale:1 !important}
   .chan__bar,.fab--wa,.chatbtn__live{animation:none !important}
   .pill::before{animation:none !important}
   .scrollhint{display:none}
@@ -648,25 +892,25 @@ p{margin:0}
     <a href="#/" class="logo" data-route="home" aria-label="BALIN Architektur, Startseite">
       <span class="logo__mark" aria-hidden="true"></span><span class="logo__type">BALIN</span></a>
     <nav class="nav__links" aria-label="Hauptnavigation">
-      <a href="#/#architektur" data-route="home" data-anchor="architektur">Architektur</a>
+      <a href="#/architektur" data-route="architektur">Architektur</a>
       <a href="#/bewertung" data-route="bewertung">Bewertung</a>
       <a href="#/energie" data-route="energie">Energie</a>
       <a href="#/projekte" data-route="projekte">Projekte</a>
       <a href="#/#buero" data-route="home" data-anchor="buero">Büro</a>
     </nav>
-    <a href="#/#kontakt" data-route="home" data-anchor="kontakt" class="pill pill--sm">Erstgespräch
+    <a href="#kontakt" data-contact-open class="pill pill--sm">Erstgespräch
       <span class="pill__arw" aria-hidden="true"><svg width="13" height="9" viewBox="0 0 13 9" fill="none"><path d="M0 4.5h11M7.5 1l3.5 3.5L7.5 8" stroke="currentColor" stroke-width="1.3"/></svg></span></a>
     <button class="burger" id="burger" aria-expanded="false" aria-controls="mobilenav" aria-label="Menü öffnen"><span></span><span></span></button>
   </div>
 </header>
 
 <div class="mobilenav" id="mobilenav">
-  <a href="#/#architektur" data-route="home" data-anchor="architektur" style="--i:0">Architektur</a>
+  <a href="#/architektur" data-route="architektur" style="--i:0">Architektur</a>
   <a href="#/bewertung" data-route="bewertung" style="--i:1">Immobilienbewertung</a>
   <a href="#/energie" data-route="energie" style="--i:2">Energieberatung</a>
   <a href="#/projekte" data-route="projekte" style="--i:3">Projekte</a>
   <a href="#/#buero" data-route="home" data-anchor="buero" style="--i:4">Büro</a>
-  <a href="#/#kontakt" data-route="home" data-anchor="kontakt" style="--i:5">Kontakt</a>
+  <a href="#kontakt" data-contact-open style="--i:5">Kontakt</a>
 </div>
 
 <div id="app">
@@ -679,6 +923,9 @@ p{margin:0}
 
   <section class="hero" id="hero">
     <div class="hero__stick">
+      <div class="wordlayer wordlayer--under" aria-hidden="true">
+        <div class="hero__in"><span class="wordmark">BALIN<sup>*</sup></span></div>
+      </div>
       <div class="hero__frame" id="heroFrame">
         <div class="hero__bg">
           <div class="hero__fallback" aria-hidden="true"></div>
@@ -688,19 +935,23 @@ p{margin:0}
           </video>
         </div>
         <div class="hero__scrim" aria-hidden="true"></div>
+        <div class="wordlayer wordlayer--over">
+          <div class="hero__in"><h1 class="wordmark">BALIN<sup>*</sup></h1></div>
+        </div>
+      </div>
         <div class="hero__fg">
           <div class="hero__in">
-            <h1 class="wordmark">BALIN<sup>*</sup></h1>
+            <div class="hero__lower">
             <p class="hero__sub">Architekturbüro in Kiel. Neubau, Umbau und Sanierung, dazu Immobilienbewertung und Energieberatung. Ein Ansprechpartner von der ersten Skizze bis zur Übergabe.</p>
             <div class="hero__cta">
-              <a href="#/#kontakt" data-route="home" data-anchor="kontakt" class="pill">Erstgespräch vereinbaren
+              <a href="#kontakt" data-contact-open class="pill">Erstgespräch vereinbaren
                 <span class="pill__arw" aria-hidden="true"><svg width="13" height="9" viewBox="0 0 13 9" fill="none"><path d="M0 4.5h11M7.5 1l3.5 3.5L7.5 8" stroke="currentColor" stroke-width="1.3"/></svg></span></a>
               <a href="#/projekte" data-route="projekte" class="ghost">Projekte ansehen</a>
+            </div>
             </div>
           </div>
         </div>
         <span class="scrollhint" aria-hidden="true"></span>
-      </div>
       <span class="hero__echo" aria-hidden="true">Kiel · Schleswig-Holstein</span>
     </div>
   </section>
@@ -709,35 +960,41 @@ p{margin:0}
     <div class="wrap">
       <h2 data-reveal><span class="mask"><span>Drei Leistungen, ein Büro.</span></span></h2>
       <p class="lead" data-reveal style="--i:1;margin-top:18px">Die Planung steht im Zentrum. Bewertung und Energieberatung ergänzen sie dort, wo Bauherren ohnehin Antworten brauchen.</p>
-      <div class="svc" data-reveal style="--i:2">
-        <article class="svc__card svc__main">
-          <div class="svc__media"><div class="ph">
-            <!-- PLATZHALTER: Referenzfoto Architektur, Querformat -->
-            <img src="https://picsum.photos/seed/balin-architektur/1200/800" alt="Innenraum mit Sichtbeton und Tageslicht" loading="lazy" onerror="this.remove()"></div></div>
-          <span class="svc__num">01 — Kernleistung</span>
-          <h3>Architektur und Planung</h3>
-          <p class="body-sm">Vom Entwurf über die Genehmigung bis zur Ausführung. Ein Ansprechpartner über die gesamte Laufzeit.</p>
-          <ul class="svc__list"><li>Entwurfsplanung</li><li>Genehmigungsplanung</li><li>Ausführungsplanung</li><li>Neubau</li>
-            <li>Umbau und Anbau</li><li>Sanierung</li><li>Projektbegleitung</li><li>Bauleitung</li></ul>
-          <a href="#/projekte" data-route="projekte" class="tlink">Projekte ansehen
-            <svg class="arw" width="15" height="10" viewBox="0 0 15 10" fill="none" aria-hidden="true"><path d="M0 5h13M9 1l4 4-4 4" stroke="currentColor" stroke-width="1.3"/></svg></a>
+      <div class="deck" data-reveal style="--i:2">
+        <article class="deck__card deck__card--feature" style="--i:0">
+          <video class="deck__vid" muted loop playsinline autoplay preload="metadata" aria-hidden="true" data-autovid>
+            <source src="assets/video3.mp4" type="video/mp4">
+          </video>
+          <span class="deck__scrim" aria-hidden="true"></span>
+          <div class="deck__body flex flex-col min-w-0">
+            <span class="svc__num">01 — Kernleistung</span>
+            <h3>Architektur und Planung</h3>
+            <p class="body-sm">Vom Entwurf über die Genehmigung bis zur Ausführung. Ein Ansprechpartner über die gesamte Laufzeit.</p>
+            <ul class="svc__list"><li>Entwurfs- und Genehmigungsplanung</li><li>Ausführungsplanung</li>
+              <li>Neubau, Umbau, Sanierung</li><li>Projektbegleitung und Bauleitung</li></ul>
+            <a href="#/projekte" data-route="projekte" class="tlink">Projekte ansehen <svg class="arw" width="15" height="10" viewBox="0 0 15 10" fill="none" aria-hidden="true"><path d="M0 5h13M9 1l4 4-4 4" stroke="currentColor" stroke-width="1.3"/></svg></a>
+          </div>
         </article>
-        <div class="svc__side">
-          <article class="svc__card">
-            <span class="svc__num">02</span><h3>Immobilienbewertung</h3>
+        <article class="deck__card" style="--i:1">
+          <span class="deck__ghost" aria-hidden="true">02</span>
+          <div class="deck__body flex flex-col min-w-0">
+            <span class="svc__num">02 — Ergänzend</span>
+            <h3>Immobilienbewertung</h3>
             <p class="body-sm">Nachvollziehbare Wertermittlung für Kauf, Verkauf oder Bestandsplanung.</p>
             <ul class="svc__list"><li>Wertermittlung</li><li>Einschätzung für Kauf und Verkauf</li><li>Bewertung im Bestand</li></ul>
-            <a href="#/bewertung" data-route="bewertung" class="tlink">Mehr dazu
-              <svg class="arw" width="15" height="10" viewBox="0 0 15 10" fill="none" aria-hidden="true"><path d="M0 5h13M9 1l4 4-4 4" stroke="currentColor" stroke-width="1.3"/></svg></a>
-          </article>
-          <article class="svc__card">
-            <span class="svc__num">03</span><h3>Energieberatung</h3>
+            <a href="#/bewertung" data-route="bewertung" class="tlink">Mehr dazu <svg class="arw" width="15" height="10" viewBox="0 0 15 10" fill="none" aria-hidden="true"><path d="M0 5h13M9 1l4 4-4 4" stroke="currentColor" stroke-width="1.3"/></svg></a>
+          </div>
+        </article>
+        <article class="deck__card" style="--i:2">
+          <span class="deck__ghost" aria-hidden="true">03</span>
+          <div class="deck__body flex flex-col min-w-0">
+            <span class="svc__num">03 — Ergänzend</span>
+            <h3>Energieberatung</h3>
             <p class="body-sm">Energetische Bewertung des Gebäudes und Einordnung sinnvoller Massnahmen.</p>
             <ul class="svc__list"><li>Energetische Bewertung</li><li>Sanierungsfahrplan</li><li>Fördermöglichkeiten</li></ul>
-            <a href="#/energie" data-route="energie" class="tlink">Mehr dazu
-              <svg class="arw" width="15" height="10" viewBox="0 0 15 10" fill="none" aria-hidden="true"><path d="M0 5h13M9 1l4 4-4 4" stroke="currentColor" stroke-width="1.3"/></svg></a>
-          </article>
-        </div>
+            <a href="#/energie" data-route="energie" class="tlink">Mehr dazu <svg class="arw" width="15" height="10" viewBox="0 0 15 10" fill="none" aria-hidden="true"><path d="M0 5h13M9 1l4 4-4 4" stroke="currentColor" stroke-width="1.3"/></svg></a>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -754,31 +1011,92 @@ p{margin:0}
 
   <section class="band band--veil2" id="buero">
     <div class="wrap">
-      <h2 data-reveal><span class="mask"><span>Wie wir arbeiten</span></span></h2>
-      <div class="trust" data-reveal style="--i:1">
-        <article class="trust__item"><span class="svc__num">Ansprechpartner</span><h3>Eine Person, ein Projekt</h3><p class="body-sm">Sie sprechen vom ersten Termin bis zur Übergabe mit derselben Person.</p></article>
-        <article class="trust__item"><span class="svc__num">Region</span><h3>Kiel und Umland</h3><p class="body-sm">Kurze Wege zu Ämtern, Behörden und Baustelle. Wir kennen die örtlichen Vorgaben.</p></article>
-        <article class="trust__item"><span class="svc__num">Umfang</span><h3>Planung und Bewertung</h3><p class="body-sm">Entwurf, Wertermittlung und energetische Einordnung in einer Hand.</p></article>
-        <!-- PLATZHALTER: echte Nachweise ergänzen (Kammereintrag, Berufsjahre,
-             Zertifizierungen, Projektanzahl, Kundenstimmen). Nichts erfunden. -->
+      <h2 data-reveal><span class="mask"><span>Vier Schritte</span></span></h2>
+      <p class="lead" data-reveal style="--i:1;margin-top:18px">Von der ersten Frage bis zur Übergabe. Dieselbe Person begleitet Sie durch alle vier.</p>
+      <div class="proc" data-proc data-tilt>
+        <span class="proc__rail" aria-hidden="true"></span>
+        <div class="proc__step" style="--i:0;--r:6.5"><span class="proc__n" data-n="01">01</span><h3>Erstgespräch</h3><p class="body-sm">Kostenlos und unverbindlich. Wir klären, ob das Vorhaben trägt.</p></div>
+        <div class="proc__step" style="--i:1;--r:2.2"><span class="proc__n" data-n="02">02</span><h3>Analyse und Konzept</h3><p class="body-sm">Grundstück, Bestand und Vorgaben. Daraus entsteht der erste Entwurf.</p></div>
+        <div class="proc__step" style="--i:2;--r:-2.2"><span class="proc__n" data-n="03">03</span><h3>Planung</h3><p class="body-sm">Genehmigungs- und Ausführungsplanung bis zur Baureife.</p></div>
+        <div class="proc__step" style="--i:3;--r:-6.5"><span class="proc__n" data-n="04">04</span><h3>Umsetzung</h3><p class="body-sm">Begleitung auf der Baustelle bis zur Übergabe.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="fade-to-night" aria-hidden="true"></div>
+</div>
+
+<!-- ===================================================================
+     SEITE: ARCHITEKTUR
+     =================================================================== -->
+<div data-page="architektur">
+  <section class="subhero">
+    <div class="subhero__bg">
+      <div class="hero__fallback" aria-hidden="true"></div>
+      <video muted loop playsinline autoplay preload="none" aria-hidden="true" data-vid>
+        <source src="assets/video3.mp4" type="video/mp4"></video>
+    </div>
+    <div class="subhero__scrim" aria-hidden="true"></div>
+    <div class="subhero__in">
+      <a href="#/" data-route="home" class="crumb">← Startseite</a>
+      <h1>Architektur und Planung</h1>
+      <p>Vom ersten Entwurf bis zur Übergabe. Neubau, Umbau und Sanierung in Kiel und Schleswig-Holstein.</p>
+    </div>
+  </section>
+
+  <section class="band band--veil">
+    <div class="wrap">
+      <h2 data-reveal><span class="mask"><span>Eine Person, ein Projekt</span></span></h2>
+      <p class="lead" data-reveal style="--i:1;margin-top:18px">Planung ist die Kernleistung des Büros. Sie sprechen vom ersten Termin bis zur Übergabe mit derselben Person, die auch auf der Baustelle steht.</p>
+      <div class="grid3" style="margin-top:clamp(34px,4vw,52px)">
+        <article class="card" data-reveal style="--i:0"><div class="card__body">
+          <span class="svc__num">01</span><h3 style="margin-top:12px">Neubau</h3>
+          <p class="body-sm">Einfamilien- und Mehrfamilienhäuser, vom Grundstücksblick bis zur Baureife.</p></div></article>
+        <article class="card" data-reveal style="--i:1"><div class="card__body">
+          <span class="svc__num">02</span><h3 style="margin-top:12px">Umbau und Anbau</h3>
+          <p class="body-sm">Erweitern, umnutzen, aufstocken. Der Bestand gibt die Richtung vor.</p></div></article>
+        <article class="card" data-reveal style="--i:2"><div class="card__body">
+          <span class="svc__num">03</span><h3 style="margin-top:12px">Sanierung</h3>
+          <p class="body-sm">Substanz erhalten, Technik und Hülle auf heutigen Stand bringen.</p></div></article>
+      </div>
+      <div style="margin-top:clamp(30px,4vw,46px);--i:3" data-reveal>
+        <a href="#kontakt" data-contact-open class="pill">Projekt besprechen <span class="pill__arw" aria-hidden="true"><svg width="13" height="9" viewBox="0 0 13 9" fill="none"><path d="M0 4.5h11M7.5 1l3.5 3.5L7.5 8" stroke="currentColor" stroke-width="1.3"/></svg></span></a>
       </div>
     </div>
   </section>
 
   <section class="band">
     <div class="wrap">
-      <h2 data-reveal><span class="mask"><span>Vier Schritte</span></span></h2>
-      <div class="proc" data-proc>
-        <div class="proc__step" style="--i:0"><span class="proc__n">01</span><h3>Erstgespräch</h3><p class="body-sm">Kostenlos und unverbindlich. Wir klären, ob das Vorhaben trägt.</p></div>
-        <div class="proc__step" style="--i:1"><span class="proc__n">02</span><h3>Analyse und Konzept</h3><p class="body-sm">Grundstück, Bestand und Vorgaben. Daraus entsteht der erste Entwurf.</p></div>
-        <div class="proc__step" style="--i:2"><span class="proc__n">03</span><h3>Planung</h3><p class="body-sm">Genehmigungs- und Ausführungsplanung bis zur Baureife.</p></div>
-        <div class="proc__step" style="--i:3"><span class="proc__n">04</span><h3>Umsetzung</h3><p class="body-sm">Begleitung auf der Baustelle bis zur Übergabe.</p></div>
+      <h2 data-reveal><span class="mask"><span>Von der Skizze zur Übergabe</span></span></h2>
+      <div class="proc" data-proc data-tilt>
+        <span class="proc__rail" aria-hidden="true"></span>
+        <div class="proc__step" style="--i:0;--r:6.5"><span class="proc__n" data-n="01">01</span><h3>Entwurf</h3><p class="body-sm">Grundstück, Bedarf und Budget werden zu einem ersten räumlichen Konzept.</p></div>
+        <div class="proc__step" style="--i:1;--r:2.2"><span class="proc__n" data-n="02">02</span><h3>Genehmigung</h3><p class="body-sm">Bauantrag, Abstimmung mit Amt und Behörden bis zur Baugenehmigung.</p></div>
+        <div class="proc__step" style="--i:2;--r:-2.2"><span class="proc__n" data-n="03">03</span><h3>Ausführung</h3><p class="body-sm">Ausführungsplanung, Details und Vergabe an die Gewerke.</p></div>
+        <div class="proc__step" style="--i:3;--r:-6.5"><span class="proc__n" data-n="04">04</span><h3>Bauleitung</h3><p class="body-sm">Begleitung auf der Baustelle, Termine und Qualität bis zur Übergabe.</p></div>
       </div>
     </div>
   </section>
 
+  <section class="band band--veil2">
+    <div class="wrap">
+      <h2 data-reveal><span class="mask"><span>Häufig gefragt</span></span></h2>
+      <div class="duo">
+        <ul data-reveal style="--i:1">
+          <li><strong>Wann sollte ich Sie einschalten?</strong><span>Am besten vor dem Grundstückskauf. Ob ein Vorhaben trägt, entscheidet sich oft dort.</span></li>
+          <li><strong>Übernehmen Sie alle Leistungsphasen?</strong><span>Entwurf, Genehmigung, Ausführung und Bauleitung. Einzelne Phasen sind ebenso möglich.</span></li>
+        </ul>
+        <ul data-reveal style="--i:2">
+          <li><strong>Arbeiten Sie auch im Bestand?</strong><span>Ja. Umbau und Sanierung machen einen grossen Teil der Projekte aus.</span></li>
+          <li><strong>Was kostet die Planung?</strong><span>Das hängt vom Umfang ab. Das Erstgespräch ist kostenlos und unverbindlich.</span></li>
+        </ul>
+      </div>
+      <div style="margin-top:clamp(30px,4vw,46px);--i:3" data-reveal>
+        <a href="#/projekte" data-route="projekte" class="ghost">Projekte ansehen</a>
+      </div>
+    </div>
+  </section>
   <div class="fade-to-night" aria-hidden="true"></div>
-  <section class="band on-night" id="kontakt" style="padding-top:clamp(36px,4vw,72px)" data-contact></section>
 </div>
 
 <!-- ===================================================================
@@ -809,7 +1127,6 @@ p{margin:0}
     </div>
   </section>
   <div class="fade-to-night" aria-hidden="true"></div>
-  <section class="band on-night" style="padding-top:clamp(36px,4vw,72px)" data-contact></section>
 </div>
 
 <!-- ===================================================================
@@ -838,7 +1155,7 @@ p{margin:0}
         <div data-reveal style="--i:1">
           <p class="lead">Eine Bewertung schafft Klarheit, bevor Geld fliesst. Sie zeigt, was ein Objekt trägt und wo Risiken liegen.</p>
           <p class="body-sm" style="margin-top:18px">Als Architekturbüro sehen wir dabei nicht nur Lage und Vergleichswerte, sondern auch Bausubstanz, Grundriss und Umbaupotenzial. Das fliesst direkt in die Einschätzung ein.</p>
-          <a href="#/#kontakt" data-route="home" data-anchor="kontakt" class="pill" style="margin-top:28px">Bewertung anfragen
+          <a href="#kontakt" data-contact-open class="pill" style="margin-top:28px">Bewertung anfragen
             <span class="pill__arw" aria-hidden="true"><svg width="13" height="9" viewBox="0 0 13 9" fill="none"><path d="M0 4.5h11M7.5 1l3.5 3.5L7.5 8" stroke="currentColor" stroke-width="1.3"/></svg></span></a>
         </div>
         <ul data-reveal style="--i:2">
@@ -854,16 +1171,16 @@ p{margin:0}
   <section class="band">
     <div class="wrap">
       <h2 data-reveal><span class="mask"><span>So läuft es ab</span></span></h2>
-      <div class="proc" data-proc>
-        <div class="proc__step" style="--i:0"><span class="proc__n">01</span><h3>Kurzgespräch</h3><p class="body-sm">Objektart, Baujahr, Lage und Anlass. Danach wissen wir, was gebraucht wird.</p></div>
-        <div class="proc__step" style="--i:1"><span class="proc__n">02</span><h3>Ortstermin</h3><p class="body-sm">Besichtigung, Aufnahme von Zustand und Substanz.</p></div>
-        <div class="proc__step" style="--i:2"><span class="proc__n">03</span><h3>Auswertung</h3><p class="body-sm">Unterlagen, Vergleichsdaten und Bausubstanz zusammengeführt.</p></div>
-        <div class="proc__step" style="--i:3"><span class="proc__n">04</span><h3>Besprechung</h3><p class="body-sm">Ergebnis im Gespräch, nicht nur als Dokument.</p></div>
+      <div class="proc" data-proc data-tilt>
+        <span class="proc__rail" aria-hidden="true"></span>
+        <div class="proc__step" style="--i:0;--r:6.5"><span class="proc__n" data-n="01">01</span><h3>Kurzgespräch</h3><p class="body-sm">Objektart, Baujahr, Lage und Anlass. Danach wissen wir, was gebraucht wird.</p></div>
+        <div class="proc__step" style="--i:1;--r:2.2"><span class="proc__n" data-n="02">02</span><h3>Ortstermin</h3><p class="body-sm">Besichtigung, Aufnahme von Zustand und Substanz.</p></div>
+        <div class="proc__step" style="--i:2;--r:-2.2"><span class="proc__n" data-n="03">03</span><h3>Auswertung</h3><p class="body-sm">Unterlagen, Vergleichsdaten und Bausubstanz zusammengeführt.</p></div>
+        <div class="proc__step" style="--i:3;--r:-6.5"><span class="proc__n" data-n="04">04</span><h3>Besprechung</h3><p class="body-sm">Ergebnis im Gespräch, nicht nur als Dokument.</p></div>
       </div>
     </div>
   </section>
   <div class="fade-to-night" aria-hidden="true"></div>
-  <section class="band on-night" style="padding-top:clamp(36px,4vw,72px)" data-contact></section>
 </div>
 
 <!-- ===================================================================
@@ -901,7 +1218,7 @@ p{margin:0}
           <p class="body-sm">Einordnung, welche Programme für Ihr Vorhaben grundsätzlich infrage kommen.</p></div></article>
       </div>
       <div style="margin-top:clamp(30px,4vw,46px);--i:3" data-reveal>
-        <a href="#/#kontakt" data-route="home" data-anchor="kontakt" class="pill">Beratung anfragen
+        <a href="#kontakt" data-contact-open class="pill">Beratung anfragen
           <span class="pill__arw" aria-hidden="true"><svg width="13" height="9" viewBox="0 0 13 9" fill="none"><path d="M0 4.5h11M7.5 1l3.5 3.5L7.5 8" stroke="currentColor" stroke-width="1.3"/></svg></span></a>
       </div>
     </div>
@@ -923,7 +1240,6 @@ p{margin:0}
     </div>
   </section>
   <div class="fade-to-night" aria-hidden="true"></div>
-  <section class="band on-night" style="padding-top:clamp(36px,4vw,72px)" data-contact></section>
 </div>
 
 </main>
@@ -933,8 +1249,8 @@ p{margin:0}
 <footer class="foot" id="foot">
   <div class="wrap">
     <div class="foot__top">
-      <h2 class="foot__cta">Ein Vorhaben im Kopf?<br><span>Reden wir darüber.</span></h2>
-      <a href="#/#kontakt" data-route="home" data-anchor="kontakt" class="pill">Erstgespräch vereinbaren
+      <h2 class="foot__cta"><button type="button" class="foot__ctabtn" data-contact-open>Ein Vorhaben im Kopf?<br><span>Reden wir darüber.</span></button></h2>
+      <a href="#kontakt" data-contact-open class="pill">Erstgespräch vereinbaren
         <span class="pill__arw" aria-hidden="true"><svg width="13" height="9" viewBox="0 0 13 9" fill="none"><path d="M0 4.5h11M7.5 1l3.5 3.5L7.5 8" stroke="currentColor" stroke-width="1.3"/></svg></span></a>
     </div>
     <div class="foot__grid">
@@ -943,13 +1259,13 @@ p{margin:0}
         <p class="foot__brandline">Architekturbüro in Kiel. Planung, Bewertung und Energieberatung aus einer Hand.</p>
       </div>
       <div><span class="foot__h">Leistungen</span><ul>
-        <li><a href="#/#architektur" data-route="home" data-anchor="architektur">Architektur</a></li>
+        <li><a href="#/architektur" data-route="architektur">Architektur</a></li>
         <li><a href="#/bewertung" data-route="bewertung">Immobilienbewertung</a></li>
         <li><a href="#/energie" data-route="energie">Energieberatung</a></li></ul></div>
       <div><span class="foot__h">Büro</span><ul>
         <li><a href="#/projekte" data-route="projekte">Projekte</a></li>
         <li><a href="#/#buero" data-route="home" data-anchor="buero">Arbeitsweise</a></li>
-        <li><a href="#/#kontakt" data-route="home" data-anchor="kontakt">Kontakt</a></li></ul></div>
+        <li><a href="#kontakt" data-contact-open>Kontakt</a></li></ul></div>
       <div><span class="foot__h">Direkt</span><ul>
         <li><a data-wa href="#" target="_blank" rel="noopener">WhatsApp</a></li>
         <li><a data-tel href="#" data-bind="phoneDisplay"></a></li>
@@ -971,9 +1287,8 @@ p{margin:0}
 <!-- ===================== CHATBOT ===================== -->
 <div class="fabs">
   <a class="fab fab--wa" data-wa href="#" target="_blank" rel="noopener" aria-label="Per WhatsApp schreiben">
-    <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
-      <path fill="currentColor" d="M12 2a10 10 0 0 0-8.53 15.23L2 22.5l5.4-1.42A10 10 0 1 0 12 2z"/>
-      <g transform="translate(6.9 6.6) scale(0.44)"><path fill="#1DA851" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.15.38 2.38.58 3.6.58a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.58 3.6a1 1 0 0 1-.25 1l-2.23 2.2z"/></g>
+    <svg width="29" height="29" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 21.785h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413"/>
     </svg></a>
   <a class="fab fab--tel" data-tel href="#" aria-label="Jetzt anrufen">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -991,6 +1306,16 @@ p{margin:0}
       <span class="chatbtn__live"></span></span>
     <span class="lbl">Chatbot fragen</span>
   </button>
+</div>
+
+<!-- ===================== KONTAKT-OVERLAY ===================== -->
+<div class="cmodal" id="cmodal" aria-hidden="true">
+  <div class="cmodal__scrim" data-contact-close></div>
+  <div class="cmodal__panel on-night" role="dialog" aria-modal="true" aria-label="Kontakt">
+    <button type="button" class="cmodal__x" data-contact-close aria-label="Kontakt schliessen">
+      <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M1 1l13 13M14 1L1 14" stroke="currentColor" stroke-width="1.4"/></svg></button>
+    <div class="cmodal__scroll" data-contact></div>
+  </div>
 </div>
 
 <section class="chat" id="chat" role="dialog" aria-modal="false" aria-label="Chatbot von BALIN Architektur">
@@ -1019,13 +1344,16 @@ p{margin:0}
    =========================================================== */
 const CONTENT = {
   phone:"+494315550142", phoneDisplay:"+49 431 555 0142", whatsapp:"494315550142",
-  email:"kontakt@balin-architektur.de", street:"Kleiner Kuhberg 14", cityLine:"24103 Kiel"
+  email:"kontakt@balin-architektur.de", street:"Kleiner Kuhberg 14", cityLine:"24103 Kiel",
+  /* Serverseitiger Endpunkt fuer das Formular. Solange leer, oeffnet das
+     Formular das Mailprogramm des Besuchers mit fertig ausgefuellter Anfrage. */
+  formEndpoint:""
 };
 /* PLATZHALTER: echte Projekte. Bild ersetzen, Rest bleibt. */
 const projects = [
-  {title:"Wohnhaus am Hang",location:"Kiel",category:"Neubau",description:"Einfamilienhaus auf schmalem Hanggrundstück. Split-Level-Grundriss, der die Topografie aufnimmt.",image:"https://picsum.photos/seed/balin-p1/1800/900"},
-  {title:"Hofumbau Dänischenhagen",location:"Dänischenhagen",category:"Umbau",description:"Landwirtschaftlicher Altbestand, umgebaut zu Wohnen und Atelier.",image:"https://picsum.photos/seed/balin-p2/1200/1000"},
-  {title:"Sanierung Gründerzeit",location:"Kiel",category:"Sanierung",description:"Energetische Ertüchtigung einer Gründerzeitfassade unter Erhalt der Gliederung.",image:"https://picsum.photos/seed/balin-p3/1200/1000"},
+  {title:"Wohnhaus am Hang",location:"Kiel",category:"Neubau",description:"Einfamilienhaus auf schmalem Hanggrundstück. Split-Level-Grundriss, der die Topografie aufnimmt.",image:"assets/projekt-wohnhaus-am-hang.jpg"},
+  {title:"Hofumbau Dänischenhagen",location:"Dänischenhagen",category:"Umbau",description:"Landwirtschaftlicher Altbestand, umgebaut zu Wohnen und Atelier.",image:"assets/projekt-hofumbau-daenischenhagen.jpg"},
+  {title:"Sanierung Gründerzeit",location:"Kiel",category:"Sanierung",description:"Energetische Ertüchtigung einer Gründerzeitfassade unter Erhalt der Gliederung.",image:"assets/projekt-sanierung-gruenderzeit.jpg"},
   {title:"Anbau Reihenhaus",location:"Gettorf",category:"Anbau",description:"Erweiterung nach Süden mit durchgehender Verglasung zum Garten.",image:"https://picsum.photos/seed/balin-p4/1200/900"},
   {title:"Dachausbau",location:"Kiel",category:"Umbau",description:"Zwei Wohneinheiten im Bestand, neue Gauben und Erschliessung.",image:"https://picsum.photos/seed/balin-p5/1200/900"},
   {title:"Praxisumbau",location:"Rendsburg",category:"Umbau",description:"Umnutzung einer Ladenfläche zu einer Praxis mit barrierefreiem Zugang.",image:"https://picsum.photos/seed/balin-p6/1200/900"}
@@ -1054,6 +1382,7 @@ const contactHTML = `
         </div>
         <div class="field"><label>Ihr Vorhaben</label><textarea name="message" required placeholder="Kurz in zwei, drei Sätzen: worum geht es?"></textarea><span class="err" aria-live="polite"></span></div>
         <div class="hp"><label>Bitte leer lassen</label><input name="website" type="text" tabindex="-1" autocomplete="off"></div>
+        <p class="formnote" role="alert"></p>
         <button type="submit" class="pill">Anfrage senden
           <span class="pill__arw" aria-hidden="true"><svg width="13" height="9" viewBox="0 0 13 9" fill="none"><path d="M0 4.5h11M7.5 1l3.5 3.5L7.5 8" stroke="currentColor" stroke-width="1.3"/></svg></span></button>
       </form>
@@ -1103,7 +1432,7 @@ const contactHTML = `
               <span class="bd" style="left:47%;top:66%;width:12%;height:16%;--i:5"></span>
               <span class="loc__ping" aria-hidden="true"></span>
               <span class="loc__pin" aria-hidden="true">
-                <svg width="22" height="28" viewBox="0 0 22 28" fill="none"><path d="M11 27s9-9.3 9-16A9 9 0 1 0 2 11c0 6.7 9 16 9 16z" fill="currentColor"/><circle cx="11" cy="11" r="3.4" fill="#0A0C11"/></svg>
+                <svg width="22" height="28" viewBox="0 0 22 28" fill="none"><path d="M11 27s9-9.3 9-16A9 9 0 1 0 2 11c0 6.7 9 16 9 16z" fill="currentColor"/><circle cx="11" cy="11" r="3.4" fill="#0A0C14"/></svg>
               </span>
               <span class="loc__meta">
                 <strong>Kleiner Kuhberg 14, 24103 Kiel</strong>
@@ -1350,7 +1679,7 @@ void main(){
   const U=n=>gl.getUniformLocation(prog,n);
   const uColors=U("u_colors[0]"),uScene=U("u_scene"),uShape=U("u_shape"),uSurface=U("u_surface"),
         uFinish=U("u_finish"),uTransform=U("u_transform"),uSpace=U("u_space"),uCursor=U("u_cursor");
-  const C=[0.878,0.894,1.000, 0.898,0.914,1.000, 0.941,0.949,1.000, 0.941,0.949,1.000];
+  const C=[0.871,0.886,0.953, 0.898,0.910,0.965, 0.937,0.945,0.976, 0.949,0.957,0.980];
   const colors=new Float32Array(24); colors.set(C,0);
   for(let i=12;i<24;i+=3){colors[i]=C[9];colors[i+1]=C[10];colors[i+2]=C[11]}
   gl.uniform3fv(uColors,colors);
@@ -1385,12 +1714,31 @@ void main(){
 const hero = document.getElementById("hero");
 const heroFrame = document.getElementById("heroFrame");
 const pxEls = () => [...document.querySelectorAll('[data-page].active [data-px]')];
+/* Der Scrollwert wird nicht hart uebernommen, sondern weich angenaehert.
+   Das nimmt dem Hero-Uebergang das Ruckeln bei Mausrad-Spruengen. */
+let pTarget = 0, pNow = 0, pRaf = 0;
+/* Die Wortmarken-Ebenen liegen frei ueber dem Text darunter. Wie hoch,
+   haengt von der tatsaechlichen Hoehe von Unterzeile und Buttons ab. */
+function heroLayout(){
+  const lower = document.querySelector('.hero__lower');
+  const fg = document.querySelector('.hero__fg');
+  if(!lower || !fg || !hero) return;
+  const pad = parseFloat(getComputedStyle(fg).paddingBottom) || 0;
+  hero.style.setProperty('--wm-bottom', Math.round(lower.offsetHeight + pad + 24) + 'px');
+}
+function pTick(){
+  pNow += (pTarget - pNow) * .13;
+  if(Math.abs(pTarget - pNow) < .0004) pNow = pTarget;
+  hero.style.setProperty("--p", pNow.toFixed(4));
+  pRaf = pNow === pTarget ? 0 : requestAnimationFrame(pTick);
+}
 let frameTick = false;
 function onScroll(){
-  if(hero && hero.offsetParent !== null && !REDUCED){
+  if(hero && hero.offsetParent !== null){
     const total = hero.offsetHeight - innerHeight;
-    const p = total > 0 ? Math.min(Math.max(scrollY / total, 0), 1) : 0;
-    hero.style.setProperty("--p", p.toFixed(4));
+    pTarget = total > 0 ? Math.min(Math.max(scrollY / total, 0), 1) : 0;
+    if(REDUCED){ pNow = pTarget; hero.style.setProperty("--p", pNow.toFixed(4)); }
+    else if(!pRaf) pRaf = requestAnimationFrame(pTick);
   }
   const vh = innerHeight;
   for(const el of pxEls()){
@@ -1399,9 +1747,24 @@ function onScroll(){
     el.style.transform = `translate3d(0, ${((r.top + r.height/2 - vh/2) * parseFloat(el.dataset.px)).toFixed(2)}px, 0)`;
   }
   nav.classList.toggle("scrolled", scrollY > 30);
+
+  /* Richtungsabhaengiges Ein- und Ausfahren. Nicht, solange ein Overlay
+     offen ist (Mobilnav oder Kontakt setzen beide body.no-scroll). */
+  const y = Math.max(scrollY, 0);
+  if(!document.body.classList.contains("no-scroll")){
+    if(y < 140 || y < navLastY - 4) nav.classList.remove("nav--away");
+    else if(y > navLastY + 6) nav.classList.add("nav--away");
+  }
+  navLastY = y;
   frameTick = false;
 }
 const nav = document.getElementById("nav");
+let navLastY = 0;
+heroLayout();
+addEventListener("resize", heroLayout, {passive:true});
+if(document.fonts && document.fonts.ready) document.fonts.ready.then(heroLayout);
+/* Einmal initial, sonst bliebe der Clip auf den Startwerten stehen. */
+onScroll();
 addEventListener("scroll", () => { if(!frameTick){ frameTick = true; requestAnimationFrame(onScroll) } }, {passive:true});
 addEventListener("resize", onScroll, {passive:true});
 
@@ -1413,6 +1776,36 @@ document.querySelectorAll("video").forEach(v => {
   src.addEventListener("error", () => v.remove());
   if(REDUCED) v.pause();
 });
+
+/* Prozessreihe neigt sich zum Mauszeiger. */
+(function procTilt(){
+  if(REDUCED || !matchMedia("(hover:hover)").matches) return;
+  document.querySelectorAll("[data-tilt]").forEach(row => {
+    let raf = 0;
+    row.addEventListener("mousemove", e => {
+      if(raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = 0;
+        const r = row.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - .5;
+        const y = (e.clientY - r.top) / r.height - .5;
+        row.style.perspectiveOrigin = (50 + x * 34) + "% " + (38 + y * 30) + "%";
+      });
+    }, {passive:true});
+    row.addEventListener("mouseleave", () => { row.style.perspectiveOrigin = "" }, {passive:true});
+  });
+})();
+
+/* Inline-Video in der Leistungskarte pausiert ausserhalb des Viewports. */
+(function autoVid(){
+  const vids = document.querySelectorAll("video[data-autovid]");
+  if(!vids.length || REDUCED) return;
+  const vio = new IntersectionObserver(es => es.forEach(e => {
+    if(e.isIntersecting) e.target.play().catch(() => {});
+    else e.target.pause();
+  }), {threshold:.15});
+  vids.forEach(v => vio.observe(v));
+})();
 
 /* ===========================================================
    REVEALS
@@ -1435,7 +1828,7 @@ requestAnimationFrame(() => requestAnimationFrame(() => document.body.classList.
    ROUTER  ·  Hash-basiert. In Astro wird daraus je eine Route
    unter src/pages/ plus <ViewTransitions /> im Layout.
    =========================================================== */
-const PAGES = ["home","projekte","bewertung","energie"];
+const PAGES = ["home","projekte","architektur","bewertung","energie"];
 function easeInOutCubic(t){ return t < .5 ? 4*t*t*t : 1 - Math.pow(-2*t+2,3)/2 }
 function scrollToY(target, dur){
   if(REDUCED){ scrollTo(0,target); return }
@@ -1501,6 +1894,43 @@ function fromHash(){
 addEventListener("hashchange", fromHash);
 if(location.hash) fromHash();
 
+/* ---------- Kontakt-Overlay ---------- */
+const cmodal = document.getElementById("cmodal");
+const cmodalFocusable = 'a[href],button:not([disabled]),input,select,textarea,[tabindex]:not([tabindex="-1"])';
+let cmodalReturn = null;
+function contactOpen(){ return cmodal.classList.contains("open") }
+function openContact(){
+  if(contactOpen()) return;
+  cmodalReturn = document.activeElement;
+  cmodal.classList.add("open");
+  cmodal.setAttribute("aria-hidden","false");
+  document.body.classList.add("no-scroll");
+  nav.classList.remove("nav--away");
+  const first = cmodal.querySelector("input,select,textarea");
+  requestAnimationFrame(() => { if(first) first.focus({preventScroll:true}) });
+}
+function closeContact(){
+  if(!contactOpen()) return;
+  cmodal.classList.remove("open");
+  cmodal.setAttribute("aria-hidden","true");
+  document.body.classList.remove("no-scroll");
+  if(cmodalReturn && cmodalReturn.focus) cmodalReturn.focus({preventScroll:true});
+}
+document.addEventListener("click", ev => {
+  if(ev.target.closest("[data-contact-open]")){ ev.preventDefault(); closeMobile(); openContact(); return }
+  if(ev.target.closest("[data-contact-close]")) closeContact();
+});
+addEventListener("keydown", ev => {
+  if(!contactOpen()) return;
+  if(ev.key === "Escape"){ closeContact(); return }
+  if(ev.key !== "Tab") return;
+  const f = [...cmodal.querySelectorAll(cmodalFocusable)].filter(el => el.offsetParent !== null);
+  if(!f.length) return;
+  const first = f[0], last = f[f.length - 1];
+  if(ev.shiftKey && document.activeElement === first){ ev.preventDefault(); last.focus() }
+  else if(!ev.shiftKey && document.activeElement === last){ ev.preventDefault(); first.focus() }
+});
+
 /* ---------- Mobile-Nav ---------- */
 const burger = document.getElementById("burger"), mobilenav = document.getElementById("mobilenav");
 function closeMobile(){ burger.setAttribute("aria-expanded","false"); mobilenav.classList.remove("open"); document.body.classList.remove("no-scroll") }
@@ -1520,7 +1950,15 @@ function setErr(f, msg){
   wrap.querySelector(".err").textContent = msg || "";
   f.setAttribute("aria-invalid", msg ? "true" : "false");
 }
-document.addEventListener("submit", ev => {
+function mailtoLink(d){
+  const lines = ["Name: " + d.name, "E-Mail: " + d.email];
+  if(d.phone) lines.push("Telefon: " + d.phone);
+  lines.push("Leistung: " + d.service, "", d.message);
+  return "mailto:" + CONTENT.email
+    + "?subject=" + encodeURIComponent("Anfrage über die Website – " + d.service)
+    + "&body=" + encodeURIComponent(lines.join("\n"));
+}
+document.addEventListener("submit", async ev => {
   const form = ev.target.closest(".form");
   if(!form) return;
   ev.preventDefault();
@@ -1533,9 +1971,43 @@ document.addEventListener("submit", ev => {
   ].forEach(([f,test,msg]) => { const bad = !test(f.value); setErr(f, bad ? msg : ""); if(bad) ok = false });
   if(!ok){ form.querySelector(".invalid input, .invalid select, .invalid textarea")?.focus(); return }
 
-  /* ECHTER VERSAND: POST /api/kontakt (serverseitig, mit Rate Limit). */
-  form.classList.add("gone");
-  setTimeout(() => form.parentElement.querySelector(".success").classList.add("on"), 260);
+  const note = form.querySelector(".formnote");
+  const btn  = form.querySelector('button[type="submit"]');
+  const data = {
+    name:    form.name.value.trim(),
+    email:   form.email.value.trim(),
+    phone:   form.phone.value.trim(),
+    service: form.service.value,
+    message: form.message.value.trim()
+  };
+  note.classList.remove("on"); note.textContent = "";
+  form.classList.add("sending"); btn.disabled = true;
+
+  try{
+    if(CONTENT.formEndpoint){
+      const res = await fetch(CONTENT.formEndpoint, {
+        method: "POST",
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify(data)
+      });
+      if(!res.ok) throw new Error("HTTP " + res.status);
+    } else {
+      /* Ohne Endpunkt uebernimmt das Mailprogramm des Besuchers. */
+      const sucP = form.parentElement.querySelector(".success p");
+      if(sucP) sucP.textContent = "Ihr E-Mail-Programm öffnet sich mit der fertigen Anfrage. "
+        + "Bitte dort noch auf Senden klicken.";
+      location.href = mailtoLink(data);
+    }
+    form.classList.add("gone");
+    setTimeout(() => form.parentElement.querySelector(".success").classList.add("on"), 260);
+  }catch(err){
+    note.textContent = "Das Senden hat nicht geklappt. Bitte schreiben Sie direkt an "
+      + CONTENT.email + " oder rufen Sie an: " + CONTENT.phoneDisplay + ".";
+    note.classList.add("on");
+    note.scrollIntoView({block:"nearest"});
+  }finally{
+    form.classList.remove("sending"); btn.disabled = false;
+  }
 });
 
 /* ===========================================================
